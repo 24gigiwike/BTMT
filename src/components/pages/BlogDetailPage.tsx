@@ -74,8 +74,24 @@ export const BlogDetailPage: React.FC = () => {
           </div>
         </header>
 
+        {/* EDITORIAL HERO COVER */}
+        <div className="my-8 rounded-2xl overflow-hidden border border-slate-200 shadow-xs relative bg-slate-900">
+          <div className="aspect-16/9 relative overflow-hidden">
+            <img
+              src={post.imageUrl || 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1200&q=80'}
+              alt={post.title}
+              referrerPolicy="no-referrer"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="px-4 py-2.5 bg-[#F6F8FA] border-t border-slate-200 flex items-center justify-between text-[11px] text-slate-500">
+            <span>BTMT Media & Editorial Archive</span>
+            <span className="font-mono text-[#051449] font-medium">{post.category}</span>
+          </div>
+        </div>
+
         {/* ARTICLE BODY */}
-        <div className="py-12 prose prose-slate max-w-none text-slate-800 leading-relaxed text-base space-y-6">
+        <div className="py-8 prose prose-slate max-w-none text-slate-800 leading-relaxed text-base space-y-6">
           {post.content.split('\n\n').map((paragraph, idx) => {
             if (paragraph.startsWith('### ')) {
               return (
@@ -134,14 +150,25 @@ export const BlogDetailPage: React.FC = () => {
               {relatedPosts.map((rel) => (
                 <div
                   key={rel.id}
-                  className="bg-white p-6 rounded-xl border border-slate-200 hover:border-slate-300 transition-all flex flex-col justify-between"
+                  className="bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all overflow-hidden flex flex-col justify-between group shadow-xs"
                 >
-                  <div className="space-y-2">
-                    <div className="text-[11px] font-semibold text-[#12A9DB]">{rel.category}</div>
-                    <h3 className="text-base font-bold text-[#051449] line-clamp-2">{rel.title}</h3>
+                  <div className="aspect-16/9 relative bg-slate-900 overflow-hidden">
+                    <img
+                      src={rel.imageUrl || 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80'}
+                      alt={rel.title}
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <span className="absolute top-2.5 left-2.5 text-[10px] font-semibold bg-[#051449]/90 text-white px-2 py-0.5 rounded-md backdrop-blur-xs">
+                      {rel.category}
+                    </span>
+                  </div>
+                  <div className="p-5 space-y-2">
+                    <div className="text-[11px] font-semibold text-[#12A9DB]">{rel.publishedAt}</div>
+                    <h3 className="text-base font-bold text-[#051449] line-clamp-2 group-hover:text-[#12A9DB] transition-colors">{rel.title}</h3>
                     <p className="text-xs text-slate-600 line-clamp-2">{rel.excerpt}</p>
                   </div>
-                  <div className="pt-4 border-t border-slate-100 mt-4">
+                  <div className="px-5 pb-5 pt-2 border-t border-slate-100">
                     <button
                       onClick={() => navigateTo('/blog/:slug', { slug: rel.slug })}
                       className="text-xs font-semibold text-[#051449] hover:text-[#12A9DB] inline-flex items-center gap-1"

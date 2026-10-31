@@ -14,6 +14,7 @@ export interface ServiceItem {
   faqs?: { question: string; answer: string }[];
   ctaText: string;
   featured?: boolean;
+  imageUrl?: string;
 }
 
 export interface ProductItem {
@@ -69,6 +70,7 @@ export interface BlogPost {
   readTime: string;
   isPublished: boolean;
   featured?: boolean;
+  imageUrl?: string;
 }
 
 export interface CommunityResource {
@@ -121,6 +123,17 @@ export interface ContactSubmission {
   message: string;
   status: 'Unread' | 'Responded';
   createdAt: string;
+}
+
+export interface PortfolioProject {
+  id: string;
+  title: string;
+  client: string;
+  category: 'Technology' | 'Media & Branding' | 'Event Coverage';
+  description: string;
+  servicesDelivered: string[];
+  imageUrl: string;
+  impactMetrics: string;
 }
 
 export type AdminRole = 'Super Admin' | 'Content Editor' | 'Marketplace Manager' | 'Community Manager';

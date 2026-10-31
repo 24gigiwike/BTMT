@@ -42,32 +42,32 @@ export const SiteHeader: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-xs border-b border-slate-200/80 transition-all">
+    <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-slate-200 transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 gap-6">
-          {/* Zone 1: Brand Wordmark */}
+          {/* Zone 1: Brand Wordmark & Official Logo */}
           <button
             onClick={() => navigateTo('/')}
-            className="flex items-center text-left focus:outline-hidden focus-visible:ring-2 focus-visible:ring-[#12A9DB] rounded-lg p-1"
+            className="flex items-center text-left focus:outline-hidden focus-visible:ring-1 focus-visible:ring-[#051449] py-1"
           >
             <Logo variant="dark" />
           </button>
 
-          {/* Zone 2: Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-7">
+          {/* Zone 2: Navigation Links (Rialto-style horizontal editorial navigation) */}
+          <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <button
                 key={link.path}
                 onClick={() => navigateTo(link.path)}
-                className={`text-sm font-medium whitespace-nowrap transition-colors py-1 relative ${
+                className={`text-[12px] uppercase tracking-wider transition-colors py-2 relative font-medium ${
                   isActive(link.path)
-                    ? 'text-[#051449] font-semibold'
+                    ? 'text-[#051449] font-bold'
                     : 'text-slate-600 hover:text-[#051449]'
                 }`}
               >
                 {link.label}
                 {isActive(link.path) && (
-                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#051449] rounded-full" />
+                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#051449]" />
                 )}
               </button>
             ))}
@@ -79,11 +79,11 @@ export const SiteHeader: React.FC = () => {
             <button
               onClick={() => navigateTo('/cart')}
               aria-label="View Shopping Cart"
-              className="relative p-2 text-slate-700 hover:text-[#051449] hover:bg-slate-100 rounded-lg transition-colors"
+              className="relative p-2 text-slate-700 hover:text-[#051449] hover:bg-slate-100 transition-colors"
             >
               <ShoppingBag className="w-5 h-5" />
               {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 flex items-center justify-center min-w-5 h-5 px-1.5 text-[11px] font-bold text-white bg-[#E32938] rounded-full">
+                <span className="absolute -top-1 -right-1 flex items-center justify-center min-w-5 h-5 px-1.5 text-[10px] font-bold text-white bg-[#E32938]">
                   {cartCount}
                 </span>
               )}
@@ -209,10 +209,10 @@ export const SiteHeader: React.FC = () => {
               )}
             </div>
 
-            {/* Primary CTA Button */}
+            {/* Primary CTA Button - Architectural & Confident */}
             <button
               onClick={() => navigateTo('/book-service')}
-              className="hidden sm:inline-flex items-center justify-center px-4 py-2.5 text-xs font-semibold tracking-wide text-white bg-[#051449] hover:bg-[#071d6b] rounded-lg transition-colors whitespace-nowrap shadow-xs"
+              className="hidden sm:inline-flex items-center justify-center px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white bg-[#051449] hover:bg-[#E32938] transition-colors whitespace-nowrap"
             >
               Get Started
             </button>
@@ -221,7 +221,7 @@ export const SiteHeader: React.FC = () => {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label="Toggle navigation menu"
-              className="lg:hidden p-2 text-slate-700 hover:text-[#051449] hover:bg-slate-100 rounded-lg transition-colors"
+              className="lg:hidden p-2 text-slate-800 hover:text-[#051449] hover:bg-slate-100 transition-colors"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -229,42 +229,42 @@ export const SiteHeader: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Sliding Navigation Drawer */}
+      {/* Mobile Architectural Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-slate-200 bg-white shadow-xl animate-in fade-in slide-in-from-top-2 duration-150">
-          <div className="px-4 pt-4 pb-6 space-y-2">
+        <div className="lg:hidden border-t border-slate-200 bg-white shadow-2xl animate-in fade-in duration-150">
+          <div className="px-6 pt-6 pb-8 space-y-1 divide-y divide-slate-100">
             {navLinks.map((link) => (
               <button
                 key={link.path}
                 onClick={() => navigateTo(link.path)}
-                className={`w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                className={`w-full text-left py-3 text-sm font-medium tracking-wide uppercase transition-colors ${
                   isActive(link.path)
-                    ? 'bg-[#CDEEF8]/60 text-[#051449] font-semibold'
-                    : 'text-slate-700 hover:bg-slate-50 hover:text-[#051449]'
+                    ? 'text-[#051449] font-bold border-l-2 border-[#051449] pl-3'
+                    : 'text-slate-700 hover:text-[#051449] pl-1'
                 }`}
               >
                 {link.label}
               </button>
             ))}
 
-            <div className="pt-3 border-t border-slate-100 space-y-2">
+            <div className="pt-6 space-y-3">
               <button
                 onClick={() => navigateTo('/book-service')}
-                className="w-full text-center px-4 py-3 text-sm font-semibold text-white bg-[#051449] rounded-lg hover:bg-[#071d6b] transition-colors"
+                className="w-full text-center px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-white bg-[#051449] hover:bg-[#E32938] transition-colors"
               >
-                Get Started / Book a Service
+                Get Started
               </button>
 
-              <div className="flex items-center justify-between px-2 pt-2 text-xs text-slate-500">
+              <div className="flex items-center justify-between pt-2 text-xs text-slate-500">
                 <button
                   onClick={() => navigateTo('/admin')}
-                  className="font-medium text-slate-700 hover:text-[#051449]"
+                  className="font-medium text-slate-600 hover:text-[#051449] uppercase tracking-wider text-[11px]"
                 >
                   Admin Portal
                 </button>
                 <button
                   onClick={() => navigateTo('/community/join')}
-                  className="font-medium text-[#12A9DB] hover:underline"
+                  className="font-medium text-[#12A9DB] hover:underline uppercase tracking-wider text-[11px]"
                 >
                   Join Community
                 </button>

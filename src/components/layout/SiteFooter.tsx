@@ -9,35 +9,35 @@ export const SiteFooter: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#051449] text-white pt-16 pb-12 border-t border-[#051449]">
+    <footer className="bg-[#051449] text-white pt-20 pb-12 border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 pb-12 border-b border-slate-700/60">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-12 pb-16 border-b border-slate-800">
           {/* Column 1 & 2: Company Overview & Brand */}
-          <div className="lg:col-span-2 space-y-4">
+          <div className="lg:col-span-2 space-y-5">
             <button
               onClick={() => navigateTo('/')}
-              className="text-left focus:outline-hidden focus-visible:ring-2 focus-visible:ring-cyan-400 rounded-lg"
+              className="text-left focus:outline-hidden py-1"
             >
               <Logo variant="light" />
             </button>
-            <p className="text-slate-300 text-sm leading-relaxed max-w-md pt-2">
+            <p className="text-slate-300 text-sm leading-relaxed max-w-md">
               Blissful Touch Media & Technology (BTMT) is a multidisciplinary company
               dedicated to building authentic visibility and promoting moral and ethical
               excellence across technology, media, and creative entertainment.
             </p>
-            <div className="pt-2">
-              <div className="text-xs font-semibold text-[#12A9DB] uppercase tracking-wider">
+            <div className="pt-2 border-t border-slate-800">
+              <div className="text-[11px] font-semibold text-[#12A9DB] uppercase tracking-wider">
                 Official Slogan
               </div>
-              <div className="text-xs text-slate-300 italic mt-0.5">
+              <div className="text-xs text-slate-300 italic mt-1 font-light">
                 "{COMPANY_INFO.slogan}"
               </div>
             </div>
           </div>
 
           {/* Column 3: Explore Navigation */}
-          <div className="space-y-3">
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-[#12A9DB]">
+          <div className="space-y-4">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-white">
               Explore
             </h3>
             <ul className="space-y-2 text-sm text-slate-300">

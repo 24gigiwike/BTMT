@@ -36,24 +36,37 @@ export const ProductDetailPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Left Column: Visual Asset & Verification Box */}
           <div className="lg:col-span-6 space-y-6">
-            <div className="aspect-4/3 rounded-2xl bg-gradient-to-br from-[#051449] to-[#0a2782] p-8 text-white flex flex-col justify-between border border-slate-200 shadow-sm relative overflow-hidden">
-              <div className="flex items-center justify-between text-xs text-[#CDEEF8]">
-                <span className="font-semibold uppercase tracking-wider">{product.category}</span>
-                <span className="font-mono bg-white/10 px-2 py-0.5 rounded">VERIFIED PRODUCT</span>
+            <div className="rounded-2xl border border-slate-200 bg-white overflow-hidden shadow-sm">
+              <div className="aspect-4/3 relative bg-slate-900 overflow-hidden group">
+                <img
+                  src={product.imageUrl || 'https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?auto=format&fit=crop&w=1200&q=80'}
+                  alt={product.name}
+                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#051449]/70 via-transparent to-black/30 pointer-events-none" />
+                
+                <div className="absolute top-4 left-4 right-4 flex items-center justify-between text-xs">
+                  <span className="font-semibold uppercase tracking-wider bg-[#051449]/90 text-white px-3 py-1 rounded-md backdrop-blur-xs">
+                    {product.category}
+                  </span>
+                  <span className="font-mono text-[11px] bg-emerald-500/95 text-white font-semibold px-2.5 py-1 rounded-md shadow-xs">
+                    VERIFIED PRODUCT
+                  </span>
+                </div>
+
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <div className="text-xs text-[#CDEEF8] font-medium">Brand: {product.brand}</div>
+                  <div className="text-lg font-bold text-white drop-shadow-xs truncate">{product.name}</div>
+                </div>
               </div>
 
-              <div className="space-y-2 text-center py-8">
-                <div className="text-2xl sm:text-3xl font-bold tracking-tight text-white max-w-md mx-auto">
-                  {product.name}
-                </div>
-                <div className="text-xs text-slate-300">
-                  Seller / Brand: <span className="text-[#12A9DB] font-semibold">{product.brand}</span>
-                </div>
-              </div>
-
-              <div className="flex items-center justify-between text-xs text-slate-300 pt-4 border-t border-white/10">
-                <span>BTMT Quality Assured</span>
-                <span className="text-emerald-400 font-medium">Ready for Dispatch</span>
+              <div className="p-4 bg-[#F6F8FA] border-t border-slate-200 flex items-center justify-between text-xs text-slate-600">
+                <span className="font-medium text-[#051449]">BTMT Quality Assured</span>
+                <span className="text-emerald-700 font-semibold flex items-center gap-1">
+                  <CheckCircle2 className="w-3.5 h-3.5" />
+                  Ready for Dispatch
+                </span>
               </div>
             </div>
 
@@ -180,16 +193,27 @@ export const ProductDetailPage: React.FC = () => {
               {relatedProducts.map((rel) => (
                 <div
                   key={rel.id}
-                  className="bg-white p-5 rounded-xl border border-slate-200 hover:border-slate-300 transition-all flex flex-col justify-between"
+                  className="bg-white rounded-xl border border-slate-200 hover:border-slate-300 transition-all overflow-hidden flex flex-col justify-between group shadow-xs"
                 >
-                  <div className="space-y-2">
+                  <div className="aspect-16/10 relative bg-slate-900 overflow-hidden">
+                    <img
+                      src={rel.imageUrl || 'https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?auto=format&fit=crop&w=600&q=80'}
+                      alt={rel.name}
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <span className="absolute top-2.5 left-2.5 text-[10px] font-semibold bg-[#051449]/90 text-white px-2 py-0.5 rounded-md backdrop-blur-xs">
+                      {rel.category}
+                    </span>
+                  </div>
+                  <div className="p-4 space-y-2">
                     <div className="text-[11px] font-semibold text-slate-500">{rel.brand}</div>
                     <h3 className="text-sm font-bold text-[#051449] line-clamp-1">{rel.name}</h3>
                     <div className="text-sm font-bold text-[#051449] font-mono tabular-nums">
                       ₦{rel.price.toLocaleString()}
                     </div>
                   </div>
-                  <div className="pt-4 border-t border-slate-100 mt-4">
+                  <div className="px-4 pb-4 pt-2 border-t border-slate-100 mt-2">
                     <button
                       onClick={() => navigateTo('/marketplace/:slug', { slug: rel.slug })}
                       className="text-xs font-semibold text-[#12A9DB] hover:underline"

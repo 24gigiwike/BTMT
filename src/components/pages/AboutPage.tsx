@@ -10,58 +10,120 @@ export const AboutPage: React.FC = () => {
     <div className="w-full bg-white">
       {/* SECTION 1: HEADER & INTRODUCTION */}
       <section className="py-16 lg:py-24 bg-[#F6F8FA] border-b border-slate-200/60">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <div className="text-xs font-semibold uppercase tracking-wider text-[#12A9DB]">
-            Corporate Profile
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-slate-200 rounded-md text-xs font-semibold text-[#12A9DB] uppercase tracking-wider">
+                <span>Corporate Profile · CAC Registered</span>
+              </div>
+              <h1 className="text-4xl sm:text-5xl font-bold text-[#051449] leading-tight">
+                About Blissful Touch Media & Technology
+              </h1>
+              <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
+                Blissful Touch Media & Technology (BTMT) is a business organization committed to
+                building intentional visibility and sustainable growth for businesses and organizations
+                while promoting moral and ethical excellence.
+              </p>
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+                Through premium media, technology, and entertainment products and services, the company
+                creates meaningful opportunities for learning, connection, productivity, and sustainable growth.
+              </p>
+
+              <div className="pt-2 flex flex-wrap gap-4 text-xs font-semibold text-[#051449]">
+                <div className="px-4 py-2 bg-white rounded-lg border border-slate-200 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                  <span>Est. 2017 · Owerri, Imo State</span>
+                </div>
+                <div className="px-4 py-2 bg-white rounded-lg border border-slate-200 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#12A9DB]" />
+                  <span>Technology · Media · Entertainment</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-5 relative">
+              <div className="rounded-2xl border border-slate-200 overflow-hidden shadow-lg bg-slate-900 group">
+                <div className="aspect-4/3 relative">
+                  <img
+                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80"
+                    alt="BTMT collaborative workspace"
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#051449]/80 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <div className="text-xs text-[#CDEEF8] font-semibold uppercase tracking-wider">Corporate Ethos</div>
+                    <div className="text-sm font-bold text-white leading-snug">
+                      "Building Authentic Visibility & Promoting Moral and Ethical Excellence"
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <h1 className="text-4xl sm:text-5xl font-bold text-[#051449] leading-tight">
-            About Blissful Touch Media & Technology
-          </h1>
-          <p className="text-base sm:text-lg text-slate-700 leading-relaxed max-w-3xl mx-auto">
-            Blissful Touch Media & Technology (BTMT) is a business organization committed to
-            building intentional visibility and sustainable growth for businesses and organizations
-            while promoting moral and ethical excellence.
-          </p>
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed max-w-3xl mx-auto">
-            Through premium media, technology, and entertainment products and services, the company
-            seeks to create meaningful opportunities for learning, connection, productivity, and growth.
-          </p>
         </div>
       </section>
 
       {/* SECTION 2: OUR STORY & TIMELINE */}
       <section className="py-20 bg-white border-b border-slate-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="space-y-4 mb-12">
-            <div className="text-xs font-semibold uppercase tracking-wider text-[#12A9DB]">
-              Corporate History
-            </div>
-            <h2 className="text-3xl font-bold text-[#051449]">Our Story</h2>
-            <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-              Blissful Touch Media & Technology was founded by Michael C. George in 2017 with a
-              clear mandate: to bridge the gap between creative visual media and rigorous technological
-              execution, while upholding high ethical standards in an evolving digital economy.
-            </p>
-          </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div className="lg:col-span-6 space-y-6">
+              <div className="text-xs font-semibold uppercase tracking-wider text-[#12A9DB]">
+                Corporate History
+              </div>
+              <h2 className="text-3xl font-bold text-[#051449]">Our Story & Founding Vision</h2>
+              <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
+                Blissful Touch Media & Technology was founded by Michael C. George in 2017 with a
+                clear mandate: to bridge the gap between creative visual media and rigorous technological
+                execution, while upholding high ethical standards in an evolving digital economy.
+              </p>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Headquartered at {COMPANY_INFO.address}, the organization delivers robust digital platforms,
+                brand assets, commercial print systems, and media production services across Nigeria and beyond.
+              </p>
 
-          {/* Refined Verified Timeline */}
-          <div className="relative border-l-2 border-slate-200 ml-4 pl-6 space-y-10 my-8">
-            {COMPANY_INFO.registrations.map((item) => (
-              <div key={item.year} className="relative">
-                <div className="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-[#051449] border-2 border-white" />
-                <div className="text-xs font-bold font-mono text-[#12A9DB] uppercase tracking-wider">
-                  {item.year}
+              {/* Photographic Accent */}
+              <div className="pt-4 rounded-xl border border-slate-200 overflow-hidden shadow-xs">
+                <div className="aspect-16/9 relative bg-slate-900">
+                  <img
+                    src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1000&q=80"
+                    alt="Technology planning and media execution"
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <div className="text-base font-semibold text-[#051449] mt-1">
-                  {item.event}
+                <div className="p-3 bg-[#F6F8FA] border-t border-slate-200 text-[11px] text-slate-600 flex items-center justify-between">
+                  <span className="font-medium text-[#051449]">Corporate Systems Engineering</span>
+                  <span className="font-mono text-slate-400">BTMT Studio Desk</span>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
 
-          <div className="p-6 bg-[#F6F8FA] rounded-xl border border-slate-200 text-xs text-slate-600 leading-relaxed mt-10">
-            <strong>Headquarters:</strong> {COMPANY_INFO.address}. Operating across southeastern
-            Nigeria and delivering technological and media deliverables nationally and internationally.
+            {/* Verified Timeline Column */}
+            <div className="lg:col-span-6 lg:pl-6 space-y-6">
+              <div className="text-xs font-semibold uppercase tracking-wider text-[#051449]">
+                Milestones & Evolution
+              </div>
+              <div className="relative border-l-2 border-slate-200 ml-4 pl-6 space-y-8 py-2">
+                {COMPANY_INFO.registrations.map((item) => (
+                  <div key={item.year} className="relative">
+                    <div className="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-[#051449] border-2 border-white" />
+                    <div className="text-xs font-bold font-mono text-[#12A9DB] uppercase tracking-wider">
+                      {item.year}
+                    </div>
+                    <div className="text-base font-semibold text-[#051449] mt-1">
+                      {item.event}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="p-6 bg-[#F6F8FA] rounded-xl border border-slate-200 text-xs text-slate-600 leading-relaxed">
+                <strong>Headquarters:</strong> {COMPANY_INFO.address}. Operating across southeastern
+                Nigeria and delivering technological and media deliverables nationally and internationally.
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -199,23 +261,34 @@ export const AboutPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="bg-white rounded-xl border border-slate-200 p-8 shadow-xs flex flex-col sm:flex-row items-center sm:items-start gap-8">
-            <div className="w-24 h-24 rounded-full bg-[#051449] text-white flex items-center justify-center font-bold text-2xl font-mono shrink-0 shadow-sm">
-              MG
+          <div className="bg-white rounded-2xl border border-slate-200 p-8 shadow-xs flex flex-col sm:flex-row items-center sm:items-start gap-8">
+            <div className="w-28 h-28 rounded-2xl overflow-hidden bg-slate-900 shrink-0 border-2 border-[#12A9DB] shadow-sm relative">
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80"
+                alt={COMPANY_INFO.founder}
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover"
+              />
             </div>
-            <div className="space-y-3 text-center sm:text-left">
-              <div>
-                <h3 className="text-xl font-bold text-[#051449]">{COMPANY_INFO.founder}</h3>
-                <div className="text-xs font-medium text-[#12A9DB] mt-0.5">Founder, BTMT</div>
+            <div className="space-y-3 text-center sm:text-left flex-1">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div>
+                  <h3 className="text-xl font-bold text-[#051449]">{COMPANY_INFO.founder}</h3>
+                  <div className="text-xs font-semibold text-[#12A9DB] mt-0.5">Founder & Managing Director, BTMT</div>
+                </div>
+                <span className="inline-block text-[11px] font-mono font-semibold bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-md self-center sm:self-auto">
+                  CAC Corporate Trustee
+                </span>
               </div>
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                 Founded BTMT in 2017 with the vision of establishing an authentic, morally grounded
                 system for brand visibility, enterprise technology, and educational entertainment
                 in Nigeria. Under his direction, the business transitioned from early operations to
                 formal CAC incorporation and nationwide service delivery.
               </p>
-              <div className="text-[11px] text-slate-500 font-mono">
-                Location: Owerri, Imo State, Nigeria
+              <div className="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-500 font-mono">
+                <span>Location: Owerri, Imo State, Nigeria</span>
+                <span className="text-[#051449] font-semibold">Blissful Touch Media & Technology</span>
               </div>
             </div>
           </div>

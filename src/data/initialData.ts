@@ -109,7 +109,8 @@ export const INITIAL_SERVICES: ServiceItem[] = [
       { question: 'Can we accept online payments on our website?', answer: 'Yes, we integrate certified Nigerian gateways including Paystack and Flutterwave as well as global processors.' }
     ],
     ctaText: "Let's Build Your Website",
-    featured: true
+    featured: true,
+    imageUrl: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1000&q=80'
   },
   {
     id: 'software-dev',
@@ -411,6 +412,7 @@ export const INITIAL_PRODUCTS: ProductItem[] = [
     inStock: true,
     stockCount: 25,
     featured: true,
+    imageUrl: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=800&q=80',
     deliveryInfo: 'Ships within 3–5 business days across Imo State and nationwide via courier.'
   },
   {
@@ -432,6 +434,7 @@ export const INITIAL_PRODUCTS: ProductItem[] = [
     inStock: true,
     stockCount: 40,
     featured: true,
+    imageUrl: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80',
     deliveryInfo: 'Digital provisioning initiated within 24 hours of onboarding intake.'
   },
   {
@@ -452,6 +455,7 @@ export const INITIAL_PRODUCTS: ProductItem[] = [
     inStock: true,
     stockCount: 14,
     featured: true,
+    imageUrl: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=800&q=80',
     deliveryInfo: 'Immediate dispatch available in Owerri, Imo State; 2–4 days nationwide.'
   },
   {
@@ -470,6 +474,7 @@ export const INITIAL_PRODUCTS: ProductItem[] = [
     inStock: true,
     stockCount: 60,
     featured: false,
+    imageUrl: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80',
     deliveryInfo: 'Shipped within 24–48 hours nationwide.'
   }
 ];
@@ -487,6 +492,7 @@ export const INITIAL_BLOG_POSTS: BlogPost[] = [
     readTime: '5 min read',
     isPublished: true,
     featured: true,
+    imageUrl: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1000&q=80',
     content: `
 ### The Illusion of Social Media Ownership
 
@@ -519,6 +525,7 @@ Invest in your foundation first. Use social media as an outbound distribution hi
     readTime: '6 min read',
     isPublished: true,
     featured: true,
+    imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80',
     content: `
 ### Beyond the Transaction: The Ethical Foundation
 
@@ -547,6 +554,7 @@ When your brand becomes renowned for uncompromising integrity, you no longer hav
     readTime: '4 min read',
     isPublished: true,
     featured: false,
+    imageUrl: 'https://images.unsplash.com/photo-1634942537034-2531766767d1?auto=format&fit=crop&w=1000&q=80',
     content: `
 ### What a Brand Truly Represents
 
@@ -665,5 +673,38 @@ export const INITIAL_ENQUIRIES: ServiceEnquiry[] = [
     preferredContactMethod: 'Phone',
     status: 'Contacted',
     createdAt: '2026-10-28T14:30:00Z'
+  }
+];
+
+export const INITIAL_PORTFOLIO: import('../types').PortfolioProject[] = [
+  {
+    id: 'port-1',
+    title: 'Enterprise Clinical Portal & Online Booking Engine',
+    client: 'Zenith Health Diagnostics',
+    category: 'Technology',
+    description: 'Architecture, interface engineering, and mobile appointment scheduling system for a diagnostic health network based in Imo State.',
+    servicesDelivered: ['Custom Web Architecture', 'Mobile Portal UI/UX', 'SEO Optimization', 'SSL Security Handshake'],
+    imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80',
+    impactMetrics: '100% Appointment Automation'
+  },
+  {
+    id: 'port-2',
+    title: 'Institutional Visual Identity & Corporate Stationery',
+    client: 'Clarity Chambers',
+    category: 'Media & Branding',
+    description: 'Comprehensive brand identity system including logo guidelines, letterheads, presentation folders, and commercial offset print runs.',
+    servicesDelivered: ['Brand Strategy', 'Logo & Typography', 'Stationery Package', 'Brand Manual'],
+    imageUrl: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=1000&q=80',
+    impactMetrics: 'Complete Corporate Relaunch'
+  },
+  {
+    id: 'port-3',
+    title: 'Regional Enterprise Leadership Summit Documentation',
+    client: 'Southeastern Trade Council',
+    category: 'Event Coverage',
+    description: 'Multi-camera 4K broadcast, live streaming to international delegates, executive portraits, and same-day highlight reel distribution.',
+    servicesDelivered: ['Multi-Cam Live Stream', '4K Event Documentation', 'Executive Photography', 'Press Media Kits'],
+    imageUrl: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1000&q=80',
+    impactMetrics: '3,500+ Virtual Stakeholders'
   }
 ];

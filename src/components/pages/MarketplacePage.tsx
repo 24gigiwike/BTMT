@@ -95,35 +95,49 @@ export const MarketplacePage: React.FC = () => {
             {filteredProducts.map((prod) => (
               <div
                 key={prod.id}
-                className="bg-white rounded-xl border border-slate-200 p-5 flex flex-col justify-between hover:border-slate-300 transition-all shadow-xs group"
+                className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:border-[#12A9DB]/60 transition-all flex flex-col justify-between group"
               >
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between text-[11px] text-slate-500">
-                    <span className="font-semibold text-slate-800">{prod.brand}</span>
-                    <span className="text-emerald-700 font-medium">In Stock</span>
+                <div>
+                  <div className="aspect-4/3 relative overflow-hidden bg-slate-100">
+                    <img
+                      src={prod.imageUrl || 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=600&q=80'}
+                      alt={prod.name}
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-xs text-[10px] font-bold text-[#051449] px-2 py-0.5 rounded">
+                      {prod.category}
+                    </div>
                   </div>
 
-                  <h2 className="text-base font-bold text-[#051449] line-clamp-2 leading-snug">
-                    {prod.name}
-                  </h2>
+                  <div className="p-5 space-y-2.5">
+                    <div className="flex items-center justify-between text-[11px] text-slate-500">
+                      <span className="font-semibold text-slate-800">{prod.brand}</span>
+                      <span className="text-emerald-700 font-medium">In Stock</span>
+                    </div>
 
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-lg font-bold text-[#051449] font-mono tabular-nums">
-                      ₦{prod.price.toLocaleString()}
-                    </span>
-                    {prod.originalPrice && (
-                      <span className="text-xs text-slate-400 line-through font-mono tabular-nums">
-                        ₦{prod.originalPrice.toLocaleString()}
+                    <h2 className="text-base font-bold text-[#051449] line-clamp-2 leading-snug">
+                      {prod.name}
+                    </h2>
+
+                    <div className="flex items-baseline gap-2">
+                      <span className="text-lg font-bold text-[#051449] font-mono tabular-nums">
+                        ₦{prod.price.toLocaleString()}
                       </span>
-                    )}
-                  </div>
+                      {prod.originalPrice && (
+                        <span className="text-xs text-slate-400 line-through font-mono tabular-nums">
+                          ₦{prod.originalPrice.toLocaleString()}
+                        </span>
+                      )}
+                    </div>
 
-                  <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
-                    {prod.description}
-                  </p>
+                    <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                      {prod.description}
+                    </p>
+                  </div>
                 </div>
 
-                <div className="pt-4 border-t border-slate-100 mt-5 flex items-center justify-between gap-2">
+                <div className="p-5 pt-0 border-t border-slate-100 mt-4 flex items-center justify-between gap-2">
                   <button
                     onClick={() => navigateTo('/marketplace/:slug', { slug: prod.slug })}
                     className="text-xs font-semibold text-[#051449] hover:text-[#12A9DB] transition-colors"
@@ -133,7 +147,7 @@ export const MarketplacePage: React.FC = () => {
 
                   <button
                     onClick={() => addToCart(prod, 1)}
-                    className="px-3 py-1.5 text-xs font-semibold text-white bg-[#051449] hover:bg-[#081e6a] rounded-lg transition-colors flex items-center gap-1.5"
+                    className="px-3.5 py-1.5 text-xs font-semibold text-white bg-[#051449] hover:bg-[#071b63] rounded-lg transition-colors flex items-center gap-1.5"
                   >
                     <ShoppingBag className="w-3.5 h-3.5" />
                     <span>Add to Cart</span>

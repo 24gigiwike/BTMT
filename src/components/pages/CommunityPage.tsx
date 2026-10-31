@@ -37,48 +37,74 @@ export const CommunityPage: React.FC = () => {
     <div className="w-full bg-white">
       {/* HERO / WELCOME */}
       <section className="py-16 lg:py-20 bg-[#F6F8FA] border-b border-slate-200/60">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <div className="text-xs font-semibold uppercase tracking-wider text-[#12A9DB]">
-            Collaborative Learning & Network
-          </div>
-          <h1 className="text-4xl sm:text-5xl font-bold text-[#051449]">
-            The BTMT Community
-          </h1>
-          <p className="text-base sm:text-lg text-slate-700 leading-relaxed max-w-2xl mx-auto">
-            Be part of a community that encourages learning, meaningful connections, brand growth,
-            and access to valuable opportunities.
-          </p>
-          <p className="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto">
-            Join to receive practical insights, educational resources, training information, and
-            exclusive community updates.
-          </p>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-7 space-y-5">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-slate-200 rounded-md text-xs font-semibold text-[#12A9DB] uppercase tracking-wider">
+                <span>Knowledge Exchange · Network · Growth</span>
+              </div>
+              <h1 className="text-4xl sm:text-5xl font-bold text-[#051449] leading-tight">
+                The BTMT Community Hub
+              </h1>
+              <p className="text-base sm:text-lg text-slate-700 leading-relaxed">
+                Be part of a thriving network that fosters creative exploration, technological literacy,
+                and business growth through shared knowledge and moral excellence.
+              </p>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                Access verified templates, practical guides, priority invitations to live masterclasses,
+                and direct networking with creators and enterprise operators across Nigeria.
+              </p>
 
-          <div className="pt-6 flex flex-wrap items-center justify-center gap-4">
-            {currentUser ? (
-              <button
-                onClick={() => navigateTo('/dashboard')}
-                className="px-6 py-3 text-xs font-semibold text-white bg-[#051449] hover:bg-[#081e6a] rounded-lg transition-colors inline-flex items-center gap-2"
-              >
-                <span>Enter Member Dashboard</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            ) : (
-              <>
-                <button
-                  onClick={() => navigateTo('/community/join')}
-                  className="px-6 py-3 text-xs font-semibold text-white bg-[#051449] hover:bg-[#081e6a] rounded-lg transition-colors inline-flex items-center gap-2"
-                >
-                  <span>Join Our Community (Free)</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-                <button
-                  onClick={() => navigateTo('/login')}
-                  className="px-6 py-3 text-xs font-semibold text-[#051449] bg-white border border-slate-300 hover:bg-slate-50 rounded-lg transition-colors"
-                >
-                  Member Login
-                </button>
-              </>
-            )}
+              <div className="pt-3 flex flex-wrap items-center gap-4">
+                {currentUser ? (
+                  <button
+                    onClick={() => navigateTo('/dashboard')}
+                    className="px-6 py-3 text-xs font-semibold text-white bg-[#051449] hover:bg-[#081e6a] rounded-lg transition-colors inline-flex items-center gap-2 shadow-xs"
+                  >
+                    <span>Enter Member Dashboard</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                ) : (
+                  <>
+                    <button
+                      onClick={() => navigateTo('/community/join')}
+                      className="px-6 py-3 text-xs font-semibold text-white bg-[#051449] hover:bg-[#081e6a] rounded-lg transition-colors inline-flex items-center gap-2 shadow-xs"
+                    >
+                      <span>Join Our Community (Free)</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                    <button
+                      onClick={() => navigateTo('/login')}
+                      className="px-6 py-3 text-xs font-semibold text-[#051449] bg-white border border-slate-300 hover:bg-slate-50 rounded-lg transition-colors"
+                    >
+                      Member Login
+                    </button>
+                  </>
+                )}
+              </div>
+            </div>
+
+            <div className="lg:col-span-5">
+              <div className="rounded-2xl border border-slate-200 overflow-hidden shadow-lg bg-slate-900 group">
+                <div className="aspect-4/3 relative">
+                  <img
+                    src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1000&q=80"
+                    alt="BTMT collaborative learning workshop"
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#051449]/80 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <span className="text-[11px] font-mono text-[#CDEEF8] bg-white/10 px-2 py-0.5 rounded">
+                      Free Membership Access
+                    </span>
+                    <div className="text-sm font-bold text-white mt-1">
+                      Monthly Workshops & Strategy Downloads
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -209,28 +235,34 @@ export const CommunityPage: React.FC = () => {
           {trainings.map((trn) => (
             <div
               key={trn.id}
-              className="p-6 bg-white rounded-xl border border-slate-200 space-y-4 shadow-xs"
+              className="p-6 bg-white rounded-2xl border border-slate-200 hover:border-slate-300 transition-all space-y-4 shadow-xs flex flex-col justify-between"
             >
-              <div className="flex items-center justify-between text-xs">
-                <span className="font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">
-                  {trn.status}
-                </span>
-                <span className="text-slate-500 font-medium">{trn.accessRequirement}</span>
-              </div>
-
-              <h3 className="text-lg font-bold text-[#051449]">{trn.title}</h3>
-              <p className="text-xs text-slate-600 leading-relaxed">{trn.description}</p>
-
-              <div className="p-3 bg-[#F6F8FA] rounded-lg text-xs space-y-1 font-mono text-slate-700">
-                <div className="flex items-center gap-2">
-                  <Calendar className="w-3.5 h-3.5 text-[#12A9DB]" />
-                  <span>{trn.date} · {trn.time}</span>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between text-xs">
+                  <span className="font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200/60 px-2.5 py-0.5 rounded-md">
+                    {trn.status}
+                  </span>
+                  <span className="text-slate-600 font-mono text-[11px] bg-slate-100 px-2 py-0.5 rounded">
+                    {trn.accessRequirement}
+                  </span>
                 </div>
-                <div>Instructor: {trn.instructor}</div>
-                <div>Format: {trn.format}</div>
+
+                <h3 className="text-lg font-bold text-[#051449] leading-snug">{trn.title}</h3>
+                <p className="text-xs text-slate-600 leading-relaxed">{trn.description}</p>
               </div>
 
-              <div className="pt-2">
+              <div className="space-y-4 pt-2">
+                <div className="p-3.5 bg-[#F6F8FA] rounded-xl text-xs space-y-1.5 font-mono text-slate-700 border border-slate-100">
+                  <div className="flex items-center gap-2 text-[#051449] font-semibold">
+                    <Calendar className="w-3.5 h-3.5 text-[#12A9DB]" />
+                    <span>{trn.date} · {trn.time}</span>
+                  </div>
+                  <div className="flex items-center justify-between text-[11px] text-slate-500 pt-1 border-t border-slate-200/60">
+                    <span>Lead: <strong className="text-slate-800">{trn.instructor}</strong></span>
+                    <span className="text-[#12A9DB] font-semibold">{trn.format}</span>
+                  </div>
+                </div>
+
                 <button
                   onClick={() => {
                     if (!currentUser) {
@@ -239,7 +271,7 @@ export const CommunityPage: React.FC = () => {
                       showToast('You are registered for this training session!', 'success');
                     }
                   }}
-                  className="w-full py-2.5 text-xs font-semibold text-white bg-[#051449] hover:bg-[#081e6a] rounded-lg transition-colors text-center"
+                  className="w-full py-2.5 text-xs font-semibold text-white bg-[#051449] hover:bg-[#081e6a] rounded-lg transition-colors text-center shadow-xs"
                 >
                   {currentUser ? 'Confirm Attendance' : 'Register for Session'}
                 </button>

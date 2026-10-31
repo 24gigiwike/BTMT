@@ -75,36 +75,36 @@ export const ContactPage: React.FC = () => {
             </div>
 
             <div className="space-y-4 text-xs text-slate-700">
-              <div className="p-4 bg-[#F6F8FA] rounded-xl border border-slate-200 flex items-start gap-3">
+              <div className="p-5 bg-white border border-slate-200 flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-[#12A9DB] shrink-0 mt-0.5" />
                 <div>
-                  <div className="font-bold text-[#051449]">Physical Address</div>
-                  <div className="mt-0.5 leading-relaxed text-slate-600">
+                  <div className="font-bold text-[#051449] uppercase tracking-wider text-[11px]">Physical Address</div>
+                  <div className="mt-1 leading-relaxed text-slate-600">
                     {COMPANY_INFO.address}
                   </div>
                 </div>
               </div>
 
-              <div className="p-4 bg-[#F6F8FA] rounded-xl border border-slate-200 flex items-start gap-3">
+              <div className="p-5 bg-white border border-slate-200 flex items-start gap-3">
                 <Phone className="w-5 h-5 text-[#12A9DB] shrink-0 mt-0.5" />
                 <div>
-                  <div className="font-bold text-[#051449]">Direct Line</div>
+                  <div className="font-bold text-[#051449] uppercase tracking-wider text-[11px]">Direct Line</div>
                   <a
                     href={`tel:${COMPANY_INFO.phoneRaw}`}
-                    className="mt-0.5 block font-semibold text-slate-800 hover:text-[#12A9DB] transition-colors"
+                    className="mt-1 block font-semibold text-slate-800 hover:text-[#12A9DB] transition-colors"
                   >
                     {COMPANY_INFO.phone}
                   </a>
                 </div>
               </div>
 
-              <div className="p-4 bg-[#F6F8FA] rounded-xl border border-slate-200 flex items-start gap-3">
+              <div className="p-5 bg-white border border-slate-200 flex items-start gap-3">
                 <Mail className="w-5 h-5 text-[#12A9DB] shrink-0 mt-0.5" />
                 <div>
-                  <div className="font-bold text-[#051449]">Official Email</div>
+                  <div className="font-bold text-[#051449] uppercase tracking-wider text-[11px]">Official Email</div>
                   <a
                     href={`mailto:${COMPANY_INFO.email}`}
-                    className="mt-0.5 block font-semibold text-slate-800 hover:text-[#12A9DB] transition-colors"
+                    className="mt-1 block font-semibold text-slate-800 hover:text-[#12A9DB] transition-colors"
                   >
                     {COMPANY_INFO.email}
                   </a>
@@ -112,19 +112,19 @@ export const ContactPage: React.FC = () => {
               </div>
 
               {/* Quick WhatsApp Action Button */}
-              <div className="p-4 bg-emerald-50 rounded-xl border border-emerald-200 flex items-center justify-between">
+              <div className="p-5 bg-[#F8FAFC] border border-slate-200 flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
                   <MessageCircle className="w-5 h-5 text-emerald-600" />
                   <div>
-                    <div className="font-bold text-emerald-900">Instant WhatsApp Chat</div>
-                    <div className="text-[11px] text-emerald-700">Connect with customer support</div>
+                    <div className="font-bold text-slate-900">Instant WhatsApp Chat</div>
+                    <div className="text-[11px] text-slate-500">Connect with customer support</div>
                   </div>
                 </div>
                 <a
                   href={`https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${encodeURIComponent('Hello BTMT, I would like to make an enquiry.')}`}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-3.5 py-1.5 text-xs font-semibold text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg transition-colors whitespace-nowrap"
+                  className="px-4 py-2 text-xs font-bold uppercase tracking-wider text-white bg-emerald-600 hover:bg-emerald-700 transition-colors whitespace-nowrap"
                 >
                   Chat Now
                 </a>
@@ -290,7 +290,7 @@ export const ContactPage: React.FC = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="px-6 py-3 text-xs font-semibold text-white bg-[#051449] hover:bg-[#081e6a] rounded-lg transition-colors flex items-center gap-2 shadow-xs"
+                      className="px-8 py-4 text-xs font-bold uppercase tracking-wider text-white bg-[#051449] hover:bg-[#E32938] transition-colors duration-300 flex items-center gap-2"
                     >
                       <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
                       <ArrowRight className="w-4 h-4" />
