@@ -1,0 +1,2079 @@
+# MASTER WEBSITE DEVELOPMENT BRIEF
+## BLISSFUL TOUCH MEDIA & TECHNOLOGY (BTMT)
+
+### 1. PROJECT OVERVIEW
+
+You are an expert full-stack web developer, UI/UX designer, and digital product architect.
+
+Your task is to design and develop a complete, modern, responsive, production-quality website for **Blissful Touch Media & Technology (BTMT)**.
+
+This is a real corporate website, not a conceptual landing page or generic AI website template.
+
+The website must represent an established company operating across three major industries:
+
+1. Technology
+2. Media
+3. Entertainment
+
+It must bring the company's corporate identity, professional services, content publishing, product marketplace, and members' community into one unified digital platform.
+
+The finished product must feel intentionally designed by a professional web design agency.
+
+**Company Name:** Blissful Touch Media & Technology
+
+**Abbreviation:** BTMT
+
+**Official Website Slogan:** Building Authentic Visibility and Promoting Moral and Ethical Excellence
+
+**Original Brand Concept:** Building intentional visibility for sustainable growth, increased productivity and profitability.
+
+**Business Location:** Owerri, Imo State, Nigeria.
+
+**Primary Audience:** Businesses, entrepreneurs, startups, organizations, educational institutions, individuals, creators, and brands seeking professional technology, media, entertainment and visibility solutions.
+
+### 2. PRIMARY PROJECT GOALS
+
+Design the website to achieve these objectives:
+
+- Establish BTMT as a credible, reliable and professional multidisciplinary company.
+- Present the company's services in a clear, organized and compelling manner.
+- Generate client enquiries, consultation requests and service bookings.
+- Help potential clients understand the company's capabilities and values.
+- Provide a content platform for articles, educational resources, company updates and insights.
+- Create a marketplace where products from BTMT and third-party brands can be showcased and purchased.
+- Build a community of subscribers and registered members who can access exclusive content, learning materials and opportunities.
+- Support the company's vision of authentic visibility, productivity, innovation, sustainability and moral and ethical excellence.
+- Provide an easy-to-manage administrative system so authorized staff can update content without needing a developer for routine edits.
+
+The website must be designed for long-term maintainability and future expansion.
+
+---
+
+# 3. DESIGN SYSTEM AND VISUAL DIRECTION
+
+## 3.1 Essential design philosophy
+
+The entire website must be:
+
+- Simple
+- Professional
+- Clean
+- Elegant
+- Modern but timeless
+- Credible
+- Visually balanced
+- Readable
+- Mobile-friendly
+- Human-designed in appearance
+
+**Avoid the typical AI-generated website aesthetic.**
+
+Specifically, do not create a website with excessive gradients, random glowing objects, decorative floating orbs, glassmorphism everywhere, oversized rounded cards, unnecessary pills, scattered illustrations, or repeated three-column feature cards.
+
+Avoid exaggerated animations, enormous typography that breaks sentences unnaturally, and sections that look like unrelated template components stitched together.
+
+The website should resemble a thoughtfully art-directed corporate website or a premium creative agency's digital presence.
+
+Its sophistication should come from typography, spacing, composition, authentic imagery, alignment, and strong editorial hierarchy.
+
+## 3.2 Brand colors
+
+Use the company's supplied PDF profile and original logo as the primary reference.
+
+The PDF visibly contains navy blue, pale blue, cyan, red, and purple.
+
+Until formal brand HEX codes are available, use the following approximate starting palette:
+
+| Color | Suggested HEX | Application |
+|---|---|---|
+| Deep Navy | #051449 | Primary brand, headings, footer |
+| White | #FFFFFF | Main page backgrounds |
+| Pale Blue | #CDEEF8 | Light section backgrounds |
+| Cyan | #12A9DB | Secondary emphasis, links |
+| Red | #E32938 | Limited brand accent |
+| Purple | #51217C | Minimal decorative/supporting use |
+| Charcoal | #242A35 | Body text |
+| Light Neutral | #F6F8FA | Alternate backgrounds |
+| Muted Grey | #667085 | Secondary text |
+
+Use navy and white as the dominant visual combination.
+
+Do not use all the brand colors in every section.
+
+Avoid rainbow gradients and high-saturation backgrounds.
+
+Red should appear only in carefully selected brand accents, not across every call-to-action element.
+
+Ensure accessible color contrast.
+
+## 3.3 Typography
+
+Use one professional sans-serif font family, preferably:
+
+- Inter
+- DM Sans
+- Manrope
+
+Choose one primary family and use it consistently.
+
+Use restrained typography:
+
+- Desktop H1: approximately 48–64px.
+- H2: 34–46px.
+- H3: 22–28px.
+- Body: 16–18px.
+- Small labels: 12–14px.
+
+Adjust these responsively.
+
+Use a clear font-weight hierarchy rather than excessive font-size changes.
+
+Body copy must have comfortable line height.
+
+Avoid excessive all-uppercase headings.
+
+Avoid forced line breaks in running text.
+
+Use naturally wrapping lines, with deliberate editorial line breaks only when truly useful.
+
+## 3.4 Layout standards
+
+Use a maximum content width of approximately 1200–1280px, with generous side margins.
+
+Implement a consistent spacing system.
+
+Maintain aligned section headings, images, cards and content.
+
+Use alternating layouts where appropriate:
+
+- Image left, copy right.
+- Copy left, image right.
+- Full-width editorial image.
+- Simple service grids.
+- Minimal information lists.
+- Clean text-first sections.
+
+Avoid repeating the same layout on every page.
+
+Buttons should be rectangular or gently rounded, not exaggerated pill shapes.
+
+Use subtle borders rather than excessive shadows.
+
+## 3.5 Photography and visual assets
+
+Use relevant, credible photography.
+
+Images should include:
+
+- Technology professionals working.
+- Website and application development environments.
+- Photography and videography production setups.
+- Branding and print materials.
+- Professionals collaborating.
+- Realistic business environments.
+- Corporate conferences and events.
+- Educational or creative communities.
+- Product photography for the marketplace.
+
+Use authentic photography wherever possible.
+
+Do not use illustrations of robots, abstract AI brains, excessive 3D floating shapes, fake dashboards, or stereotypical AI images.
+
+If genuine company photographs are unavailable, use carefully selected temporary photography.
+
+Mark placeholder assets clearly in the code or CMS.
+
+Do not fabricate BTMT staff photos, client logos, completed projects, awards or testimonials.
+
+## 3.6 Motion and interaction
+
+Animation must be subtle and functional.
+
+Allowed:
+
+- Gentle section reveal transitions.
+- Smooth dropdown interactions.
+- Subtle button hover states.
+- Small image hover transitions.
+- Smooth mobile navigation.
+- Accordion expansion.
+- Loading indicators where needed.
+
+Avoid:
+
+- Scroll hijacking.
+- Parallax on every section.
+- Animated gradient backgrounds.
+- Heavy page transition effects.
+- Constant floating elements.
+- Staggered animations on every piece of text.
+
+Respect reduced-motion settings.
+
+---
+
+# 4. WEBSITE INFORMATION ARCHITECTURE
+
+Create the following primary navigation:
+
+**Home | About Us | Services | Marketplace | Blog | Community | Contact**
+
+Use a clearly visible primary CTA:
+
+**Get Started**
+
+Recommended routes:
+
+| Page | Route |
+|---|---|
+| Home | `/` |
+| About Us | `/about` |
+| Services | `/services` |
+| Individual Service | `/services/[slug]` |
+| Marketplace | `/marketplace` |
+| Product Details | `/marketplace/[slug]` |
+| Shopping Cart | `/cart` |
+| Checkout | `/checkout` |
+| Blog | `/blog` |
+| Blog Article | `/blog/[slug]` |
+| Community | `/community` |
+| Community Registration | `/community/join` |
+| Member Login | `/login` |
+| Member Dashboard | `/dashboard` |
+| Learning Resources | `/community/resources` |
+| Contact | `/contact` |
+| Book a Service | `/book-service` |
+| Privacy Policy | `/privacy` |
+| Terms of Service | `/terms` |
+| Cookie Policy | `/cookies` |
+| Refund and Returns Policy | `/refund-policy` |
+
+Additional legal or marketplace policy pages can be created where operationally required.
+
+Implement custom loading, error, empty-state and 404 pages.
+
+The navigation must be intuitive, and every clickable element must lead somewhere meaningful.
+
+---
+
+# 5. GLOBAL HEADER AND NAVIGATION
+
+Design a clean sticky navigation bar.
+
+Desktop arrangement:
+
+**Left:** BTMT original logo.
+
+**Center or right:** Main navigation links.
+
+**Far right:** Primary CTA button.
+
+On mobile:
+
+- Logo on the left.
+- Hamburger menu on the right.
+- Clean expanding or sliding navigation panel.
+- All navigation options accessible.
+- CTA included.
+- Proper Escape-key, keyboard focus and closing behavior.
+
+Navigation should remain visible as users scroll.
+
+Use a thin separator or subtle shadow when appropriate.
+
+The logo must be taken from the original brand asset, not replaced with an AI-generated logo.
+
+If the actual logo file is not available, use a temporary text lockup and clearly identify where the real asset must be inserted.
+
+---
+
+# 6. HOME PAGE
+
+The homepage is the most important page.
+
+It must immediately communicate who BTMT is, what it offers, and why visitors should trust the brand.
+
+It should not feel like an overloaded catalogue.
+
+## Section 1: Hero / Welcome
+
+Use a clean, visually appealing hero with a genuine-looking corporate or creative industry photograph.
+
+Suggested composition:
+
+Large heading on the left, description underneath, CTAs below, strong photograph on the right.
+
+Alternatively, use an editorial split hero where the image occupies approximately half the screen.
+
+**Eyebrow:**
+
+WELCOME TO BLISSFUL TOUCH MEDIA & TECHNOLOGY
+
+**Primary headline:**
+
+Building Authentic Visibility. Creating Lasting Impact.
+
+**Supporting copy:**
+
+From cutting-edge website and mobile application development to strategic branding, digital marketing, media production, and brand visibility solutions, we provide the expertise and innovation businesses need to strengthen their presence, increase productivity, and create lasting impact.
+
+**Primary CTA:** Explore Our Services
+
+**Secondary CTA:** Get in Touch
+
+Present the full company slogan in a suitable supporting location:
+
+"Building Authentic Visibility and Promoting Moral and Ethical Excellence."
+
+Hero requirements:
+
+- Strong image quality.
+- Readable copy.
+- No large distracting gradients.
+- No auto-rotating hero slider.
+- Clear action buttons.
+- Elegant desktop composition.
+- Naturally stacked mobile layout.
+
+## Section 2: Introduction / Who We Are
+
+**Heading:**
+
+Your Partner in Technology, Media and Creative Innovation
+
+**Suggested copy:**
+
+Blissful Touch Media & Technology is a multidisciplinary company dedicated to helping businesses, brands and organizations establish meaningful visibility, embrace innovation and achieve sustainable growth.
+
+Through our technology, media and entertainment solutions, we combine creativity, professional expertise and ethical excellence to deliver products and services that make a difference.
+
+CTA: Learn More About Us
+
+Use an editorial image beside the copy.
+
+## Section 3: Our Core Areas
+
+Create three prominent category blocks:
+
+**Technology**
+
+Digital solutions that help businesses operate efficiently, build stronger online experiences, and embrace innovation.
+
+Link: Explore Technology
+
+**Media**
+
+Creative communication and visibility solutions that help brands connect with audiences and establish a lasting presence.
+
+Link: Explore Media
+
+**Entertainment**
+
+Original storytelling and creative productions that educate, inspire, engage and entertain.
+
+Link: Explore Entertainment
+
+These should be visually distinct but consistent.
+
+Use real photographs and minimal supporting icons.
+
+## Section 4: Featured Services
+
+Present six selected services:
+
+1. Website Development
+2. Software Development
+3. Digital Marketing & Advertising
+4. Branding
+5. Printing & Publishing
+6. Event Coverage
+
+Each service block contains:
+
+- A relevant image or restrained visual.
+- Service title.
+- Two-line description.
+- Link: Learn More.
+
+Arrange as a carefully designed grid.
+
+Provide a final CTA: View All Services.
+
+## Section 5: Why Choose BTMT?
+
+**Heading:**
+
+Built on Creativity, Integrity and Excellence
+
+**Supporting copy:**
+
+We combine professional expertise, thoughtful creativity and a commitment to ethical excellence to deliver solutions that create measurable value for our clients.
+
+Highlight the company's six documented strengths:
+
+- Efficient Service Delivery
+- Creativity and Innovation
+- Timely Delivery
+- Excellence
+- Integrity
+- Premium Customer Satisfaction
+
+Use a compact editorial layout rather than six oversized colorful cards.
+
+## Section 6: Our Approach
+
+Introduce a clear and approachable client workflow.
+
+Suggested stages:
+
+**Discover:** We understand your goals, challenges and expectations.
+
+**Plan:** We develop a tailored strategy and project direction.
+
+**Create:** We execute the work with creativity, professionalism and attention to detail.
+
+**Deliver:** We review, refine and deliver the agreed solution.
+
+**Support:** Where applicable, we provide continued support for sustainable results.
+
+This is suggested website process copy, not a previously verified internal company policy. It should remain editable.
+
+## Section 7: Featured Work / Our Portfolio
+
+Create an optional portfolio preview section.
+
+Display completed work only when BTMT provides verified projects.
+
+Each project should support:
+
+- Project title.
+- Category.
+- Cover image.
+- Short description.
+- Services delivered.
+- Project detail link.
+- Client name, if approved.
+
+Do not invent completed projects.
+
+Until real projects exist in the CMS, show a suitable editorial placeholder or hide the section without leaving an awkward gap.
+
+## Section 8: Marketplace Preview
+
+**Heading:**
+
+Discover Products From Growing Brands
+
+**Copy:**
+
+Explore a curated selection of products from businesses and brands within our growing network.
+
+Display up to four featured products when available.
+
+Each product includes image, title, price, brand and product detail link.
+
+CTA: Explore Marketplace.
+
+If no products have been published, show a well-designed invitation for brands to enquire about marketplace participation instead of fake products.
+
+## Section 9: Insights and Articles
+
+**Heading:**
+
+Ideas, Insights and Updates
+
+Display three published blog posts.
+
+Each article preview contains:
+
+- Featured image.
+- Category.
+- Date.
+- Title.
+- Short excerpt.
+- Read Article link.
+
+CTA: Visit Our Blog.
+
+## Section 10: Join Our Community
+
+Use a separate, visually confident section.
+
+**Heading:**
+
+Grow With a Community Built for Progress
+
+**Copy:**
+
+Join the BTMT community to discover valuable insights, learning opportunities, practical resources and information that can help you grow your brand, develop your skills and explore new opportunities.
+
+CTA: Join Our Community
+
+Include a secondary option to subscribe to updates.
+
+## Section 11: Final CTA
+
+Use a simple navy background with white text.
+
+**Heading:**
+
+Have a Project in Mind?
+
+**Copy:**
+
+Whether you are launching a new brand, expanding your digital presence or exploring a creative idea, we would love to hear from you.
+
+**CTA:** Let's Get Started
+
+## Section 12: Footer
+
+Create a comprehensive footer containing:
+
+- Company logo and short description.
+- Navigation links.
+- Service categories.
+- Marketplace and community links.
+- Contact information.
+- Social media links.
+- Legal pages.
+- Copyright information.
+
+Do not create unsupported social profile URLs.
+
+---
+
+# 7. ABOUT US PAGE
+
+Develop a full corporate profile page using the information supplied in the BTMT PDF.
+
+Use a clean, editorial layout and preserve the company's established identity.
+
+## Section 1: Introduction
+
+**Heading:**
+
+About Blissful Touch Media & Technology
+
+**Copy:**
+
+Blissful Touch Media & Technology (BTMT) is a business organization committed to building intentional visibility and sustainable growth for businesses and organizations while promoting moral and ethical excellence.
+
+Through premium media, technology and entertainment products and services, the company seeks to create meaningful opportunities for learning, connection, productivity and growth.
+
+## Section 2: Our Story
+
+Use the verified company history:
+
+BTMT was founded by Michael C. George in 2017.
+
+The business was registered with Nigeria's Corporate Affairs Commission as a business name in February 2021, and the company profile records a further registration as a company limited by shares in August 2026.
+
+Create a refined company timeline:
+
+- 2017 — Founded
+- February 2021 — Business name registration
+- August 2026 — Limited-by-shares registration
+
+Do not invent additional milestones.
+
+## Section 3: Vision
+
+**Heading: Our Vision**
+
+"To be a global system for authentic visibility and proliferation of moral and ethical excellence."
+
+Preserve the official wording from the company profile.
+
+## Section 4: Mission
+
+**Heading: Our Mission**
+
+"To build a global system that provides authentic visibility and proliferation of moral and ethical excellence through innovative, creative and professional media, technological and entertaining products and services."
+
+Preserve the official wording from the company profile.
+
+## Section 5: Objectives
+
+Present the five objectives from the company profile:
+
+1. Build a media platform that provides authentic visibility for brands and organizations.
+2. Create and promote creative and innovative entertainment and educational products that promote moral and ethical excellence.
+3. Develop technological tools and platforms that inspire learning, growth, connection, productivity and global opportunities.
+4. Create and support events and platforms that inspire moral and ethical excellence.
+5. Help startups develop systems and visibility that can provide access to funding and global opportunities.
+
+Use a readable numbered layout rather than large icon cards.
+
+## Section 6: Our Culture
+
+Feature the five documented values:
+
+**Moral and Ethical Excellence**
+
+A commitment to upholding strong moral principles and ethical standards in conduct, relationships and service delivery.
+
+**Timeliness**
+
+Respect for the time of clients, team members and audiences, with an emphasis on punctuality and reliable delivery.
+
+**Creativity**
+
+A commitment to original, useful ideas and their successful execution.
+
+**Continuous Learning**
+
+The pursuit of knowledge and improvement to strengthen outcomes and professional excellence.
+
+**Unity**
+
+Working together around a shared vision, mission, objectives and organizational culture.
+
+These are concise web adaptations of the longer official culture descriptions.
+
+## Section 7: Why Choose Us
+
+Use the six reasons provided in the company profile:
+
+- Efficient Service Delivery
+- Creativity and Innovation
+- Timely Delivery
+- Excellence
+- Integrity
+- Premium Customer Satisfaction
+
+Give each a concise supporting explanation.
+
+## Section 8: Our Team
+
+Build a flexible team section with:
+
+- Team photograph.
+- Full name.
+- Position.
+- Short biography.
+- Optional professional social links.
+
+No complete team roster has been supplied.
+
+Do not invent staff names or photographs.
+
+Michael C. George may be included as the founder, but do not assign a current executive title unless separately confirmed.
+
+Only publish actual team members entered through the administrative system.
+
+The section must gracefully hide if no team profiles are available.
+
+## Section 9: Closing CTA
+
+**Heading:**
+
+Let's Build Something Meaningful Together
+
+CTA: Work With Us
+
+---
+
+# 8. SERVICES PAGE
+
+Create a dedicated Services page rather than placing all service descriptions on the homepage.
+
+The Services page must group offerings into three categories:
+
+**Technology | Media | Entertainment**
+
+At the top, include an introduction:
+
+**Heading:**
+
+Our Services
+
+**Copy:**
+
+We provide innovative technology solutions, professional media services and creative entertainment offerings designed to improve productivity, strengthen brand visibility and create meaningful experiences.
+
+Implement category navigation so visitors can quickly jump to Technology, Media or Entertainment.
+
+Use category sections with service images, concise descriptions and clear CTAs.
+
+Every service should open its own detail page.
+
+## 8.1 TECHNOLOGY
+
+### Website Development
+
+**Headline:**
+
+Your Brand Deserves a Space of Its Own
+
+**Description:**
+
+What happens if something goes wrong with your social media accounts? Can your customers still find your business online?
+
+A professionally designed website gives your brand a digital home you can manage independently of social media platforms.
+
+At BTMT, we build beautiful, functional, professional and mobile-friendly websites that help businesses establish credibility, connect with their audiences and grow.
+
+**Offerings:**
+
+- Business Websites
+- E-commerce Websites
+- Portfolio Websites
+- School and Educational Websites
+- Personal and Brand Websites
+- Website Redesign
+- Website Maintenance
+
+**CTA:** Let's Build Your Website
+
+### Software Development
+
+**Headline:**
+
+Technology Built Around Your Business
+
+**Description:**
+
+We develop innovative software solutions tailored to the operational and growth needs of businesses and organizations.
+
+From mobile applications to web-based platforms and business management systems, our solutions are designed to simplify processes, improve efficiency, enhance user experiences and support long-term growth.
+
+**Offerings:**
+
+- Mobile Application Development
+- Web Application Development
+- Business Management Systems
+- Custom Software Solutions
+- Software Maintenance and Improvement
+
+**CTA:** Discuss Your Project
+
+## 8.2 MEDIA
+
+### Digital Marketing & Advertising
+
+**Headline:**
+
+Reach the Right Audience. Grow Your Brand.
+
+**Description:**
+
+Build a recognizable brand, connect with potential customers and improve your digital presence through thoughtful marketing and advertising.
+
+We help businesses increase visibility, reach target audiences and drive meaningful engagement through strategies tailored to their goals.
+
+**Offerings:**
+
+- Social Media Management
+- Online Advertising
+- Content Creation
+- Brand Promotion
+- Search Engine Optimization (SEO)
+- Targeted Advertising Campaigns
+
+**CTA:** Grow Your Brand
+
+### Printing & Publishing
+
+**Headline:**
+
+Bring Your Brand to Life in Print
+
+**Description:**
+
+We provide quality printing and publishing solutions that help brands communicate professionally and effectively.
+
+From business stationery to promotional materials and publications, we focus on clear presentation, creative execution and quality delivery.
+
+**Offerings:**
+
+- Business Cards
+- Flyers
+- Brochures
+- Banners
+- Posters
+- Books
+- Magazines
+- Promotional Materials
+
+**CTA:** Request a Print Service
+
+### Branding
+
+**Headline:**
+
+Build a Brand People Remember
+
+**Description:**
+
+We help businesses and organizations establish distinctive, authentic and memorable brand identities.
+
+Our branding solutions combine strategy, creativity and visual communication to help brands build trust, communicate consistently and stand out in their markets.
+
+**Offerings:**
+
+- Logo Design
+- Brand Strategy
+- Visual Identity Development
+- Brand Positioning
+- Promotional Branding Materials
+
+**CTA:** Start Your Branding Project
+
+### Event Coverage
+
+**Headline:**
+
+Every Moment Deserves to Be Remembered
+
+**Description:**
+
+Capture meaningful experiences and preserve memorable moments through professional photography, videography, live streaming and event documentation.
+
+We cover corporate and personal events with a focus on visual storytelling, quality and attention to detail.
+
+**Offerings:**
+
+- Corporate Events
+- Conferences
+- Weddings
+- Birthdays
+- Special Occasions
+- Event Photography
+- Event Videography
+- Live Streaming
+- Media Documentation
+
+**CTA:** Book Event Coverage
+
+### Additional Media Services
+
+The original company profile also lists:
+
+**Audio-Visual Production**
+
+Provide professional audio-visual solutions for communication, business presentations and creative media projects.
+
+**CTA:** Enquire About Production
+
+**Voice-Over Services**
+
+Offer voice-over recording and narration solutions for appropriate media, promotional and storytelling projects.
+
+**CTA:** Request a Voice-Over
+
+These are proposed concise service descriptions based on the service names in the company profile. Keep them editable until BTMT approves the final scope.
+
+## 8.3 ENTERTAINMENT
+
+### Scriptwriting
+
+**Headline:**
+
+Every Great Production Begins With a Story
+
+**Description:**
+
+We develop engaging, original and impactful scripts that communicate ideas, connect with audiences and bring creative concepts to life.
+
+Our scriptwriting services support a wide range of entertainment, educational and promotional productions.
+
+**Offerings:**
+
+- Film Scripts
+- Drama Scripts
+- Advertisement Scripts
+- Documentary Scripts
+- Skits
+- Promotional Video Scripts
+
+**CTA:** Let's Tell Your Story
+
+### Movie Production
+
+**Headline:**
+
+Stories Brought to Life
+
+**Description:**
+
+Explore creative film and video production services focused on meaningful storytelling and engaging entertainment.
+
+**CTA:** Enquire About Movie Production
+
+### Podcast Shows
+
+**Headline:**
+
+Conversations Worth Sharing
+
+**Description:**
+
+Discover engaging podcast content that informs, educates, entertains and inspires valuable conversations.
+
+**CTA:** Explore Podcast Opportunities
+
+The movie production and podcast descriptions should be treated as proposed website copy until approved.
+
+## 8.4 Individual Service Detail Pages
+
+Each individual service page must contain:
+
+1. Service title and strong hero.
+2. Brief service introduction.
+3. A relevant high-quality photograph.
+4. Detailed service description.
+5. List of offerings.
+6. Benefits to the customer.
+7. A concise engagement process.
+8. Related services.
+9. Frequently asked questions, where approved.
+10. A prominent service booking CTA.
+
+Use a reusable service-detail template powered by structured content.
+
+Every service CTA should lead to the booking form with that service preselected.
+
+---
+
+# 9. SERVICE BOOKING AND ENQUIRY SYSTEM
+
+Build a functional service booking page.
+
+Route: `/book-service`
+
+**Heading:**
+
+Tell Us About Your Project
+
+**Intro:**
+
+Share a few details about what you need, and our team will review your enquiry and contact you.
+
+Form fields:
+
+- Full Name (required)
+- Email Address (required)
+- Phone Number (required)
+- Company or Brand Name (optional)
+- Service Interested In (required dropdown)
+- Project Description (required)
+- Estimated Budget (optional)
+- Preferred Start Date (optional)
+- Preferred Contact Method
+- Consent checkbox
+
+The service dropdown must contain all published services.
+
+When a visitor clicks a service-specific CTA, automatically preselect that service.
+
+Form behavior:
+
+- Validate inputs.
+- Prevent duplicate submissions.
+- Store the enquiry securely.
+- Notify administrators using a configured email service.
+- Display a clear success confirmation.
+- Provide meaningful error messages.
+- Never claim an enquiry was received unless the submission succeeded.
+- Use spam and rate-limit protection.
+
+The booking form is an enquiry system, not an automatic appointment confirmation tool.
+
+Allow administrators to view submissions and update their statuses.
+
+Suggested statuses:
+
+New, Contacted, In Discussion, Won, Closed.
+
+---
+
+# 10. MARKETPLACE PAGE
+
+Build a proper marketplace module for products from BTMT and participating external brands.
+
+The marketplace should feel like a refined, trustworthy online store integrated into the corporate website.
+
+**Page Heading:**
+
+BTMT Marketplace
+
+**Supporting Copy:**
+
+Discover products from businesses and brands within our growing marketplace, all in one convenient space.
+
+## 10.1 Marketplace Home
+
+Include:
+
+- Marketplace introduction.
+- Product category navigation.
+- Search bar.
+- Featured products.
+- Latest products.
+- Product grid.
+- Sorting and filtering controls.
+
+Do not invent product categories as if they were confirmed.
+
+Build a category management system so administrators can create actual categories when products are onboarded.
+
+## 10.2 Product Cards
+
+Each product must display:
+
+- Product photograph.
+- Product title.
+- Brand or seller.
+- Price in NGN.
+- Availability.
+- Product-detail link.
+
+Use appropriate aspect ratios and consistent product photography.
+
+## 10.3 Product Detail Page
+
+Each product detail page contains:
+
+- Image gallery.
+- Product name.
+- Seller or brand name.
+- Price.
+- Description.
+- Specifications or variants where relevant.
+- Stock or availability status.
+- Quantity selection.
+- Add to Cart action.
+- Related products.
+- Delivery or fulfilment information.
+
+All product information must originate from real admin-entered records.
+
+## 10.4 Shopping Cart and Checkout
+
+Implement:
+
+- Add to Cart.
+- Remove from Cart.
+- Update Quantity.
+- Cart Summary.
+- Checkout Form.
+- Shipping or delivery details.
+- Order Summary.
+- Payment integration.
+- Payment confirmation.
+- Order reference.
+- Order status tracking.
+
+Use a suitable Nigerian payment provider such as Paystack or Flutterwave, subject to the client's final selection and merchant account configuration.
+
+Payments must be initiated securely on the server and verified using the payment provider's approved server-side mechanism.
+
+Never place payment secrets in frontend code.
+
+Do not mark an order paid based only on a frontend redirect.
+
+Do not simulate successful transactions in production.
+
+If payment credentials are not configured, clearly show a sandbox or configuration-required state rather than pretending checkout works.
+
+## 10.5 Multi-Brand Marketplace Architecture
+
+Products should belong to a seller or brand.
+
+Each brand record should support:
+
+- Brand name.
+- Logo.
+- Description.
+- Contact information.
+- Product list.
+- Fulfilment details.
+- Admin approval status.
+
+Initially, implement a **BTMT-admin-managed marketplace**.
+
+Administrators can add approved third-party brands and their products.
+
+Do not automatically implement independent seller dashboards, commissions or automated seller payouts unless they are separately approved.
+
+Design the database so these can be added later.
+
+## 10.6 Marketplace Operations
+
+The system must support:
+
+- Product management.
+- Inventory tracking where applicable.
+- Order status updates.
+- Seller/brand records.
+- Customer order emails.
+- Product availability.
+- Secure customer information handling.
+
+Create configurable shipping, returns, refunds, taxes and seller settlement settings, rather than inventing business policies.
+
+---
+
+# 11. BLOG AND CONTENT PLATFORM
+
+Create a fully functional blog.
+
+Route: `/blog`
+
+**Main Heading:**
+
+Insights, Stories and Ideas
+
+**Description:**
+
+Explore practical insights, educational articles, industry developments and inspiring stories across technology, media, entertainment and business growth.
+
+## Blog Categories
+
+Suggested initial categories:
+
+- Technology
+- Digital Marketing
+- Branding
+- Business Growth
+- Media
+- Entertainment
+- Community Updates
+- Company News
+
+Categories must be editable.
+
+## Blog Listing
+
+Each article card contains:
+
+- Cover image.
+- Category.
+- Publication date.
+- Article title.
+- Short summary.
+- Read More link.
+
+Include:
+
+- Search.
+- Category filters.
+- Pagination or Load More.
+- Featured article section.
+- Responsive article layouts.
+
+## Blog Detail Page
+
+Include:
+
+- Article title.
+- Author.
+- Date.
+- Category.
+- Cover image.
+- Properly formatted article body.
+- Headings and subheadings.
+- Images and captions.
+- Related articles.
+- Social share links.
+- Relevant CTA.
+
+The reading experience should be especially clean and distraction-free.
+
+Use readable content width and strong typographic hierarchy.
+
+## Content Administration
+
+Administrators must be able to:
+
+- Create posts.
+- Edit drafts.
+- Upload images.
+- Assign categories.
+- Set featured images.
+- Schedule or publish posts.
+- Unpublish posts.
+- Edit SEO metadata.
+- Manage authors.
+- Delete posts with appropriate confirmation.
+
+Do not populate the live blog with fictional published company news.
+
+Use draft/sample records in development only.
+
+---
+
+# 12. COMMUNITY PLATFORM
+
+The Community page is an important part of this website.
+
+It must not be just a newsletter form.
+
+Develop a simple but expandable member-oriented platform where visitors can subscribe, register and access learning opportunities, valuable information and exclusive resources.
+
+**Heading:**
+
+The BTMT Community
+
+**Supporting Copy:**
+
+Be part of a community that encourages learning, meaningful connections, brand growth and access to valuable opportunities.
+
+Join to receive practical insights, educational resources, training information and exclusive community updates.
+
+## 12.1 Public Community Page
+
+Include:
+
+- Community introduction.
+- Membership benefits.
+- Featured public resources.
+- Upcoming training announcements.
+- Newsletter subscription.
+- Join Community CTA.
+
+Proposed membership benefits:
+
+- Brand development insights.
+- Business growth resources.
+- Digital skill development materials.
+- Training opportunities.
+- Educational content.
+- Relevant community announcements.
+- Selected member-only downloads.
+
+Do not promise specific recurring trainings or unavailable materials as though they already exist.
+
+## 12.2 Community Registration
+
+Provide a registration form with:
+
+- Full Name.
+- Email Address.
+- Password.
+- Optional Brand or Business Name.
+- Optional Area of Interest.
+- Consent to terms and privacy policy.
+- Optional marketing opt-in.
+
+Use secure authentication with email verification and password reset.
+
+Support login, logout and account management.
+
+## 12.3 Member Dashboard
+
+After successful authentication, users enter a clean dashboard.
+
+Dashboard sections:
+
+**Overview**
+
+Welcome message and latest available resources.
+
+**Resources**
+
+PDF documents, educational materials, downloadable templates, guides and other published learning files.
+
+**Training**
+
+Available and upcoming training sessions.
+
+**Announcements**
+
+Member-focused notices and updates.
+
+**My Profile**
+
+Basic member information and account settings.
+
+**Membership**
+
+Current membership information and subscription preferences.
+
+Do not invent paid membership tiers.
+
+The initial community should support free registration, with future scope for premium membership if BTMT chooses.
+
+## 12.4 Member-Only Resources
+
+Build a resource publishing system.
+
+Each resource includes:
+
+- Title.
+- Description.
+- Category.
+- Thumbnail.
+- File attachment or approved external URL.
+- Publication date.
+- Access level.
+- Download action.
+
+Access levels:
+
+- Public.
+- Registered Members.
+- Admin Only.
+
+Apply access authorization on the server, not merely by hiding buttons in the frontend.
+
+Protect private files with appropriate access controls.
+
+## 12.5 Training and Announcements
+
+Administrators can create:
+
+- Training title.
+- Training description.
+- Date and time.
+- Registration link.
+- Cover image.
+- Access requirements.
+- Status.
+
+Only show published, valid training information.
+
+For future expansion, the platform can support event registration, course progress, member discussion and paid training.
+
+Do not build a full social network or complex learning-management system in this initial version.
+
+## 12.6 Newsletter
+
+Allow visitors to subscribe without creating a full account.
+
+Include:
+
+- Email field.
+- Explicit marketing consent.
+- Duplicate-subscription handling.
+- Email verification or double opt-in where configured.
+- Unsubscribe functionality.
+- Subscription management.
+
+Newsletter subscribers and registered community members should be represented appropriately without treating them as identical account types.
+
+---
+
+# 13. CONTACT PAGE
+
+Create a dedicated Contact page.
+
+**Heading:**
+
+Let's Start a Conversation
+
+**Supporting Copy:**
+
+Have a question, project idea or business enquiry? Reach out to Blissful Touch Media & Technology. We would love to hear from you.
+
+## Official Contact Information
+
+**Office Address:**
+
+17 Ajoku Street, By UBA, Wetheral Road, Owerri, Imo State, Nigeria.
+
+**Phone:**
+
++234 706 088 2645
+
+**Email:**
+
+blissfultouchmedia@gmail.com
+
+**Social Identity:**
+
+Facebook: Blissful Touch Media and Technology
+
+Instagram: Blissful Touch Media
+
+YouTube: Blissfultouch TV
+
+These details originate from the company profile.
+
+Do not invent social profile URLs; they should be entered after verification.
+
+## Contact Form
+
+Include:
+
+- Full Name.
+- Email Address.
+- Phone Number (optional).
+- Subject.
+- Message.
+- Submit button.
+
+Store enquiries securely and notify administrators.
+
+## Additional Contact Features
+
+- Click-to-call phone number.
+- Click-to-email address.
+- Optional WhatsApp contact button using the approved company number.
+- Optional location map with the verified office address.
+- Business hours only if provided by the company.
+
+Do not invent opening hours.
+
+---
+
+# 14. GLOBAL FOOTER
+
+The footer must appear consistently across all public pages.
+
+Use a deep navy background.
+
+Recommended columns:
+
+**Company**
+
+Short BTMT summary and original logo.
+
+**Explore**
+
+Home, About, Services, Marketplace, Blog, Community, Contact.
+
+**Services**
+
+Technology, Media, Entertainment and selected service links.
+
+**Get in Touch**
+
+Office address, email, telephone and verified social links.
+
+Bottom row:
+
+Copyright © current year Blissful Touch Media & Technology.
+
+Privacy Policy | Terms of Service | Cookie Policy
+
+Use the current year dynamically.
+
+---
+
+# 15. ADMINISTRATIVE DASHBOARD
+
+Build an authorized administrative dashboard separate from public-facing pages.
+
+Suggested route: `/admin`
+
+The admin interface should use the same typography and color identity but prioritize functionality and clarity.
+
+## Dashboard Overview
+
+Display useful operational information:
+
+- New service enquiries.
+- Recent contact submissions.
+- Published blog posts.
+- Draft posts.
+- Total published products.
+- Recent orders.
+- Community members.
+- Newsletter subscribers.
+
+Show accurate values from the database.
+
+Do not display fake analytics.
+
+## Admin Modules
+
+**Website Content**
+
+Edit homepage content, introductory copy, SEO content, service descriptions and global settings.
+
+**Services**
+
+Create, edit, reorder, publish and unpublish services.
+
+**Blog**
+
+Manage articles, categories and media.
+
+**Marketplace**
+
+Manage products, sellers, orders, categories and stock.
+
+**Community**
+
+Manage members, resources, training announcements and access levels.
+
+**Enquiries**
+
+View, filter and update client enquiries.
+
+**Team**
+
+Manage verified staff profiles.
+
+**Portfolio**
+
+Manage actual case studies and completed projects.
+
+**Media Library**
+
+Upload, organize and manage images and downloadable assets.
+
+**Settings**
+
+Manage company contact details, social profiles and selected website configuration.
+
+## Admin Security
+
+Use secure role-based authorization.
+
+Suggested roles:
+
+- Super Admin
+- Content Editor
+- Marketplace Manager
+- Community Manager
+
+Enforce permissions on backend operations.
+
+Never expose admin data through unsecured public APIs.
+
+---
+
+# 16. TECHNICAL ARCHITECTURE
+
+Build this as a real full-stack website that can be deployed and maintained.
+
+Preferred technology stack, unless the working environment requires an equivalent:
+
+**Frontend**
+
+- React
+- TypeScript
+- Tailwind CSS
+- Accessible UI primitives
+- Reusable components
+
+**Framework**
+
+Prefer Next.js App Router for production, due to server rendering, routing, metadata and SEO support.
+
+If Google AI Studio's environment cannot generate or run Next.js directly, use React with Vite as a development-compatible alternative, while preserving a clear migration path and SEO strategy.
+
+**Backend**
+
+- Secure server-side APIs.
+- Database-backed content management.
+- Role-based authorization.
+- Form submission handling.
+- Marketplace order handling.
+- Payment verification.
+- Authentication.
+
+**Database**
+
+Prefer PostgreSQL with an appropriate managed backend such as Supabase.
+
+An equivalent secure platform may be used if integration constraints require it.
+
+**Authentication**
+
+Use an established authentication provider or library.
+
+**Storage**
+
+Use secure object storage for images, documents and private member resources.
+
+**Email**
+
+Use a properly configured transactional email provider.
+
+**Payment**
+
+Provide an integration layer for an approved Nigerian payment gateway.
+
+**Hosting**
+
+Structure the project for production deployment, preferably on Vercel with a compatible managed backend.
+
+Keep configuration in environment variables.
+
+Do not hardcode secrets, access keys or sensitive credentials.
+
+## Data Models
+
+Create well-organized data entities for:
+
+- Users
+- Roles and Permissions
+- Team Members
+- Services
+- Service Categories
+- Service Enquiries
+- Contact Submissions
+- Blog Posts
+- Blog Categories
+- Authors
+- Portfolio Projects
+- Brands/Sellers
+- Product Categories
+- Products
+- Product Images
+- Product Variants
+- Inventory
+- Customers
+- Carts
+- Orders
+- Order Items
+- Payments
+- Community Members
+- Resources
+- Training Sessions
+- Announcements
+- Newsletter Subscriptions
+- Media Assets
+- Site Settings
+
+Include appropriate timestamps, status fields, unique identifiers and relationships.
+
+Use migrations rather than relying on manual database changes.
+
+---
+
+# 17. RESPONSIVE DESIGN
+
+The website must work properly across:
+
+- Large desktops.
+- Standard laptops.
+- Tablets.
+- Large smartphones.
+- Small smartphones.
+
+Design mobile layouts deliberately, not simply by shrinking desktop components.
+
+Mobile requirements:
+
+- Properly stacked layouts.
+- Comfortable text sizes.
+- No horizontal overflow.
+- Clear navigation.
+- Tap-friendly buttons.
+- Readable forms.
+- Optimized image sizes.
+- Simple product browsing.
+- Functional mobile shopping cart.
+- Usable community dashboard.
+- Appropriate spacing around content.
+
+Avoid giant headings that dominate small screens.
+
+Images must retain suitable crop and positioning across breakpoints.
+
+Use mobile-specific composition when necessary.
+
+---
+
+# 18. SEARCH ENGINE OPTIMIZATION
+
+Implement proper technical SEO.
+
+Include:
+
+- Semantic HTML.
+- Unique metadata for each page.
+- Meaningful page titles.
+- Descriptive meta descriptions.
+- Open Graph metadata.
+- Canonical URLs.
+- XML sitemap.
+- robots.txt.
+- Clean readable routes.
+- Optimized image alt text.
+- Correct heading hierarchy.
+- Structured data where appropriate.
+- Blog article metadata.
+- Product structured data where appropriate.
+- Organization information based on confirmed company details.
+
+Ensure public pages can be indexed appropriately.
+
+Private dashboards, admin pages, checkout stages and sensitive account routes must not be exposed to search indexing.
+
+Avoid keyword stuffing and automatically generated filler content.
+
+---
+
+# 19. PERFORMANCE AND ACCESSIBILITY
+
+Target a fast, reliable and inclusive browsing experience.
+
+Performance considerations:
+
+- Optimized responsive images.
+- Modern image formats.
+- Lazy loading below-the-fold images.
+- Minimal unnecessary JavaScript.
+- Efficient font loading.
+- Small bundles.
+- Appropriate server rendering or caching.
+- Efficient database queries.
+- Loading skeletons only where useful.
+
+Accessibility requirements:
+
+- Semantic headings.
+- Keyboard navigability.
+- Visible focus indicators.
+- Accessible navigation menus.
+- Accessible form labels.
+- Meaningful validation errors.
+- Sufficient text contrast.
+- Alt text for meaningful imagery.
+- Appropriate ARIA usage.
+- Reduced-motion support.
+- Screen-reader-friendly controls.
+
+Aim for WCAG 2.2 AA where feasible.
+
+Aim for strong Core Web Vitals and Lighthouse performance, without sacrificing usability or content.
+
+---
+
+# 20. SECURITY AND PRIVACY
+
+Apply appropriate security controls across the platform.
+
+Requirements:
+
+- Validate all submitted data on the server.
+- Sanitize user-provided rich content.
+- Protect authenticated routes.
+- Enforce authorization for every protected data operation.
+- Rate-limit sensitive API endpoints.
+- Protect against common injection and scripting attacks.
+- Secure file uploads.
+- Implement safe error handling.
+- Avoid exposing internal stack traces to users.
+- Handle payment webhooks securely.
+- Protect customer and member personal data.
+- Manage user consent.
+- Support unsubscribe functionality.
+- Apply appropriate privacy and retention settings.
+
+Include privacy, terms, cookie and commerce policy pages as editable legal drafts requiring BTMT's review before launch.
+
+Do not invent legal certifications or claim compliance that has not been verified.
+
+---
+
+# 21. CONTENT MANAGEMENT RULES
+
+All major content must be editable.
+
+Do not hardcode every page as a single massive component.
+
+Create reusable content structures.
+
+Content administrators should be able to edit:
+
+- Homepage text.
+- Hero images.
+- Company information.
+- Services.
+- Service category descriptions.
+- Blog posts.
+- Team members.
+- Portfolio projects.
+- Marketplace products.
+- Community resources.
+- Training announcements.
+- Contact details.
+- Social links.
+
+Content edits must not accidentally change application logic or security settings.
+
+Implement draft and published states wherever relevant.
+
+Preserve the original company's identity and terminology.
+
+Do not silently rewrite mission or vision statements.
+
+---
+
+# 22. CONTENT QUALITY AND WRITING STYLE
+
+Write website content in professional, natural English.
+
+The brand voice should be:
+
+- Confident.
+- Warm.
+- Trustworthy.
+- Professional.
+- Clear.
+- Purposeful.
+- Inspiring without exaggeration.
+
+Avoid generic corporate filler such as:
+
+- "Revolutionizing the digital landscape."
+- "Unlocking limitless possibilities."
+- "Unleashing the power of innovation."
+- "Elevating your journey to unparalleled heights."
+- "Cutting-edge solutions for tomorrow's world" repeated across pages.
+
+Use straightforward, meaningful descriptions.
+
+Avoid repeating the same sentences across multiple pages.
+
+Use the client's supplied service descriptions and official company profile as the source of truth.
+
+Use the newly supplied company slogan prominently.
+
+Distinguish actual company information from proposed website copy.
+
+Do not fabricate:
+
+- Testimonials.
+- Clients.
+- Team members.
+- Portfolio projects.
+- Product listings.
+- Awards.
+- Revenue statistics.
+- Project counts.
+- Customer ratings.
+- Event dates.
+- Training programmes.
+
+If essential data is unavailable, create editable empty states or clearly labeled draft placeholders.
+
+---
+
+# 23. COMPONENT STRUCTURE
+
+Create reusable frontend components such as:
+
+**Layout**
+
+- SiteHeader
+- DesktopNavigation
+- MobileNavigation
+- SiteFooter
+- PageContainer
+- SectionHeader
+- PrimaryButton
+- SecondaryButton
+- Breadcrumbs
+
+**Content**
+
+- HeroSection
+- ServiceCard
+- ServiceCategorySection
+- ServiceDetailLayout
+- BlogCard
+- BlogArticleLayout
+- TeamMemberCard
+- PortfolioPreview
+- ProductCard
+- ProductGallery
+- CommunityResourceCard
+
+**Forms**
+
+- ContactForm
+- ServiceBookingForm
+- NewsletterForm
+- RegistrationForm
+- LoginForm
+- CheckoutForm
+
+**Application**
+
+- Cart
+- CheckoutSummary
+- MemberDashboard
+- AdminDashboard
+- ContentEditor
+- ImageUploader
+- EmptyState
+- ErrorState
+- LoadingState
+
+Do not overengineer trivial components.
+
+Keep component abstractions understandable and maintainable.
+
+---
+
+# 24. DESIGN AND BUILD EXECUTION ORDER
+
+Build the project in a controlled sequence.
+
+## Phase 1 — Foundation and Corporate Website
+
+Implement:
+
+1. Project setup and code structure.
+2. Brand color tokens and typography.
+3. Global header and footer.
+4. Homepage.
+5. About Us.
+6. Services listing.
+7. Service detail template.
+8. Contact page.
+9. Service enquiry form.
+10. Mobile responsiveness.
+
+Ensure this phase looks polished and professional before expanding the platform.
+
+## Phase 2 — Publishing and Content Management
+
+Implement:
+
+1. Blog listing.
+2. Article detail pages.
+3. Content models.
+4. Admin authentication.
+5. Blog management.
+6. Services management.
+7. Media library.
+8. Team and portfolio management.
+
+## Phase 3 — Marketplace
+
+Implement:
+
+1. Product categories.
+2. Seller/brand records.
+3. Product catalogue.
+4. Product details.
+5. Cart.
+6. Checkout.
+7. Payment provider integration.
+8. Order records.
+9. Marketplace administration.
+
+Use test transactions until real merchant credentials are configured.
+
+## Phase 4 — Community
+
+Implement:
+
+1. Community landing page.
+2. Registration and login.
+3. Email verification.
+4. Member dashboard.
+5. Resource library.
+6. Training listings.
+7. Announcements.
+8. Newsletter subscription.
+9. Admin community management.
+
+## Phase 5 — Optimization and Launch Preparation
+
+Implement:
+
+1. SEO audit.
+2. Accessibility audit.
+3. Mobile testing.
+4. Performance optimization.
+5. Security checks.
+6. Error handling.
+7. Form tests.
+8. Checkout tests.
+9. Authentication and authorization tests.
+10. Deployment configuration.
+11. Environment setup documentation.
+12. Production-readiness review.
+
+Do not skip real functionality just to make the frontend appear finished.
+
+---
+
+# 25. REQUIRED DELIVERABLES
+
+The project should produce:
+
+- Complete frontend source code.
+- Backend functionality.
+- Database schema and migrations.
+- Reusable components.
+- Functional public pages.
+- Authentication system.
+- Admin dashboard.
+- Service enquiry system.
+- Blog management.
+- Marketplace and checkout foundation.
+- Community membership and resources platform.
+- Responsive design.
+- SEO configuration.
+- Accessible controls.
+- Deployment configuration.
+- Environment variable example.
+- README documentation.
+- Setup instructions.
+- Integration instructions for email, payments and storage.
+- Clear list of external credentials still required.
+- Tests for core user journeys.
+
+The project must use actual application routes.
+
+Do not implement navigation buttons that simply scroll to unrelated page sections when dedicated pages are required.
+
+Do not use empty click handlers.
+
+Do not fake login, payment completion, form submission or content persistence.
+
+If a feature cannot be fully completed within the current generation environment, implement the appropriate structure, document the limitation accurately, and keep the interface in an honest configuration-required state.
+
+---
+
+# 26. FINAL QUALITY ASSURANCE
+
+Before declaring the website complete, verify the following user journeys:
+
+**Visitor**
+
+A visitor can navigate from the homepage to every public page, explore services, submit an enquiry and receive a genuine success confirmation.
+
+**Blog Reader**
+
+A visitor can open the blog, select an article and read its full content.
+
+**Marketplace Customer**
+
+A customer can browse products, select a real published product, add it to a cart and proceed through a working configured checkout or an explicit sandbox state.
+
+**Community Member**
+
+A visitor can register, verify their account if required, sign in and access appropriately authorized resources.
+
+**Administrator**
+
+An authorized staff member can log in and manage the content permitted by their assigned role.
+
+**Mobile Visitor**
+
+The website remains readable, accessible and functional on narrow mobile screens.
+
+**Security**
+
+Unauthorized users cannot access private member content, admin functions, other users' sensitive records or protected media files.
+
+**Content**
+
+The website uses BTMT's real company identity, official contact details, and approved service descriptions.
+
+### Final instruction
+
+The most important requirement is the visual quality and consistency of the website.
+
+I do not want a generic SaaS template, a futuristic AI landing page, or an experimental design.
+
+I want a simple, clean, beautifully composed, professional corporate website that looks like it was intentionally designed by a skilled human web designer.
+
+The design should prioritize clarity, credible imagery, typography, whitespace, meaningful content and intuitive navigation.
+
+Build a website that helps visitors quickly understand BTMT, trust the company, explore its services and take action.
+
+Preserve the company brand identity while translating it into a modern, accessible, minimal digital experience.
+
+**Begin with the design system, the global layout and the complete homepage. Establish a consistent visual direction before proceeding through the remaining phases. Maintain the same codebase and design system throughout the project.**

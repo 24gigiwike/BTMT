@@ -1,0 +1,8 @@
+{
+  "name": "Blissful Touch Media & Technology",
+  "description": "Building authentic visibility and promoting moral and ethical excellence across technology, media, and entertainment.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
