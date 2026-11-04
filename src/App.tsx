@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { AppProvider, useApp } from './context/AppContext';
 import { SiteHeader } from './components/layout/SiteHeader';
 import { SiteFooter } from './components/layout/SiteFooter';
@@ -17,9 +17,7 @@ import { CheckoutPage } from './components/pages/CheckoutPage';
 import { BlogPage } from './components/pages/BlogPage';
 import { BlogDetailPage } from './components/pages/BlogDetailPage';
 import { CommunityPage } from './components/pages/CommunityPage';
-import { JoinCommunityPage } from './components/pages/JoinCommunityPage';
 import { LoginPage } from './components/pages/LoginPage';
-import { MemberDashboardPage } from './components/pages/MemberDashboardPage';
 import { ContactPage } from './components/pages/ContactPage';
 import { AdminDashboard } from './components/pages/AdminDashboard';
 import {
@@ -29,8 +27,19 @@ import {
   RefundPolicyPage
 } from './components/pages/LegalPages';
 
+/**
+ * Redirects retired community and dashboard routes to /community to prevent broken links
+ */
+const RedirectToCommunity: React.FC = () => {
+  const { navigateTo } = useApp();
+  useEffect(() => {
+    navigateTo('/community');
+  }, [navigateTo]);
+  return null;
+};
+
 const RouterView: React.FC = () => {
-  const { currentRoute, navigateTo } = useApp();
+  const { currentRoute, navigateTo, currentUser } = useApp();
 
   const renderPage = () => {
     switch (currentRoute) {
@@ -58,12 +67,18 @@ const RouterView: React.FC = () => {
         return <BlogDetailPage />;
       case '/community':
         return <CommunityPage />;
+      // Retired Community routes redirect safely to /community
       case '/community/join':
-        return <JoinCommunityPage />;
+      case '/community/resources':
+      case '/community/training':
+        return <RedirectToCommunity />;
       case '/login':
         return <LoginPage />;
       case '/dashboard':
-        return <MemberDashboardPage />;
+        if (currentUser?.role === 'admin') {
+          return <AdminDashboard />;
+        }
+        return <RedirectToCommunity />;
       case '/contact':
         return <ContactPage />;
       case '/admin':

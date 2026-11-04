@@ -86,7 +86,7 @@ export const SiteFooter: React.FC = () => {
                   onClick={() => navigateTo('/community')}
                   className="hover:text-white transition-colors"
                 >
-                  Community & Resources
+                  Community
                 </button>
               </li>
               <li>

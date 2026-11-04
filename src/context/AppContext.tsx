@@ -80,6 +80,10 @@ interface AppContextType {
   saveResource: (resource: CommunityResource) => void;
   deleteResource: (id: string) => void;
 
+  // External Community Configuration
+  communityInviteUrl: string;
+  setCommunityInviteUrl: (url: string) => void;
+
   // Auth & Roles
   currentUser: UserAccount | null;
   loginAsMember: (email?: string, name?: string) => void;
@@ -160,6 +164,17 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     const saved = localStorage.getItem('btmt_current_user');
     return saved ? JSON.parse(saved) : null;
   });
+
+  const [communityInviteUrl, setCommunityInviteUrlState] = useState<string>(() => {
+    const saved = localStorage.getItem('btmt_community_invite_url');
+    if (saved !== null) return saved;
+    return (import.meta.env.VITE_COMMUNITY_INVITE_URL as string) || '';
+  });
+
+  const setCommunityInviteUrl = (url: string) => {
+    setCommunityInviteUrlState(url);
+    localStorage.setItem('btmt_community_invite_url', url);
+  };
 
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'info' | 'error' } | null>(null);
 
@@ -574,6 +589,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         deleteTestimonial,
         saveResource,
         deleteResource,
+        communityInviteUrl,
+        setCommunityInviteUrl,
         currentUser,
         loginAsMember,
         loginAsAdmin,

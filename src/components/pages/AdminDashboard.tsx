@@ -45,8 +45,13 @@ export const AdminDashboard: React.FC = () => {
     resources,
     saveResource,
     deleteResource,
+    communityInviteUrl,
+    setCommunityInviteUrl,
     showToast
   } = useApp();
+
+  const [inviteUrlInput, setInviteUrlInput] = useState(communityInviteUrl);
+  const [inviteUrlError, setInviteUrlError] = useState('');
 
   const [activeModule, setActiveModule] = useState<
     'overview' | 'enquiries' | 'blog' | 'marketplace' | 'partners' | 'testimonials' | 'community' | 'settings'
@@ -157,7 +162,7 @@ export const AdminDashboard: React.FC = () => {
                 { id: 'marketplace', label: `Publications & Books (${products.length})`, icon: ShoppingBag },
                 { id: 'partners', label: `Partner Marquee (${partners.length})`, icon: Briefcase },
                 { id: 'testimonials', label: `Client Testimonials (${testimonials.length})`, icon: MessageSquare },
-                { id: 'community', label: 'Community & Resources', icon: Users },
+                { id: 'community', label: 'Community Invitation Link', icon: Users },
                 { id: 'settings', label: 'Website Settings', icon: Settings }
               ].map((item) => {
                 const Icon = item.icon;
@@ -802,48 +807,115 @@ export const AdminDashboard: React.FC = () => {
               </div>
             )}
 
-            {/* COMMUNITY MODULE */}
+            {/* COMMUNITY INVITATION LINK MODULE */}
             {activeModule === 'community' && (
               <div className="bg-white border border-slate-200 p-6 space-y-6 shadow-xs">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h2 className="text-lg font-bold text-[#051449]">Community Resources & Access Levels</h2>
-                    <p className="text-xs text-slate-500">
-                      Manage educational documents and downloadable templates.
-                    </p>
-                  </div>
+                <div>
+                  <h2 className="text-lg font-bold text-[#051449]">Community Invitation Link</h2>
+                  <p className="text-xs text-slate-500">
+                    Configure the official external community invitation URL (e.g. Telegram channel, group, or community hub).
+                    Visitors clicking &ldquo;Join Our Community&rdquo; on the public site will open this link in a new tab.
+                  </p>
                 </div>
 
-                <div className="space-y-3">
-                  {resources.map((res) => (
-                    <div key={res.id} className="p-4 border border-slate-200 bg-[#F6F8FA] flex items-center justify-between gap-4 text-xs">
-                      <div>
-                        <div className="font-bold text-[#051449]">{res.title}</div>
-                        <div className="text-slate-500">
-                          {res.category} · {res.fileFormat} · Level: <strong className="text-[#12A9DB]">{res.accessLevel}</strong>
-                        </div>
+                <div className="p-4 bg-[#F6F8FA] border border-slate-200 space-y-3">
+                  <div className="text-xs font-semibold text-[#051449] uppercase tracking-wider">
+                    Current Link Status
+                  </div>
+                  {communityInviteUrl ? (
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white p-3 border border-emerald-200 text-xs">
+                      <div className="flex items-center gap-2 overflow-hidden">
+                        <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
+                        <span className="font-mono text-emerald-800 truncate">{communityInviteUrl}</span>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <select
-                          value={res.accessLevel}
-                          onChange={(e) =>
-                            saveResource({ ...res, accessLevel: e.target.value as any })
-                          }
-                          className="px-2 py-1 bg-white border border-slate-300 text-xs font-semibold"
-                        >
-                          <option value="Public">Public</option>
-                          <option value="Registered Members">Registered Members</option>
-                          <option value="Admin Only">Admin Only</option>
-                        </select>
-                        <button
-                          onClick={() => deleteResource(res.id)}
-                          className="p-1 text-slate-400 hover:text-red-600"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </button>
-                      </div>
+                      <a
+                        href={communityInviteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-3 py-1 bg-[#051449] text-white text-[11px] font-semibold whitespace-nowrap hover:bg-[#12A9DB] transition-colors"
+                      >
+                        Test Link ↗
+                      </a>
                     </div>
-                  ))}
+                  ) : (
+                    <div className="p-3 bg-white border border-amber-200 text-xs text-amber-800 flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0" />
+                      <span>No active invitation link configured. The public Community page currently displays an unavailable notice.</span>
+                    </div>
+                  )}
+                </div>
+
+                <div className="space-y-4 pt-2">
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      External Community URL (HTTPS Only)
+                    </label>
+                    <input
+                      type="url"
+                      value={inviteUrlInput}
+                      onChange={(e) => {
+                        setInviteUrlInput(e.target.value);
+                        setInviteUrlError('');
+                      }}
+                      placeholder="https://t.me/your_telegram_group_or_channel"
+                      className="w-full px-3.5 py-2.5 text-xs bg-white border border-slate-300 rounded-none focus:outline-hidden focus:border-[#12A9DB]"
+                    />
+                    <p className="text-[11px] text-slate-500 mt-1">
+                      Must be a valid HTTPS URL (e.g. <code className="text-slate-700">https://t.me/your_invite_link</code>). Unsafe URL schemes are strictly blocked.
+                    </p>
+                    {inviteUrlError && (
+                      <p className="text-xs text-red-600 mt-1 font-medium">{inviteUrlError}</p>
+                    )}
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-3">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const trimmed = inviteUrlInput.trim();
+                        if (!trimmed) {
+                          setInviteUrlError('Please enter an HTTPS link or use "Clear Link" to remove the current URL.');
+                          return;
+                        }
+                        if (!trimmed.startsWith('https://')) {
+                          setInviteUrlError('URL must use the secure https:// scheme.');
+                          return;
+                        }
+                        try {
+                          const parsed = new URL(trimmed);
+                          if (parsed.protocol !== 'https:') {
+                            setInviteUrlError('URL must use https:// protocol.');
+                            return;
+                          }
+                        } catch {
+                          setInviteUrlError('Please enter a valid, well-formed URL.');
+                          return;
+                        }
+
+                        setCommunityInviteUrl(trimmed);
+                        setInviteUrlError('');
+                        showToast('Community invitation link updated successfully.', 'success');
+                      }}
+                      className="px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-white bg-[#051449] hover:bg-[#E32938] transition-colors"
+                    >
+                      Save Invitation Link
+                    </button>
+
+                    {communityInviteUrl && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setCommunityInviteUrl('');
+                          setInviteUrlInput('');
+                          setInviteUrlError('');
+                          showToast('Community invitation link cleared.', 'info');
+                        }}
+                        className="px-4 py-2.5 text-xs font-semibold text-slate-600 hover:text-red-600 border border-slate-300 hover:border-red-300 transition-colors"
+                      >
+                        Clear Link
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
             )}

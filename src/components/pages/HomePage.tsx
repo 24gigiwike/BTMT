@@ -672,54 +672,36 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* =========================================================================
-          SECTION 9 — COMMUNITY (Distinctive Human-Focused Section)
+          SECTION 9 — COMMUNITY (Editorial Invitation Section)
           ========================================================================= */}
       <section className="py-20 lg:py-28 bg-[#F8FAFC] border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Left: One Large Photograph Showing Professional Learning / Gathering */}
+            {/* Left: Professional Collaborative Photograph */}
             <div className="lg:col-span-7">
               <div className="aspect-16/10 bg-slate-900 overflow-hidden border border-slate-200 shadow-sm">
                 <img
                   src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1400&q=80"
-                  alt="BTMT Community Learning and Workshop Gathering"
+                  alt="BTMT Community Collaboration"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="p-3 bg-white border border-t-0 border-slate-200 flex items-center justify-between text-xs text-slate-500 font-mono">
-                <span>Collaborative Learning & Network</span>
-                <span>Active Member Hub</span>
+                <span>Professional Network & Collaboration</span>
+                <span>BTMT Network</span>
               </div>
             </div>
 
             {/* Right: Editorial Narrative & Action */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="text-xs font-bold uppercase tracking-widest text-[#12A9DB]">
-                BTMT Community
-              </div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#051449] tracking-tight leading-tight">
-                Grow With a Community Built for Progress
+                Be Part of the BTMT Community
               </h2>
               <p className="text-base sm:text-lg text-slate-700 leading-relaxed font-normal">
-                Join a community dedicated to meaningful learning, valuable resources, brand
-                development and access to opportunities that support personal and business growth.
+                Join a network of people interested in creativity, technology, business growth and meaningful opportunities. Connect, learn and stay informed through our community.
               </p>
-              <div className="space-y-3 pt-2 text-sm text-slate-600">
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-[#12A9DB] shrink-0" />
-                  <span>Free access to verified business templates and strategy guides</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-[#12A9DB] shrink-0" />
-                  <span>Priority invitations to quarterly masterclasses and tech webinars</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <CheckCircle2 className="w-4 h-4 text-[#12A9DB] shrink-0" />
-                  <span>Peer collaboration and industry updates across Nigeria</span>
-                </div>
-              </div>
-              <div className="pt-4">
+              <div className="pt-2">
                 <button
                   onClick={() => navigateTo('/community')}
                   className="px-8 py-4 text-xs font-bold uppercase tracking-wider text-white bg-[#051449] hover:bg-[#E32938] transition-colors duration-300"

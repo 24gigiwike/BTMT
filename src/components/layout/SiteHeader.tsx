@@ -4,7 +4,7 @@ import { Logo } from '../ui/Logo';
 import { ShoppingBag, Menu, X, User, ShieldCheck } from 'lucide-react';
 
 export const SiteHeader: React.FC = () => {
-  const { currentRoute, navigateTo, cartCount, currentUser, logout, loginAsAdmin, loginAsMember } = useApp();
+  const { currentRoute, navigateTo, cartCount, currentUser, logout, loginAsAdmin } = useApp();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [authDropdownOpen, setAuthDropdownOpen] = useState(false);
 
@@ -120,11 +120,11 @@ export const SiteHeader: React.FC = () => {
                         <div className="font-semibold text-slate-900 truncate">{currentUser.fullName}</div>
                         <div className="text-slate-500 truncate">{currentUser.email}</div>
                         <div className="mt-1 text-[11px] font-medium text-[#12A9DB] uppercase tracking-wider">
-                          {currentUser.role === 'admin' ? currentUser.adminRole : 'Community Member'}
+                          {currentUser.role === 'admin' ? currentUser.adminRole : 'Authorized User'}
                         </div>
                       </div>
 
-                      {currentUser.role === 'admin' ? (
+                      {currentUser.role === 'admin' && (
                         <button
                           onClick={() => {
                             navigateTo('/admin');
@@ -134,16 +134,6 @@ export const SiteHeader: React.FC = () => {
                         >
                           <span>Admin Control Panel</span>
                           <span className="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded">CMS</span>
-                        </button>
-                      ) : (
-                        <button
-                          onClick={() => {
-                            navigateTo('/dashboard');
-                            setAuthDropdownOpen(false);
-                          }}
-                          className="w-full text-left px-4 py-2 hover:bg-slate-50 font-medium text-slate-800"
-                        >
-                          Member Dashboard
                         </button>
                       )}
 
@@ -161,8 +151,8 @@ export const SiteHeader: React.FC = () => {
                     </>
                   ) : (
                     <>
-                      <div className="px-4 py-2 text-slate-500 border-b border-slate-100">
-                        Welcome to BTMT
+                      <div className="px-4 py-2 text-slate-500 border-b border-slate-100 font-medium">
+                        Staff Administration
                       </div>
                       <button
                         onClick={() => {
@@ -171,19 +161,10 @@ export const SiteHeader: React.FC = () => {
                         }}
                         className="w-full text-left px-4 py-2 hover:bg-slate-50 font-medium text-slate-800"
                       >
-                        Member / Staff Login
-                      </button>
-                      <button
-                        onClick={() => {
-                          navigateTo('/community/join');
-                          setAuthDropdownOpen(false);
-                        }}
-                        className="w-full text-left px-4 py-2 hover:bg-slate-50 font-medium text-slate-800"
-                      >
-                        Join BTMT Community
+                        Staff Sign In
                       </button>
                       <div className="border-t border-slate-100 mt-1 pt-1">
-                        <div className="px-4 py-1 text-[11px] text-slate-400 font-semibold uppercase">Demo Instant Sign-In</div>
+                        <div className="px-4 py-1 text-[11px] text-slate-400 font-semibold uppercase">Instant Demo Access</div>
                         <button
                           onClick={() => {
                             loginAsAdmin('Super Admin');
@@ -191,16 +172,7 @@ export const SiteHeader: React.FC = () => {
                           }}
                           className="w-full text-left px-4 py-1.5 hover:bg-blue-50 text-blue-800 font-medium text-[11px]"
                         >
-                          Demo Staff Admin Login
-                        </button>
-                        <button
-                          onClick={() => {
-                            loginAsMember();
-                            setAuthDropdownOpen(false);
-                          }}
-                          className="w-full text-left px-4 py-1.5 hover:bg-slate-50 text-slate-700 font-medium text-[11px]"
-                        >
-                          Demo Registered Member Login
+                          Staff Admin Demo Login
                         </button>
                       </div>
                     </>
@@ -261,12 +233,6 @@ export const SiteHeader: React.FC = () => {
                   className="font-medium text-slate-600 hover:text-[#051449] uppercase tracking-wider text-[11px]"
                 >
                   Admin Portal
-                </button>
-                <button
-                  onClick={() => navigateTo('/community/join')}
-                  className="font-medium text-[#12A9DB] hover:underline uppercase tracking-wider text-[11px]"
-                >
-                  Join Community
                 </button>
               </div>
             </div>
