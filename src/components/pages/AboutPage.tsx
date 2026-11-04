@@ -13,9 +13,6 @@ export const AboutPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-slate-200 text-xs font-semibold text-[#12A9DB] uppercase tracking-wider">
-                <span>Corporate Profile · CAC Registered (2022)</span>
-              </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-[#051449] tracking-tight leading-tight">
                 About Blissful Touch Media & Technology
               </h1>
@@ -28,33 +25,21 @@ export const AboutPage: React.FC = () => {
                 Through premium media, technology, and entertainment products and services, the company
                 creates meaningful opportunities for learning, connection, productivity, and sustainable growth.
               </p>
-
-              <div className="pt-2 flex flex-wrap gap-4 text-xs font-semibold text-[#051449]">
-                <div className="px-4 py-2 bg-white border border-slate-200 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                  <span>Founded 2017 · CAC Registered 2022</span>
-                </div>
-                <div className="px-4 py-2 bg-white border border-slate-200 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-[#12A9DB]" />
-                  <span>Technology · Media · Entertainment</span>
-                </div>
-              </div>
             </div>
 
             <div className="lg:col-span-5 relative">
               <div className="border border-slate-200 overflow-hidden shadow-sm bg-slate-900 group">
                 <div className="aspect-4/3 relative">
                   <img
-                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80"
-                    alt="BTMT collaborative workspace"
+                    src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&w=1200&q=80"
+                    alt="African creative and technology professionals collaborating at BTMT"
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#051449]/80 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#051449]/70 via-transparent to-transparent pointer-events-none" />
                   <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <div className="text-xs text-[#CDEEF8] font-semibold uppercase tracking-wider">Corporate Ethos</div>
-                    <div className="text-sm font-bold text-white leading-snug">
-                      "Building Authentic Visibility & Promoting Moral and Ethical Excellence"
+                    <div className="text-sm font-medium text-white leading-snug">
+                      Building Authentic Visibility & Promoting Moral and Ethical Excellence
                     </div>
                   </div>
                 </div>
@@ -69,43 +54,35 @@ export const AboutPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div className="lg:col-span-6 space-y-6">
-              <div className="text-xs font-semibold uppercase tracking-wider text-[#12A9DB]">
-                Corporate History
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-light text-[#051449] tracking-tight">Our Story & Founding Vision</h2>
+              <h2 className="text-3xl sm:text-4xl font-light text-[#051449] tracking-tight">
+                Our Story & Founding Vision
+              </h2>
               <p className="text-sm sm:text-base text-slate-700 leading-relaxed">
-                Blissful Touch Media & Technology was founded by Michael C. George in 2017 with a
-                clear mandate: to bridge the gap between creative visual media and rigorous technological
-                execution, while upholding high ethical standards in an evolving digital economy.
-              </p>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Blissful Touch Media & Technology was registered with the Corporate Affairs Commission (CAC)
-                in 2022. The organization delivers robust digital platforms, brand assets, commercial print systems,
-                and media production services across Nigeria and internationally.
+                Founded in 2017 by Michael C. George, Blissful Touch Media & Technology was registered with the Corporate Affairs Commission (CAC) in 2022. The company provides professional technology, media and entertainment solutions that help businesses and organizations strengthen their visibility, improve productivity and pursue sustainable growth.
               </p>
 
               {/* Photographic Accent */}
               <div className="pt-4 border border-slate-200 overflow-hidden shadow-xs">
                 <div className="aspect-16/9 relative bg-slate-900">
                   <img
-                    src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1000&q=80"
-                    alt="Technology planning and media execution"
+                    src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80"
+                    alt="African technology engineers and creative media professionals collaborating"
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <div className="p-3 bg-[#F6F8FA] border-t border-slate-200 text-[11px] text-slate-600 flex items-center justify-between">
-                  <span className="font-medium text-[#051449]">Corporate Systems Engineering</span>
-                  <span className="font-mono text-slate-400">BTMT Studio Desk</span>
+                <div className="p-3 bg-[#F6F8FA] border-t border-slate-200 text-xs text-slate-600 flex items-center justify-between">
+                  <span className="font-medium text-[#051449]">Collaborative Systems & Media Production</span>
+                  <span className="font-mono text-slate-400">BTMT Workspace</span>
                 </div>
               </div>
             </div>
 
             {/* Verified Timeline Column */}
             <div className="lg:col-span-6 lg:pl-6 space-y-6">
-              <div className="text-xs font-semibold uppercase tracking-wider text-[#051449]">
+              <h3 className="text-2xl font-light text-[#051449] tracking-tight">
                 Milestones & Evolution
-              </div>
+              </h3>
               <div className="relative border-l-2 border-slate-200 ml-4 pl-6 space-y-8 py-2">
                 {COMPANY_INFO.registrations.map((item) => (
                   <div key={item.year} className="relative">
@@ -119,11 +96,6 @@ export const AboutPage: React.FC = () => {
                   </div>
                 ))}
               </div>
-
-              <div className="p-6 bg-[#F6F8FA] border border-slate-200 text-xs text-slate-600 leading-relaxed">
-                <strong>Corporate Operations:</strong> Delivering technological, media, and creative solutions
-                with a commitment to integrity, punctuality, and lasting value.
-              </div>
             </div>
           </div>
         </div>
@@ -135,9 +107,9 @@ export const AboutPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Vision */}
             <div className="p-8 bg-white border border-slate-200 space-y-4 shadow-xs">
-              <div className="text-xs font-semibold uppercase tracking-wider text-[#12A9DB]">
+              <h3 className="text-lg font-semibold text-[#051449]">
                 Our Vision
-              </div>
+              </h3>
               <blockquote className="text-lg font-light text-[#051449] leading-relaxed">
                 "{COMPANY_INFO.vision}"
               </blockquote>
@@ -148,9 +120,9 @@ export const AboutPage: React.FC = () => {
 
             {/* Mission */}
             <div className="p-8 bg-white border border-slate-200 space-y-4 shadow-xs">
-              <div className="text-xs font-semibold uppercase tracking-wider text-[#12A9DB]">
+              <h3 className="text-lg font-semibold text-[#051449]">
                 Our Mission
-              </div>
+              </h3>
               <blockquote className="text-lg font-light text-[#051449] leading-relaxed">
                 "{COMPANY_INFO.mission}"
               </blockquote>
@@ -166,9 +138,6 @@ export const AboutPage: React.FC = () => {
       <section className="py-20 lg:py-24 bg-white border-b border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-3 mb-12">
-            <div className="text-xs font-semibold uppercase tracking-wider text-[#12A9DB]">
-              Strategic Goals
-            </div>
             <h2 className="text-3xl sm:text-4xl font-light text-[#051449] tracking-tight">Five Key Objectives</h2>
             <p className="text-sm sm:text-base text-slate-600">
               The primary targets driving BTMT's operational divisions and community initiatives.
@@ -197,9 +166,6 @@ export const AboutPage: React.FC = () => {
       <section className="py-20 lg:py-24 bg-[#F6F8FA] border-b border-slate-200">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-3 mb-12">
-            <div className="text-xs font-semibold uppercase tracking-wider text-[#12A9DB]">
-              Organizational Values
-            </div>
             <h2 className="text-3xl sm:text-4xl font-light text-[#051449] tracking-tight">Our Culture</h2>
             <p className="text-sm sm:text-base text-slate-600">
               The core principles that shape our workplace conduct, client relationships, and creative work.
@@ -224,9 +190,6 @@ export const AboutPage: React.FC = () => {
       <section className="py-20 lg:py-24 bg-white border-b border-slate-200">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-3 mb-12">
-            <div className="text-xs font-semibold uppercase tracking-wider text-[#12A9DB]">
-              Proven Delivery
-            </div>
             <h2 className="text-3xl sm:text-4xl font-light text-[#051449] tracking-tight">Why Choose BTMT</h2>
             <p className="text-sm sm:text-base text-slate-600">
               Six core commitments upheld across all technology, media, and production deliverables.
@@ -253,9 +216,6 @@ export const AboutPage: React.FC = () => {
       <section className="py-20 lg:py-24 bg-[#F6F8FA] border-b border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-3 mb-12">
-            <div className="text-xs font-semibold uppercase tracking-wider text-[#12A9DB]">
-              Corporate Leadership
-            </div>
             <h2 className="text-3xl sm:text-4xl font-light text-[#051449] tracking-tight">Company Leadership</h2>
             <p className="text-sm text-slate-600">
               Guided by purpose, long-term vision, and ethical stewardship.
@@ -282,8 +242,8 @@ export const AboutPage: React.FC = () => {
               <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
                 Founded BTMT in 2017 with the vision of establishing an authentic, morally grounded
                 system for brand visibility, enterprise technology, and educational entertainment.
-                Under his leadership, the organization was registered with the Corporate Affairs Commission (CAC)
-                in 2022, expanding its operations to deliver cutting-edge technology and media solutions.
+                Under his leadership, the organization has expanded its operations to deliver cutting-edge technology,
+                media and entertainment solutions across Nigeria and internationally.
               </p>
               <div className="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2 text-[11px] text-slate-500 font-mono">
                 <span>Executive Director</span>
