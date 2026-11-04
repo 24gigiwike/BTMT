@@ -2,9 +2,11 @@ import React from 'react';
 import { useApp } from '../../context/AppContext';
 import { COMPANY_INFO, INITIAL_PORTFOLIO } from '../../data/initialData';
 import { ArrowRight, ArrowUpRight, CheckCircle2, Clock } from 'lucide-react';
+import { PartnerMarquee } from '../ui/PartnerMarquee';
+import { TestimonialSection } from '../ui/TestimonialSection';
 
 export const HomePage: React.FC = () => {
-  const { services, products, blogPosts, navigateTo } = useApp();
+  const { services, products, partners, testimonials, blogPosts, navigateTo } = useApp();
 
   // Selected 6 featured services for Section 4
   const featuredServiceSlugs = [
@@ -99,11 +101,16 @@ export const HomePage: React.FC = () => {
               Technology · Media · Entertainment
             </div>
             <div className="text-sm sm:text-base font-bold text-white tracking-wide mt-1">
-              Owerri, Imo State · Nationwide Delivery
+              Pan-African Reach · Nationwide Delivery
             </div>
           </div>
         </div>
       </section>
+
+      {/* =========================================================================
+          PARTNER & COLLABORATIONS TICKER (Seamless Marquee Preview)
+          ========================================================================= */}
+      <PartnerMarquee partners={partners} />
 
       {/* =========================================================================
           SECTION 2 — WHO WE ARE (White Editorial Introduction)
@@ -503,7 +510,7 @@ export const HomePage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             {/* Left: Large Relevant Professional Photograph */}
-            <div className="lg:col-span-5 sticky top-28">
+            <div className="lg:col-span-5">
               <div className="aspect-3/4 bg-slate-900 overflow-hidden border border-slate-200">
                 <img
                   src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80"
@@ -586,66 +593,76 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* =========================================================================
-          SECTION 8 — MARKETPLACE PREVIEW (Retail Editorial Feature)
+          WHAT OUR CLIENTS SAY (Rialto Editorial Testimonial Showcase)
+          ========================================================================= */}
+      <TestimonialSection testimonials={testimonials} />
+
+      {/* =========================================================================
+          SECTION 8 — PUBLICATIONS & MARKETPLACE PREVIEW (Books Showcase)
           ========================================================================= */}
       <section className="py-20 lg:py-28 bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14 pb-8 border-b border-slate-200">
             <div>
               <div className="text-xs font-bold uppercase tracking-widest text-[#12A9DB]">
-                Curated Commerce
+                Curated Publications
               </div>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#051449] tracking-tight mt-2">
-                Discover Products From Growing Brands
+                Published Books & Literary Works
               </h2>
             </div>
             <button
               onClick={() => navigateTo('/marketplace')}
               className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#051449] hover:text-[#E32938] transition-colors"
             >
-              <span>Explore Marketplace</span>
+              <span>Explore All Publications</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>
 
-          {/* Clean Retail Editorial Product Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {publishedProducts.map((product) => (
+          {/* Clean 3-Column Editorial Grid for the 3 Books */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {products.slice(0, 3).map((product) => (
               <div
                 key={product.id}
                 onClick={() => navigateTo('/marketplace/:slug', { slug: product.slug })}
-                className="group cursor-pointer flex flex-col justify-between"
+                className="group cursor-pointer flex flex-col justify-between border border-slate-200 bg-[#FBFBFC] hover:border-[#12A9DB] transition-all p-5"
               >
                 <div>
-                  <div className="aspect-square bg-slate-100 overflow-hidden border border-slate-200 relative mb-4">
+                  <div className="aspect-[3/4] bg-slate-100 overflow-hidden border border-slate-200 relative mb-4">
                     <img
                       src={
                         product.imageUrl ||
-                        'https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?auto=format&fit=crop&w=600&q=80'
+                        'https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=800&q=80'
                       }
                       alt={product.name}
                       referrerPolicy="no-referrer"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
-                    <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider bg-white text-[#051449] px-2 py-0.5">
+                    <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider bg-[#051449] text-white px-2.5 py-1">
                       {product.category}
                     </span>
                   </div>
-                  <div className="space-y-1">
+                  <div className="space-y-1.5">
                     <div className="text-[11px] font-mono text-slate-500 uppercase tracking-wider">
-                      {product.brand}
+                      Author: {product.author || product.brand}
                     </div>
-                    <h3 className="text-base font-bold text-[#051449] group-hover:text-[#12A9DB] transition-colors line-clamp-1">
+                    <h3 className="text-lg font-bold text-[#051449] group-hover:text-[#12A9DB] transition-colors line-clamp-2">
                       {product.name}
                     </h3>
+                    <p className="text-xs text-slate-600 line-clamp-2 mt-1">
+                      {product.description}
+                    </p>
                   </div>
                 </div>
-                <div className="pt-3 mt-3 border-t border-slate-100 flex items-center justify-between text-sm">
-                  <span className="font-bold text-[#051449] font-mono">
-                    ₦{product.price.toLocaleString()}
+
+                <div className="pt-4 mt-4 border-t border-slate-200 flex items-center justify-between text-xs">
+                  <span className="inline-flex items-center gap-1.5 font-medium text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-1 text-[10px] uppercase tracking-wider">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                    {product.statusText || 'Preview / Not Available for Purchase'}
                   </span>
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#12A9DB] group-hover:underline">
-                    View →
+                  <span className="font-bold uppercase tracking-wider text-[#051449] group-hover:text-[#12A9DB] inline-flex items-center gap-1">
+                    Details →
                   </span>
                 </div>
               </div>

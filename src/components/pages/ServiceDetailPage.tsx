@@ -83,7 +83,7 @@ export const ServiceDetailPage: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#051449]/70 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 text-white text-xs font-semibold">
-                  BTMT Verified Production Standard · Owerri Hub
+                  BTMT Verified Production Standard · Nationwide Delivery
                 </div>
               </div>
             </div>

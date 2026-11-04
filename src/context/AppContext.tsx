@@ -2,6 +2,8 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 import {
   ServiceItem,
   ProductItem,
+  PartnerCompany,
+  TestimonialItem,
   CartItem,
   Order,
   BlogPost,
@@ -15,6 +17,8 @@ import {
 import {
   INITIAL_SERVICES,
   INITIAL_PRODUCTS,
+  INITIAL_PARTNERS,
+  INITIAL_TESTIMONIALS,
   INITIAL_BLOG_POSTS,
   INITIAL_RESOURCES,
   INITIAL_TRAINING,
@@ -28,6 +32,8 @@ interface AppContextType {
 
   services: ServiceItem[];
   products: ProductItem[];
+  partners: PartnerCompany[];
+  testimonials: TestimonialItem[];
   blogPosts: BlogPost[];
   resources: CommunityResource[];
   trainings: TrainingSession[];
@@ -67,6 +73,10 @@ interface AppContextType {
   deleteBlogPost: (id: string) => void;
   saveProduct: (product: ProductItem) => void;
   deleteProduct: (id: string) => void;
+  savePartner: (partner: PartnerCompany) => void;
+  deletePartner: (id: string) => void;
+  saveTestimonial: (testimonial: TestimonialItem) => void;
+  deleteTestimonial: (id: string) => void;
   saveResource: (resource: CommunityResource) => void;
   deleteResource: (id: string) => void;
 
@@ -90,15 +100,25 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   const [routeParams, setRouteParams] = useState<Record<string, string>>({});
   const [selectedServiceForBooking, setSelectedServiceForBooking] = useState<string | null>(null);
 
-  // Data persistence states
+  // Data persistence states with versioning
   const [services, setServices] = useState<ServiceItem[]>(() => {
-    const saved = localStorage.getItem('btmt_services');
+    const saved = localStorage.getItem('btmt_services_v3');
     return saved ? JSON.parse(saved) : INITIAL_SERVICES;
   });
 
   const [products, setProducts] = useState<ProductItem[]>(() => {
-    const saved = localStorage.getItem('btmt_products');
+    const saved = localStorage.getItem('btmt_products_v3');
     return saved ? JSON.parse(saved) : INITIAL_PRODUCTS;
+  });
+
+  const [partners, setPartners] = useState<PartnerCompany[]>(() => {
+    const saved = localStorage.getItem('btmt_partners');
+    return saved ? JSON.parse(saved) : INITIAL_PARTNERS;
+  });
+
+  const [testimonials, setTestimonials] = useState<TestimonialItem[]>(() => {
+    const saved = localStorage.getItem('btmt_testimonials');
+    return saved ? JSON.parse(saved) : INITIAL_TESTIMONIALS;
   });
 
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>(() => {
@@ -145,12 +165,20 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   // Sync state to LocalStorage
   useEffect(() => {
-    localStorage.setItem('btmt_services', JSON.stringify(services));
+    localStorage.setItem('btmt_services_v3', JSON.stringify(services));
   }, [services]);
 
   useEffect(() => {
-    localStorage.setItem('btmt_products', JSON.stringify(products));
+    localStorage.setItem('btmt_products_v3', JSON.stringify(products));
   }, [products]);
+
+  useEffect(() => {
+    localStorage.setItem('btmt_partners', JSON.stringify(partners));
+  }, [partners]);
+
+  useEffect(() => {
+    localStorage.setItem('btmt_testimonials', JSON.stringify(testimonials));
+  }, [testimonials]);
 
   useEffect(() => {
     localStorage.setItem('btmt_blog_posts', JSON.stringify(blogPosts));
@@ -252,6 +280,11 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   // Cart logic
   const addToCart = (product: ProductItem, quantity = 1) => {
+    if (product.isPurchasable === false) {
+      showToast('This book is currently in preview and not available for purchase.', 'info');
+      return;
+    }
+
     setCart((prev) => {
       const existing = prev.find((item) => item.product.id === product.id);
       if (existing) {
@@ -395,6 +428,42 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     showToast('Product removed from marketplace.', 'info');
   };
 
+  const savePartner = (partner: PartnerCompany) => {
+    setPartners((prev) => {
+      const idx = prev.findIndex((p) => p.id === partner.id);
+      if (idx >= 0) {
+        const updated = [...prev];
+        updated[idx] = partner;
+        return updated;
+      }
+      return [partner, ...prev];
+    });
+    showToast(`Partner "${partner.name}" saved.`, 'success');
+  };
+
+  const deletePartner = (id: string) => {
+    setPartners((prev) => prev.filter((p) => p.id !== id));
+    showToast('Partner removed.', 'info');
+  };
+
+  const saveTestimonial = (testimonial: TestimonialItem) => {
+    setTestimonials((prev) => {
+      const idx = prev.findIndex((t) => t.id === testimonial.id);
+      if (idx >= 0) {
+        const updated = [...prev];
+        updated[idx] = testimonial;
+        return updated;
+      }
+      return [testimonial, ...prev];
+    });
+    showToast(`Testimonial from "${testimonial.clientName}" saved.`, 'success');
+  };
+
+  const deleteTestimonial = (id: string) => {
+    setTestimonials((prev) => prev.filter((t) => t.id !== id));
+    showToast('Testimonial removed.', 'info');
+  };
+
   const saveResource = (resource: CommunityResource) => {
     setResources((prev) => {
       const idx = prev.findIndex((r) => r.id === resource.id);
@@ -473,6 +542,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         navigateTo,
         services,
         products,
+        partners,
+        testimonials,
         blogPosts,
         resources,
         trainings,
@@ -497,6 +568,10 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         deleteBlogPost,
         saveProduct,
         deleteProduct,
+        savePartner,
+        deletePartner,
+        saveTestimonial,
+        deleteTestimonial,
         saveResource,
         deleteResource,
         currentUser,

@@ -39,48 +39,50 @@ export const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="w-full bg-white">
-      {/* HEADER SECTION */}
-      <section className="py-16 lg:py-20 bg-[#F6F8FA] border-b border-slate-200/60">
+    <div className="w-full bg-white text-[#242A35]">
+      {/* HEADER SECTION (Rialto Editorial Light Format) */}
+      <section className="py-16 lg:py-24 bg-[#F6F8FA] border-b border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <div className="text-xs font-semibold uppercase tracking-wider text-[#12A9DB]">
+          <div className="text-xs font-bold uppercase tracking-widest text-[#12A9DB]">
             Reach Out Directly
           </div>
-          <h1 className="text-4xl sm:text-5xl font-bold text-[#051449]">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-[#051449] tracking-tight">
             Let's Start a Conversation
           </h1>
-          <p className="text-base sm:text-lg text-slate-700 leading-relaxed max-w-2xl mx-auto">
-            Have a question, project idea or business enquiry? Reach out to Blissful Touch Media &
-            Technology. We would love to hear from you.
+          <p className="text-base sm:text-lg text-slate-700 leading-relaxed max-w-2xl mx-auto font-normal">
+            Have a question, project idea, or business enquiry? Reach out to Blissful Touch Media &
+            Technology. We welcome your correspondence.
           </p>
         </div>
       </section>
 
       {/* CONTACT DETAILS & FORM */}
-      <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <section className="py-20 lg:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Left Column: Official Contact Information */}
           <div className="lg:col-span-5 space-y-8">
             <div>
-              <div className="text-xs font-semibold uppercase tracking-wider text-[#12A9DB]">
-                Head Office
+              <div className="text-xs font-bold uppercase tracking-widest text-[#12A9DB]">
+                Our Location
               </div>
-              <h2 className="text-2xl font-bold text-[#051449] mt-1">
-                Owerri Corporate Office
+              <h2 className="text-2xl sm:text-3xl font-light text-[#051449] tracking-tight mt-1">
+                Office & Communications
               </h2>
-              <p className="text-xs text-slate-600 mt-2 leading-relaxed">
-                Our main offices are located in Owerri, Imo State, serving corporate, creative,
-                and educational clients across Nigeria.
+              <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed">
+                Connect with our team for consultations, technical support, project onboarding, and general enquiries.
               </p>
             </div>
 
             <div className="space-y-4 text-xs text-slate-700">
+              {/* Strictly labeled as Office Address */}
               <div className="p-5 bg-white border border-slate-200 flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-[#12A9DB] shrink-0 mt-0.5" />
                 <div>
-                  <div className="font-bold text-[#051449] uppercase tracking-wider text-[11px]">Physical Address</div>
-                  <div className="mt-1 leading-relaxed text-slate-600">
-                    {COMPANY_INFO.address}
+                  <div className="font-bold text-[#051449] uppercase tracking-wider text-xs">
+                    Office Address
+                  </div>
+                  <div className="mt-1 leading-relaxed text-sm text-slate-800">
+                    17 Ajoku Street, By UBA, Wetheral Road, Owerri, Imo State, Nigeria.
                   </div>
                 </div>
               </div>
@@ -88,10 +90,10 @@ export const ContactPage: React.FC = () => {
               <div className="p-5 bg-white border border-slate-200 flex items-start gap-3">
                 <Phone className="w-5 h-5 text-[#12A9DB] shrink-0 mt-0.5" />
                 <div>
-                  <div className="font-bold text-[#051449] uppercase tracking-wider text-[11px]">Direct Line</div>
+                  <div className="font-bold text-[#051449] uppercase tracking-wider text-xs">Direct Line</div>
                   <a
                     href={`tel:${COMPANY_INFO.phoneRaw}`}
-                    className="mt-1 block font-semibold text-slate-800 hover:text-[#12A9DB] transition-colors"
+                    className="mt-1 block font-semibold text-slate-800 hover:text-[#12A9DB] transition-colors text-sm"
                   >
                     {COMPANY_INFO.phone}
                   </a>
@@ -101,23 +103,23 @@ export const ContactPage: React.FC = () => {
               <div className="p-5 bg-white border border-slate-200 flex items-start gap-3">
                 <Mail className="w-5 h-5 text-[#12A9DB] shrink-0 mt-0.5" />
                 <div>
-                  <div className="font-bold text-[#051449] uppercase tracking-wider text-[11px]">Official Email</div>
+                  <div className="font-bold text-[#051449] uppercase tracking-wider text-xs">Official Email</div>
                   <a
                     href={`mailto:${COMPANY_INFO.email}`}
-                    className="mt-1 block font-semibold text-slate-800 hover:text-[#12A9DB] transition-colors"
+                    className="mt-1 block font-semibold text-slate-800 hover:text-[#12A9DB] transition-colors text-sm"
                   >
                     {COMPANY_INFO.email}
                   </a>
                 </div>
               </div>
 
-              {/* Quick WhatsApp Action Button */}
+              {/* Instant WhatsApp Action Button */}
               <div className="p-5 bg-[#F8FAFC] border border-slate-200 flex items-center justify-between">
                 <div className="flex items-center gap-2.5">
                   <MessageCircle className="w-5 h-5 text-emerald-600" />
                   <div>
                     <div className="font-bold text-slate-900">Instant WhatsApp Chat</div>
-                    <div className="text-[11px] text-slate-500">Connect with customer support</div>
+                    <div className="text-[11px] text-slate-500">Connect directly with customer support</div>
                   </div>
                 </div>
                 <a
@@ -176,8 +178,8 @@ export const ContactPage: React.FC = () => {
 
           {/* Right Column: Contact Message Form */}
           <div className="lg:col-span-7">
-            <div className="bg-white p-8 sm:p-10 rounded-2xl border border-slate-200 shadow-xs">
-              <h3 className="text-xl font-bold text-[#051449] mb-2">
+            <div className="bg-white p-8 sm:p-10 border border-slate-200 shadow-xs">
+              <h3 className="text-2xl font-bold text-[#051449] mb-2">
                 Send Us a Message
               </h3>
               <p className="text-xs text-slate-600 mb-6">
@@ -185,7 +187,7 @@ export const ContactPage: React.FC = () => {
               </p>
 
               {submitted ? (
-                <div className="p-8 text-center space-y-4 bg-emerald-50 border border-emerald-200 rounded-xl">
+                <div className="p-8 text-center space-y-4 bg-emerald-50 border border-emerald-200">
                   <CheckCircle2 className="w-10 h-10 text-emerald-600 mx-auto" />
                   <h4 className="text-lg font-bold text-emerald-900">
                     Message Sent Successfully
@@ -200,7 +202,7 @@ export const ContactPage: React.FC = () => {
                       setSubject('');
                       setMessage('');
                     }}
-                    className="mt-2 px-4 py-2 text-xs font-semibold text-emerald-900 bg-white border border-emerald-300 rounded-lg"
+                    className="mt-2 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-emerald-900 bg-white border border-emerald-300"
                   >
                     Send Another Note
                   </button>
@@ -208,14 +210,14 @@ export const ContactPage: React.FC = () => {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   {errorMessage && (
-                    <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-xs font-medium text-red-700">
+                    <div className="p-3 bg-red-50 border border-red-200 text-xs font-medium text-red-700">
                       {errorMessage}
                     </div>
                   )}
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
                         Full Name <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -224,12 +226,12 @@ export const ContactPage: React.FC = () => {
                         value={fullName}
                         onChange={(e) => setFullName(e.target.value)}
                         placeholder="e.g. Michael George"
-                        className="w-full px-3.5 py-2.5 text-xs bg-white border border-slate-300 rounded-lg focus:outline-hidden focus:border-[#12A9DB] focus:ring-1 focus:ring-[#12A9DB]"
+                        className="w-full px-3.5 py-3 text-xs bg-white border border-slate-300 focus:outline-hidden focus:border-[#051449] focus:ring-1 focus:ring-[#051449]"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
                         Email Address <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -238,27 +240,27 @@ export const ContactPage: React.FC = () => {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         placeholder="name@email.com"
-                        className="w-full px-3.5 py-2.5 text-xs bg-white border border-slate-300 rounded-lg focus:outline-hidden focus:border-[#12A9DB] focus:ring-1 focus:ring-[#12A9DB]"
+                        className="w-full px-3.5 py-3 text-xs bg-white border border-slate-300 focus:outline-hidden focus:border-[#051449] focus:ring-1 focus:ring-[#051449]"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-semibold text-slate-700 mb-1">
-                        Phone Number <span className="text-slate-400 font-normal">(Optional)</span>
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                        Phone Number <span className="text-slate-400 font-normal normal-case">(Optional)</span>
                       </label>
                       <input
                         type="tel"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value)}
                         placeholder="+234 700 000 0000"
-                        className="w-full px-3.5 py-2.5 text-xs bg-white border border-slate-300 rounded-lg focus:outline-hidden focus:border-[#12A9DB] focus:ring-1 focus:ring-[#12A9DB]"
+                        className="w-full px-3.5 py-3 text-xs bg-white border border-slate-300 focus:outline-hidden focus:border-[#051449] focus:ring-1 focus:ring-[#051449]"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
                         Subject <span className="text-red-500">*</span>
                       </label>
                       <input
@@ -267,13 +269,13 @@ export const ContactPage: React.FC = () => {
                         value={subject}
                         onChange={(e) => setSubject(e.target.value)}
                         placeholder="e.g. Media Production Enquiry"
-                        className="w-full px-3.5 py-2.5 text-xs bg-white border border-slate-300 rounded-lg focus:outline-hidden focus:border-[#12A9DB] focus:ring-1 focus:ring-[#12A9DB]"
+                        className="w-full px-3.5 py-3 text-xs bg-white border border-slate-300 focus:outline-hidden focus:border-[#051449] focus:ring-1 focus:ring-[#051449]"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
                       Message <span className="text-red-500">*</span>
                     </label>
                     <textarea
@@ -282,7 +284,7 @@ export const ContactPage: React.FC = () => {
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       placeholder="Write your message or inquiry in detail..."
-                      className="w-full px-3.5 py-2.5 text-xs bg-white border border-slate-300 rounded-lg focus:outline-hidden focus:border-[#12A9DB] focus:ring-1 focus:ring-[#12A9DB]"
+                      className="w-full px-3.5 py-3 text-xs bg-white border border-slate-300 focus:outline-hidden focus:border-[#051449] focus:ring-1 focus:ring-[#051449]"
                     />
                   </div>
 

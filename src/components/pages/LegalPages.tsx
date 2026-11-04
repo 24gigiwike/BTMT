@@ -175,8 +175,8 @@ export const RefundPolicyPage: React.FC = () => {
       <h3 className="text-base font-bold text-[#051449]">1. Physical Marketplace Products</h3>
       <p>
         Physical products (such as media kits, books, and corporate stationery) may be returned
-        within 7 days of delivery if damaged in transit or defective. Upon inspection at our Owerri
-        headquarters, a replacement or refund will be issued promptly.
+        within 7 days of delivery if damaged in transit or defective. Upon inspection at our office,
+        a replacement or refund will be issued promptly.
       </p>
 
       <h3 className="text-base font-bold text-[#051449]">2. Professional Services</h3>

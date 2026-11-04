@@ -128,16 +128,12 @@ export const SiteFooter: React.FC = () => {
             </ul>
           </div>
 
-          {/* Column 5: Contact & Office */}
+          {/* Column 5: Contact & Enquiries */}
           <div className="space-y-3">
             <h3 className="text-xs font-semibold uppercase tracking-wider text-[#12A9DB]">
-              Head Office
+              Contact & Enquiries
             </h3>
             <div className="space-y-2.5 text-xs text-slate-300">
-              <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 text-[#12A9DB] shrink-0 mt-0.5" />
-                <span className="leading-relaxed">{COMPANY_INFO.address}</span>
-              </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-[#12A9DB] shrink-0" />
                 <a
@@ -155,6 +151,15 @@ export const SiteFooter: React.FC = () => {
                 >
                   {COMPANY_INFO.email}
                 </a>
+              </div>
+              <div className="pt-1">
+                <button
+                  onClick={() => navigateTo('/contact')}
+                  className="text-xs text-[#12A9DB] hover:underline flex items-center gap-1 font-medium"
+                >
+                  <span>View Office Address & Hours</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </button>
               </div>
             </div>
 

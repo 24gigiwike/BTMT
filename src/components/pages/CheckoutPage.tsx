@@ -9,8 +9,8 @@ export const CheckoutPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
-  const [city, setCity] = useState('Owerri');
-  const [state, setState] = useState('Imo State');
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('Lagos State');
   const [paymentMethod, setPaymentMethod] = useState<'Paystack' | 'Flutterwave' | 'Direct Transfer'>('Paystack');
 
   const [confirmedOrder, setConfirmedOrder] = useState<any>(null);
@@ -240,7 +240,7 @@ export const CheckoutPage: React.FC = () => {
                       onChange={(e) => setState(e.target.value)}
                       className="w-full px-3.5 py-2.5 text-xs bg-white border border-slate-300 rounded-lg focus:outline-hidden focus:border-[#12A9DB] focus:ring-1 focus:ring-[#12A9DB]"
                     >
-                      <option value="Imo State">Imo State (Owerri Base)</option>
+                      <option value="Imo State">Imo State</option>
                       <option value="Abia State">Abia State</option>
                       <option value="Anambra State">Anambra State</option>
                       <option value="Enugu State">Enugu State</option>

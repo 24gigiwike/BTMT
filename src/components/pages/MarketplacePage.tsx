@@ -1,156 +1,137 @@
 import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
-import { Search, ShoppingBag, ArrowRight } from 'lucide-react';
+import { Search, BookOpen, ArrowRight, Eye } from 'lucide-react';
 
 export const MarketplacePage: React.FC = () => {
-  const { products, navigateTo, addToCart } = useApp();
+  const { products, navigateTo } = useApp();
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
-
-  const categories = ['All', 'Branding & Print', 'Technology Solutions', 'Media Equipment', 'Publications & Books'];
 
   const filteredProducts = products.filter((prod) => {
-    const matchesCategory = selectedCategory === 'All' || prod.category === selectedCategory;
-    const matchesSearch = prod.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    const matchesSearch =
+      prod.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       prod.brand.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (prod.author && prod.author.toLowerCase().includes(searchQuery.toLowerCase())) ||
       prod.description.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
+    return matchesSearch;
   });
 
   return (
-    <div className="w-full bg-white">
-      {/* HEADER SECTION */}
-      <section className="py-16 bg-[#F6F8FA] border-b border-slate-200/60">
+    <div className="w-full bg-white text-[#242A35]">
+      {/* HEADER SECTION (Rialto Editorial Light Aesthetic) */}
+      <section className="py-16 lg:py-24 bg-[#F6F8FA] border-b border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <div className="text-xs font-semibold uppercase tracking-wider text-[#12A9DB]">
-            Curated Commerce Platform
+          <div className="text-xs font-bold uppercase tracking-widest text-[#12A9DB]">
+            Curated Publications
           </div>
-          <h1 className="text-4xl sm:text-5xl font-bold text-[#051449]">
-            BTMT Marketplace
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light text-[#051449] tracking-tight">
+            BTMT Publications & Books
           </h1>
-          <p className="text-base sm:text-lg text-slate-700 leading-relaxed max-w-2xl mx-auto">
-            Discover products from businesses and brands within our growing marketplace, all in one convenient space.
+          <p className="text-base sm:text-lg text-slate-700 leading-relaxed max-w-2xl mx-auto font-normal">
+            Explore literary works and publications published through Blissful Touch Media & Technology.
+            Items are currently showcased in editorial preview format.
           </p>
 
           {/* Search Bar */}
           <div className="max-w-md mx-auto pt-4">
             <div className="relative">
-              <Search className="w-4 h-4 absolute left-3.5 top-3 text-slate-400" />
+              <Search className="w-4 h-4 absolute left-3.5 top-3.5 text-slate-400" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search products, brands, or categories..."
-                className="w-full pl-10 pr-4 py-2.5 text-xs bg-white border border-slate-300 rounded-lg focus:outline-hidden focus:border-[#12A9DB] focus:ring-1 focus:ring-[#12A9DB]"
+                placeholder="Search publications by title or author..."
+                className="w-full pl-10 pr-4 py-3 text-xs bg-white border border-slate-300 focus:outline-hidden focus:border-[#051449] focus:ring-1 focus:ring-[#051449]"
               />
             </div>
-          </div>
-
-          {/* Category Filters */}
-          <div className="flex flex-wrap justify-center gap-2 pt-2">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-3.5 py-1.5 text-xs font-medium rounded-lg transition-colors ${
-                  selectedCategory === cat
-                    ? 'bg-[#051449] text-white'
-                    : 'bg-white text-slate-700 border border-slate-200 hover:bg-slate-50'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
           </div>
         </div>
       </section>
 
-      {/* PRODUCT GRID */}
-      <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between mb-8 pb-4 border-b border-slate-100">
-          <div className="text-xs font-semibold text-slate-600">
-            Showing <span className="font-mono text-[#051449]">{filteredProducts.length}</span> verified products
+      {/* PRODUCT / BOOKS GRID */}
+      <section className="py-16 lg:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-10 pb-4 border-b border-slate-200">
+          <div className="text-xs font-bold uppercase tracking-wider text-slate-600">
+            Showcase Catalog: <span className="text-[#051449]">{filteredProducts.length}</span> Published Titles
           </div>
-          <div className="text-xs text-slate-500">
-            All prices in Nigerian Naira (NGN ₦)
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-50 border border-amber-200 text-[11px] font-semibold text-amber-800 uppercase tracking-wider self-start sm:self-auto">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+            Preview Only · Online Ordering Disabled
           </div>
         </div>
 
         {filteredProducts.length === 0 ? (
-          <div className="py-20 text-center space-y-4 bg-[#F6F8FA] rounded-xl border border-slate-200">
-            <div className="text-sm font-semibold text-slate-700">No products found matching your search.</div>
-            <p className="text-xs text-slate-500">Try adjusting your filters or search keywords.</p>
+          <div className="py-20 text-center space-y-4 bg-[#F6F8FA] border border-slate-200">
+            <div className="text-sm font-semibold text-slate-700">No books found matching your search.</div>
+            <p className="text-xs text-slate-500">Try adjusting your search keywords.</p>
             <button
-              onClick={() => {
-                setSearchQuery('');
-                setSelectedCategory('All');
-              }}
-              className="text-xs font-semibold text-[#12A9DB] hover:underline"
+              onClick={() => setSearchQuery('')}
+              className="text-xs font-bold uppercase tracking-wider text-[#12A9DB] hover:underline"
             >
-              Reset Filters
+              Reset Search
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProducts.map((prod) => (
               <div
                 key={prod.id}
-                className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:border-[#12A9DB]/60 transition-all flex flex-col justify-between group"
+                className="bg-white border border-slate-200 hover:border-[#12A9DB] transition-all flex flex-col justify-between group p-6 shadow-xs"
               >
                 <div>
-                  <div className="aspect-4/3 relative overflow-hidden bg-slate-100">
+                  {/* Book Cover Frame (Natural Book Aspect Ratio) */}
+                  <div className="aspect-[3/4] relative overflow-hidden bg-slate-100 border border-slate-200 mb-5">
                     <img
-                      src={prod.imageUrl || 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=600&q=80'}
+                      src={
+                        prod.imageUrl ||
+                        'https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=800&q=80'
+                      }
                       alt={prod.name}
                       referrerPolicy="no-referrer"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute top-2.5 left-2.5 bg-white/90 backdrop-blur-xs text-[10px] font-bold text-[#051449] px-2 py-0.5 rounded">
+                    <div className="absolute top-3 left-3 bg-[#051449] text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1">
                       {prod.category}
                     </div>
                   </div>
 
-                  <div className="p-5 space-y-2.5">
-                    <div className="flex items-center justify-between text-[11px] text-slate-500">
-                      <span className="font-semibold text-slate-800">{prod.brand}</span>
-                      <span className="text-emerald-700 font-medium">In Stock</span>
+                  <div className="space-y-2">
+                    <div className="text-[11px] font-mono text-slate-500 uppercase tracking-wider">
+                      Author: <span className="font-semibold text-slate-800">{prod.author || prod.brand}</span>
                     </div>
 
-                    <h2 className="text-base font-bold text-[#051449] line-clamp-2 leading-snug">
+                    <h2 className="text-xl font-bold text-[#051449] group-hover:text-[#12A9DB] transition-colors leading-snug">
                       {prod.name}
                     </h2>
 
-                    <div className="flex items-baseline gap-2">
-                      <span className="text-lg font-bold text-[#051449] font-mono tabular-nums">
-                        ₦{prod.price.toLocaleString()}
-                      </span>
-                      {prod.originalPrice && (
-                        <span className="text-xs text-slate-400 line-through font-mono tabular-nums">
-                          ₦{prod.originalPrice.toLocaleString()}
-                        </span>
-                      )}
-                    </div>
-
-                    <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                    <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed">
                       {prod.description}
                     </p>
+
+                    {prod.publicationDetails && (
+                      <div className="text-[11px] text-slate-500 font-mono pt-1">
+                        {prod.publicationDetails}
+                      </div>
+                    )}
                   </div>
                 </div>
 
-                <div className="p-5 pt-0 border-t border-slate-100 mt-4 flex items-center justify-between gap-2">
-                  <button
-                    onClick={() => navigateTo('/marketplace/:slug', { slug: prod.slug })}
-                    className="text-xs font-semibold text-[#051449] hover:text-[#12A9DB] transition-colors"
-                  >
-                    View Details
-                  </button>
+                <div className="pt-5 mt-6 border-t border-slate-200 flex flex-col gap-3">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="inline-flex items-center gap-1.5 font-medium text-amber-800 bg-amber-50 border border-amber-200 px-2.5 py-1 text-[10px] uppercase tracking-wider">
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                      {prod.statusText || 'Preview / Not Available for Purchase'}
+                    </span>
+                    <span className="font-bold text-[#051449] font-mono text-sm">
+                      {prod.price > 0 ? `₦${prod.price.toLocaleString()}` : 'Sample'}
+                    </span>
+                  </div>
 
                   <button
-                    onClick={() => addToCart(prod, 1)}
-                    className="px-3.5 py-1.5 text-xs font-semibold text-white bg-[#051449] hover:bg-[#071b63] rounded-lg transition-colors flex items-center gap-1.5"
+                    onClick={() => navigateTo('/marketplace/:slug', { slug: prod.slug })}
+                    className="w-full py-2.5 text-xs font-bold uppercase tracking-wider text-[#051449] bg-slate-100 hover:bg-[#051449] hover:text-white transition-colors flex items-center justify-center gap-2"
                   >
-                    <ShoppingBag className="w-3.5 h-3.5" />
-                    <span>Add to Cart</span>
+                    <Eye className="w-3.5 h-3.5" />
+                    <span>View Book Details</span>
                   </button>
                 </div>
               </div>
@@ -159,26 +140,26 @@ export const MarketplacePage: React.FC = () => {
         )}
       </section>
 
-      {/* SELLER & BRAND ONBOARDING INVITATION */}
-      <section className="py-16 bg-[#F6F8FA] border-t border-slate-200/60">
+      {/* AUTHORS & PUBLISHING INQUIRY */}
+      <section className="py-20 bg-[#F6F8FA] border-t border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <div className="text-xs font-semibold uppercase tracking-wider text-[#12A9DB]">
-            Brand Partnerships
+          <div className="text-xs font-bold uppercase tracking-widest text-[#12A9DB]">
+            Publishing Services
           </div>
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#051449]">
-            Want to Showcase Your Products on the BTMT Marketplace?
+          <h2 className="text-3xl sm:text-4xl font-light text-[#051449] tracking-tight">
+            Interested in Publishing or Bulk Literary Copies?
           </h2>
-          <p className="text-sm text-slate-600 max-w-xl mx-auto">
-            We onboard select, verified brands offering genuine tools, publications, and professional
-            supplies to our growing audience across Nigeria.
+          <p className="text-sm text-slate-600 max-w-xl mx-auto leading-relaxed">
+            Blissful Touch Media & Technology provides end-to-end editorial design, book formatting,
+            ISBN assistance, and commercial print production for authors and organizations.
           </p>
           <div className="pt-2">
             <button
               onClick={() => navigateTo('/contact')}
-              className="px-6 py-2.5 text-xs font-semibold text-[#051449] bg-white border border-slate-300 hover:bg-slate-50 rounded-lg transition-colors inline-flex items-center gap-1.5"
+              className="px-8 py-3.5 text-xs font-bold uppercase tracking-wider text-[#051449] bg-white border border-slate-300 hover:border-[#051449] hover:bg-slate-50 transition-colors inline-flex items-center gap-2"
             >
-              <span>Enquire About Marketplace Placement</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <span>Enquire About Book Publishing</span>
+              <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>

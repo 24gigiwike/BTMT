@@ -32,6 +32,36 @@ export interface ProductItem {
   featured?: boolean;
   imageUrl?: string;
   deliveryInfo: string;
+  isPurchasable?: boolean;
+  statusText?: string;
+  author?: string;
+  publicationDetails?: string;
+}
+
+export interface PartnerCompany {
+  id: string;
+  name: string;
+  category?: string;
+  logoUrl?: string;
+  websiteUrl?: string;
+  order?: number;
+  isPublished?: boolean;
+}
+
+export interface TestimonialItem {
+  id: string;
+  clientName: string;
+  companyName?: string;
+  company: string;
+  clientRole?: string;
+  role: string;
+  content?: string;
+  quote: string;
+  avatarUrl?: string;
+  serviceCategory?: string;
+  rating?: number;
+  order?: number;
+  isPublished?: boolean;
 }
 
 export interface CartItem {

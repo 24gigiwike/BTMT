@@ -1,4 +1,13 @@
-import { ServiceItem, ProductItem, BlogPost, CommunityResource, TrainingSession, ServiceEnquiry } from '../types';
+import {
+  ServiceItem,
+  ProductItem,
+  BlogPost,
+  CommunityResource,
+  TrainingSession,
+  ServiceEnquiry,
+  PartnerCompany,
+  TestimonialItem
+} from '../types';
 
 export const COMPANY_INFO = {
   name: 'Blissful Touch Media & Technology',
@@ -12,10 +21,11 @@ export const COMPANY_INFO = {
   email: 'blissfultouchmedia@gmail.com',
   founder: 'Michael C. George',
   foundingYear: 2017,
+  registrationYear: 2022,
+  registrationStatement: 'Blissful Touch Media & Technology was registered with the Corporate Affairs Commission (CAC) in 2022.',
   registrations: [
     { year: '2017', event: 'Founded by Michael C. George' },
-    { year: 'February 2021', event: 'Registered with Corporate Affairs Commission (CAC) as a Business Name' },
-    { year: 'August 2026', event: 'Registered with Corporate Affairs Commission (CAC) as a Company Limited by Shares' }
+    { year: '2022', event: 'Registered with the Corporate Affairs Commission (CAC)' }
   ],
   vision: 'To be a global system for authentic visibility and proliferation of moral and ethical excellence.',
   mission: 'To build a global system that provides authentic visibility and proliferation of moral and ethical excellence through innovative, creative and professional media, technological and entertaining products and services.',
@@ -24,7 +34,7 @@ export const COMPANY_INFO = {
     'Create and promote creative and innovative entertainment and educational products that promote moral and ethical excellence.',
     'Develop technological tools and platforms that inspire learning, growth, connection, productivity and global opportunities.',
     'Create and support events and platforms that inspire moral and ethical excellence.',
-    'Help startups develop systems and visibility that can provide access to funding and global opportunities.'
+    'Help startups develop systems and build visibility that can provide access to funding and global opportunities.'
   ],
   cultureValues: [
     {
@@ -110,7 +120,7 @@ export const INITIAL_SERVICES: ServiceItem[] = [
     ],
     ctaText: "Let's Build Your Website",
     featured: true,
-    imageUrl: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1000&q=80'
+    imageUrl: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80'
   },
   {
     id: 'software-dev',
@@ -140,7 +150,8 @@ export const INITIAL_SERVICES: ServiceItem[] = [
       { step: '4', title: 'Deployment & SLA', description: 'Production rollout with ongoing maintenance agreements.' }
     ],
     ctaText: 'Discuss Your Project',
-    featured: true
+    featured: true,
+    imageUrl: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80'
   },
   {
     id: 'digital-marketing',
@@ -169,7 +180,8 @@ export const INITIAL_SERVICES: ServiceItem[] = [
       { step: '3', title: 'Execution & Optimization', description: 'A/B testing ad creatives, refining audiences, and active bid management.' }
     ],
     ctaText: 'Grow Your Brand',
-    featured: true
+    featured: true,
+    imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80'
   },
   {
     id: 'branding',
@@ -198,7 +210,8 @@ export const INITIAL_SERVICES: ServiceItem[] = [
       { step: '3', title: 'Identity Guidelines', description: 'Comprehensive delivery of vector logos, fonts, and brand manual.' }
     ],
     ctaText: 'Start Your Branding Project',
-    featured: true
+    featured: true,
+    imageUrl: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=1200&q=80'
   },
   {
     id: 'printing-publishing',
@@ -219,7 +232,7 @@ export const INITIAL_SERVICES: ServiceItem[] = [
     benefits: [
       'Crisp color accuracy using commercial offset and digital presses',
       'Premium paper stocks, laminations, and finishing touches',
-      'Reliable delivery to your office in Owerri or across Nigeria'
+      'Reliable delivery to your office nationwide and internationally'
     ],
     process: [
       { step: '1', title: 'Artwork Prepress', description: 'Resolution check, color space formatting (CMYK), and bleed calibration.' },
@@ -227,7 +240,8 @@ export const INITIAL_SERVICES: ServiceItem[] = [
       { step: '3', title: 'Production & Dispatch', description: 'Precision printing, binding, cutting, and safe delivery.' }
     ],
     ctaText: 'Request a Print Service',
-    featured: true
+    featured: true,
+    imageUrl: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80'
   },
   {
     id: 'event-coverage',
@@ -256,7 +270,8 @@ export const INITIAL_SERVICES: ServiceItem[] = [
       { step: '3', title: 'Editing & Archival', description: 'Color correction, sound mastering, and delivery via private download link.' }
     ],
     ctaText: 'Book Event Coverage',
-    featured: true
+    featured: true,
+    imageUrl: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80'
   },
   {
     id: 'audio-visual',
@@ -282,7 +297,8 @@ export const INITIAL_SERVICES: ServiceItem[] = [
       { step: '3', title: 'Post-Production', description: 'Video editing, motion graphics, and audio mastering.' }
     ],
     ctaText: 'Enquire About Production',
-    featured: false
+    featured: false,
+    imageUrl: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80'
   },
   {
     id: 'voice-over',
@@ -308,7 +324,8 @@ export const INITIAL_SERVICES: ServiceItem[] = [
       { step: '3', title: 'Mastering', description: 'Clean editing, equalization, and mastered file delivery in WAV/MP3.' }
     ],
     ctaText: 'Request a Voice-Over',
-    featured: false
+    featured: false,
+    imageUrl: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=1200&q=80'
   },
   {
     id: 'scriptwriting',
@@ -337,7 +354,8 @@ export const INITIAL_SERVICES: ServiceItem[] = [
       { step: '3', title: 'Polishing', description: 'Table read feedback and final shooting draft delivery.' }
     ],
     ctaText: "Let's Tell Your Story",
-    featured: false
+    featured: false,
+    imageUrl: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=80'
   },
   {
     id: 'movie-production',
@@ -363,7 +381,8 @@ export const INITIAL_SERVICES: ServiceItem[] = [
       { step: '3', title: 'Post & Screening', description: 'Picture lock, color correction, score integration, and premiere.' }
     ],
     ctaText: 'Enquire About Movie Production',
-    featured: false
+    featured: false,
+    imageUrl: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80'
   },
   {
     id: 'podcast-shows',
@@ -389,93 +408,113 @@ export const INITIAL_SERVICES: ServiceItem[] = [
       { step: '3', title: 'Distribution', description: 'Mastering, chapter markers, show notes, and cross-platform publishing.' }
     ],
     ctaText: 'Explore Podcast Opportunities',
-    featured: false
+    featured: false,
+    imageUrl: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&q=80'
   }
 ];
 
 export const INITIAL_PRODUCTS: ProductItem[] = [
   {
-    id: 'prod-1',
-    slug: 'btmt-corporate-stationery-pack',
-    name: 'Executive Corporate Stationery & Identity Pack',
-    brand: 'Blissful Touch Media',
-    category: 'Branding & Print',
-    price: 45000,
-    originalPrice: 52000,
-    description: 'High-grade corporate identity stationery set including 500 premium 400gsm laminated business cards, 200 custom letterheads, and 50 branded presentation folders. Ideal for established firms and growing enterprises seeking credible representation in meetings.',
-    specifications: [
-      '500 Business Cards (400gsm, Matte Lamination, Rounded Corners optional)',
-      '200 Official Letterheads (100gsm Bond paper, laser-printer compatible)',
-      '50 Presentation Folders (350gsm with document pocket and card slot)',
-      'Complete vector pre-flight check by BTMT design team'
-    ],
-    inStock: true,
-    stockCount: 25,
-    featured: true,
-    imageUrl: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=800&q=80',
-    deliveryInfo: 'Ships within 3–5 business days across Imo State and nationwide via courier.'
-  },
-  {
-    id: 'prod-2',
-    slug: 'starter-business-web-suite',
-    name: 'Starter Business Web & Domain Suite',
-    brand: 'BTMT Technology',
-    category: 'Technology Solutions',
-    price: 120000,
-    originalPrice: 150000,
-    description: 'A complete foundational digital launch package for startups and local businesses. Includes 1-year custom .ng or .com domain registration, secure cloud hosting, SSL certification, 5 branded corporate email inboxes, and a responsive 4-page modern website build.',
-    specifications: [
-      '1 Year Domain Registration (.com or .com.ng)',
-      'High-speed SSD hosting with 99.9% uptime SLA',
-      '5 Professional Business Email Accounts (e.g. info@yourdomain.com)',
-      '4-Page Custom Responsive Website (Home, About, Services, Contact)',
-      'Google Maps & WhatsApp Click-to-Chat integration'
-    ],
-    inStock: true,
-    stockCount: 40,
-    featured: true,
-    imageUrl: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80',
-    deliveryInfo: 'Digital provisioning initiated within 24 hours of onboarding intake.'
-  },
-  {
-    id: 'prod-3',
-    slug: 'mobile-media-creator-kit',
-    name: 'BTMT Mobile Creator & Vlogging Kit',
-    brand: 'Apex Media Tools',
-    category: 'Media Equipment',
-    price: 68000,
-    originalPrice: 78000,
-    description: 'A curated kit tested by the BTMT production team for solo content creators, podcasters, and brand managers. Features a dual wireless lavalier microphone system with noise-cancellation, bi-color LED ring light, and an all-metal 360-degree phone stabilizer tripod.',
-    specifications: [
-      'Dual Wireless Lavalier Microphones (Type-C & Lightning adapters included)',
-      '2.4GHz low-latency audio transmission with up to 20m range',
-      'Dimmable 10-inch Bi-Color LED Ring Light with USB-C rechargeable battery',
-      'Heavy-duty aluminum extendable tripod stand (up to 160cm)'
-    ],
-    inStock: true,
-    stockCount: 14,
-    featured: true,
-    imageUrl: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=800&q=80',
-    deliveryInfo: 'Immediate dispatch available in Owerri, Imo State; 2–4 days nationwide.'
-  },
-  {
-    id: 'prod-4',
-    slug: 'ethical-leadership-handbook',
-    name: 'Moral & Ethical Excellence in Business Leadership',
+    id: 'book-1',
+    slug: 'published-book-01',
+    name: 'Published Book 01 — Placeholder',
     brand: 'BTMT Publishing',
-    category: 'Publications & Books',
-    price: 8500,
-    description: 'The definitive guide to cultivating authentic visibility, organizational trust, and unwavering moral standards in modern commerce. Authored under the editorial direction of BTMT leadership for entrepreneurs, creators, and professionals.',
+    category: 'Books',
+    price: 0,
+    isPurchasable: false,
+    statusText: 'Preview / Not Available for Purchase',
+    description: 'Book details will be added soon.',
     specifications: [
-      'Hardcover Edition with gold foil detailing',
-      '224 pages of actionable case studies and framework diagrams',
-      'Includes digital companion workbook and downloadable audit checklist'
+      'Hardcover & Digital Editions Forthcoming',
+      'Authored under BTMT Publishing imprint',
+      'Official Release & Distribution Details Pending'
     ],
-    inStock: true,
-    stockCount: 60,
-    featured: false,
+    inStock: false,
+    stockCount: 0,
+    featured: true,
     imageUrl: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80',
-    deliveryInfo: 'Shipped within 24–48 hours nationwide.'
+    deliveryInfo: 'Publication details and purchasing availability will be announced soon.'
+  },
+  {
+    id: 'book-2',
+    slug: 'published-book-02',
+    name: 'Published Book 02 — Placeholder',
+    brand: 'BTMT Publishing',
+    category: 'Books',
+    price: 0,
+    isPurchasable: false,
+    statusText: 'Preview / Not Available for Purchase',
+    description: 'Book details will be added soon.',
+    specifications: [
+      'Volume II Forthcoming',
+      'Authored under BTMT Publishing imprint',
+      'Official Release & Distribution Details Pending'
+    ],
+    inStock: false,
+    stockCount: 0,
+    featured: true,
+    imageUrl: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=800&q=80',
+    deliveryInfo: 'Publication details and purchasing availability will be announced soon.'
+  },
+  {
+    id: 'book-3',
+    slug: 'published-book-03',
+    name: 'Published Book 03 — Placeholder',
+    brand: 'BTMT Publishing',
+    category: 'Books',
+    price: 0,
+    isPurchasable: false,
+    statusText: 'Preview / Not Available for Purchase',
+    description: 'Book details will be added soon.',
+    specifications: [
+      'Volume III Forthcoming',
+      'Authored under BTMT Publishing imprint',
+      'Official Release & Distribution Details Pending'
+    ],
+    inStock: false,
+    stockCount: 0,
+    featured: true,
+    imageUrl: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=80',
+    deliveryInfo: 'Publication details and purchasing availability will be announced soon.'
+  }
+];
+
+export const INITIAL_PARTNERS: PartnerCompany[] = [
+  { id: 'partner-1', name: 'Apex Media Group', category: 'Broadcasting & Media' },
+  { id: 'partner-2', name: 'Horizon Digital Ventures', category: 'Technology & Cloud' },
+  { id: 'partner-3', name: 'Vanguard Legal Consult', category: 'Corporate Services' },
+  { id: 'partner-4', name: 'Nexus Trade Initiative', category: 'Commerce & Logistics' },
+  { id: 'partner-5', name: 'Sterling Diagnostics', category: 'Enterprise Health' },
+  { id: 'partner-6', name: 'Beacon Creative Studio', category: 'Design & Visual Arts' }
+];
+
+export const INITIAL_TESTIMONIALS: TestimonialItem[] = [
+  {
+    id: 'test-1',
+    clientName: 'Sample Client Feedback',
+    role: 'Operations Lead',
+    company: 'Enterprise Partner (Demonstration Preview)',
+    serviceCategory: 'Technology & Web Systems',
+    quote: 'BTMT delivered our digital infrastructure with remarkable punctuality, clear communication, and unwavering attention to technical detail.',
+    rating: 5
+  },
+  {
+    id: 'test-2',
+    clientName: 'Illustrative Endorsement',
+    role: 'Managing Director',
+    company: 'Creative Brand Partner (Demonstration Preview)',
+    serviceCategory: 'Brand Strategy & Print',
+    quote: 'Their commitment to moral excellence and structured brand positioning elevated our corporate visibility across digital and print touchpoints.',
+    rating: 5
+  },
+  {
+    id: 'test-3',
+    clientName: 'Corporate Collaborator',
+    role: 'Head of Communications',
+    company: 'Educational Initiative (Demonstration Preview)',
+    serviceCategory: 'Publishing & Media Production',
+    quote: 'Working with BTMT brought clarity, editorial discipline, and aesthetic distinction to our publications and video documentaries.',
+    rating: 5
   }
 ];
 
@@ -506,7 +545,7 @@ However, relying entirely on rented land comes with existential business risks:
 ### The Power of an Independent Digital Home
 
 A professionally built corporate website gives your organization permanent autonomy:
-1. **Search Authority**: Customers seeking reliable suppliers in Owerri, Lagos, or Abuja turn to Google. A well-structured website captures this high-intent demand.
+1. **Search Authority**: Customers seeking reliable suppliers across Lagos, Abuja, or Port Harcourt turn to Google. A well-structured website captures this high-intent demand.
 2. **Permanent Credibility**: Major clients, institutional partners, and grant bodies require verified corporate domains before committing capital.
 3. **Controlled User Experience**: You guide the visitor from curiosity to consultation without distractions from competitor advertisements or algorithmic feeds.
 
@@ -652,7 +691,7 @@ export const INITIAL_ENQUIRIES: ServiceEnquiry[] = [
     companyName: 'Zenith Health Diagnostics',
     serviceId: 'web-dev',
     serviceTitle: 'Website Development',
-    projectDescription: 'We require a modern patient portal and clinic information website with online appointment booking capabilities for our Owerri facility.',
+    projectDescription: 'We require a modern patient portal and clinic information website with online appointment booking capabilities for our clinical facilities.',
     estimatedBudget: '₦400,000 - ₦800,000',
     preferredStartDate: 'Within 2 weeks',
     preferredContactMethod: 'Email',
@@ -682,7 +721,7 @@ export const INITIAL_PORTFOLIO: import('../types').PortfolioProject[] = [
     title: 'Enterprise Clinical Portal & Online Booking Engine',
     client: 'Zenith Health Diagnostics',
     category: 'Technology',
-    description: 'Architecture, interface engineering, and mobile appointment scheduling system for a diagnostic health network based in Imo State.',
+    description: 'Architecture, interface engineering, and mobile appointment scheduling system for a regional diagnostic health network.',
     servicesDelivered: ['Custom Web Architecture', 'Mobile Portal UI/UX', 'SEO Optimization', 'SSL Security Handshake'],
     imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80',
     impactMetrics: '100% Appointment Automation'
