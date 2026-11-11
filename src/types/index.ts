@@ -92,20 +92,32 @@ export interface Order {
   createdAt: string;
 }
 
+export type BlogStatus = 'Draft' | 'Published';
+
 export interface BlogPost {
   id: string;
   slug: string;
   title: string;
-  category: 'Technology' | 'Digital Marketing' | 'Branding' | 'Business Growth' | 'Media' | 'Entertainment' | 'Company News';
+  category: string;
   excerpt: string;
   content: string;
   author: string;
   authorRole: string;
   publishedAt: string;
+  updatedAt?: string;
   readTime: string;
+  status: BlogStatus;
   isPublished: boolean;
   featured?: boolean;
   imageUrl?: string;
+  imageAlt?: string;
+  tags: string[];
+  keywords: string[];
+  seoTitle?: string;
+  seoDescription?: string;
+  focusKeyword?: string;
+  seoKeywords?: string[];
+  canonicalUrl?: string;
 }
 
 export interface CommunityResource {

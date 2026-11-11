@@ -19,11 +19,12 @@ import {
   INITIAL_PRODUCTS,
   INITIAL_PARTNERS,
   INITIAL_TESTIMONIALS,
-  INITIAL_BLOG_POSTS,
   INITIAL_RESOURCES,
   INITIAL_TRAINING,
   INITIAL_ENQUIRIES
 } from '../data/initialData';
+import { BLOG_POSTS } from '../data/blogPosts';
+import { buildHref, matchRoute, readLocation } from '../routing';
 
 interface AppContextType {
   currentRoute: string;
@@ -98,10 +99,16 @@ interface AppContextType {
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
+const initialLocation = readLocation();
+const initialMatch = matchRoute(initialLocation.pathname);
+const initialParams: Record<string, string> = { ...initialMatch.params };
+new URLSearchParams(initialLocation.search.replace(/^\?/, '')).forEach((value, key) => {
+  initialParams[key] = value;
+});
+
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // Navigation State with URL Hash Synchronization
-  const [currentRoute, setCurrentRoute] = useState<string>('/');
-  const [routeParams, setRouteParams] = useState<Record<string, string>>({});
+  const [currentRoute, setCurrentRoute] = useState<string>(initialMatch.route);
+  const [routeParams, setRouteParams] = useState<Record<string, string>>(initialParams);
   const [selectedServiceForBooking, setSelectedServiceForBooking] = useState<string | null>(null);
 
   // Data persistence states with versioning
@@ -125,10 +132,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     return saved ? JSON.parse(saved) : INITIAL_TESTIMONIALS;
   });
 
-  const [blogPosts, setBlogPosts] = useState<BlogPost[]>(() => {
-    const saved = localStorage.getItem('btmt_blog_posts_v3');
-    return saved ? JSON.parse(saved) : INITIAL_BLOG_POSTS;
-  });
+  const blogPosts = BLOG_POSTS;
 
   const [resources, setResources] = useState<CommunityResource[]>(() => {
     const saved = localStorage.getItem('btmt_resources');
@@ -196,10 +200,6 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   }, [testimonials]);
 
   useEffect(() => {
-    localStorage.setItem('btmt_blog_posts_v3', JSON.stringify(blogPosts));
-  }, [blogPosts]);
-
-  useEffect(() => {
     localStorage.setItem('btmt_resources', JSON.stringify(resources));
   }, [resources]);
 
@@ -231,58 +231,35 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     }
   }, [currentUser]);
 
-  // Handle URL hash changes
+  const applyLocation = () => {
+    const location = readLocation();
+    if (location.legacyHash) {
+      window.history.replaceState(null, '', `${location.pathname}${location.search}`);
+    }
+    const matched = matchRoute(location.pathname);
+    const params: Record<string, string> = { ...matched.params };
+    new URLSearchParams(location.search.replace(/^\?/, '')).forEach((value, key) => {
+      params[key] = value;
+    });
+    setCurrentRoute(matched.route);
+    setRouteParams(params);
+  };
+
   useEffect(() => {
-    const parseHash = () => {
-      const hash = window.location.hash.replace('#', '') || '/';
-      const [path, queryString] = hash.split('?');
-      const params: Record<string, string> = {};
-
-      if (queryString) {
-        new URLSearchParams(queryString).forEach((val, key) => {
-          params[key] = val;
-        });
-      }
-
-      // Match dynamic routes
-      if (path.startsWith('/services/') && path !== '/services/') {
-        const slug = path.replace('/services/', '');
-        setCurrentRoute('/services/:slug');
-        setRouteParams({ ...params, slug });
-      } else if (path.startsWith('/marketplace/') && path !== '/marketplace/') {
-        const slug = path.replace('/marketplace/', '');
-        setCurrentRoute('/marketplace/:slug');
-        setRouteParams({ ...params, slug });
-      } else if (path.startsWith('/blog/') && path !== '/blog/') {
-        const slug = path.replace('/blog/', '');
-        setCurrentRoute('/blog/:slug');
-        setRouteParams({ ...params, slug });
-      } else {
-        setCurrentRoute(path);
-        setRouteParams(params);
-      }
+    applyLocation();
+    window.addEventListener('popstate', applyLocation);
+    window.addEventListener('hashchange', applyLocation);
+    return () => {
+      window.removeEventListener('popstate', applyLocation);
+      window.removeEventListener('hashchange', applyLocation);
     };
-
-    parseHash();
-    window.addEventListener('hashchange', parseHash);
-    return () => window.removeEventListener('hashchange', parseHash);
+    // Listeners read the window location. They do not close over changing state.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const navigateTo = (path: string, params: Record<string, string> = {}) => {
-    let resolvedHash = path;
-    if (path.includes(':slug') && params.slug) {
-      resolvedHash = path.replace(':slug', params.slug);
-    }
-
-    const queryKeys = Object.keys(params).filter((k) => k !== 'slug');
-    if (queryKeys.length > 0) {
-      const qs = queryKeys.map((k) => `${encodeURIComponent(k)}=${encodeURIComponent(params[k])}`).join('&');
-      resolvedHash += `?${qs}`;
-    }
-
-    window.location.hash = resolvedHash;
-    setCurrentRoute(path);
-    setRouteParams(params);
+    window.history.pushState(null, '', buildHref(path, params));
+    applyLocation();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -408,21 +385,11 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   };
 
   const saveBlogPost = (post: BlogPost) => {
-    setBlogPosts((prev) => {
-      const idx = prev.findIndex((p) => p.id === post.id);
-      if (idx >= 0) {
-        const updated = [...prev];
-        updated[idx] = post;
-        return updated;
-      }
-      return [post, ...prev];
-    });
-    showToast(`Article "${post.title}" saved.`, 'success');
+    showToast(`"${post.title}" is edited in Pages CMS, then published from GitHub.`, 'info');
   };
 
-  const deleteBlogPost = (id: string) => {
-    setBlogPosts((prev) => prev.filter((p) => p.id !== id));
-    showToast('Article deleted.', 'info');
+  const deleteBlogPost = () => {
+    showToast('Remove the article in Pages CMS. The public site updates on the next deployment.', 'info');
   };
 
   const saveProduct = (product: ProductItem) => {

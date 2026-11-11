@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
 import { formatBookPrice } from '../../utils/formatBookPrice';
+import { formatBlogDate } from '../../blog/taxonomy';
 import { AdminRole, BlogPost, ProductItem, PartnerCompany, TestimonialItem, CommunityResource } from '../../types';
 import {
   LayoutDashboard,
@@ -30,8 +31,6 @@ export const AdminDashboard: React.FC = () => {
     updateEnquiryStatus,
     contactMessages,
     blogPosts,
-    saveBlogPost,
-    deleteBlogPost,
     products,
     saveProduct,
     deleteProduct,
@@ -194,7 +193,8 @@ export const AdminDashboard: React.FC = () => {
               <div className="font-bold text-[#051449]">Operational Notice</div>
               <p className="leading-relaxed">
                 Changes made here persist immediately to local application storage. Public pages
-                reflect updates dynamically.
+                reflect updates dynamically. Blog articles are the exception: edit them in Pages CMS.
+                A save there commits to GitHub, and the existing deployment publishes the site.
               </p>
             </div>
           </div>
@@ -216,7 +216,7 @@ export const AdminDashboard: React.FC = () => {
                     <div className="text-2xl font-bold text-[#051449] font-mono">
                       {blogPosts.filter((b) => b.isPublished).length}
                     </div>
-                    <div className="text-[11px] text-slate-500">{blogPosts.length} total drafts</div>
+                    <div className="text-[11px] text-slate-500">Published from the repository</div>
                   </div>
 
                   <div className="bg-white p-5 border border-slate-200 shadow-xs space-y-1">
@@ -821,26 +821,25 @@ export const AdminDashboard: React.FC = () => {
             {/* BLOG MODULE */}
             {activeModule === 'blog' && (
               <div className="bg-white border border-slate-200 p-6 space-y-6 shadow-xs">
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between gap-4">
                   <h2 className="text-lg font-bold text-[#051449]">Blog Articles & Publications</h2>
-                  <span className="text-xs text-slate-500">{blogPosts.length} articles</span>
+                  <span className="text-xs text-slate-500">{blogPosts.length} published</span>
                 </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Create, edit, and unpublish articles in Pages CMS. Drafts are stored in the repository
+                  and are not included on the public site. This list shows the published articles in the current build.
+                </p>
 
                 <div className="space-y-3">
                   {blogPosts.map((post) => (
                     <div key={post.id} className="p-4 border border-slate-200 bg-[#F6F8FA] flex items-center justify-between gap-4 text-xs">
                       <div>
                         <div className="font-bold text-[#051449] text-sm">{post.title}</div>
-                        <div className="text-slate-500">{post.category} · {post.publishedAt} · {post.readTime}</div>
+                        <div className="text-slate-500">{post.category} · {formatBlogDate(post.publishedAt)} · {post.readTime}</div>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <button
-                          onClick={() => deleteBlogPost(post.id)}
-                          className="p-1 text-slate-400 hover:text-red-600"
-                        >
-                          <Trash2 className="w-4 h-4" />
-                        </button>
-                      </div>
+                      <a href={`/blog/${post.slug}`} className="font-semibold text-[#051449] hover:text-[#12A9DB]">
+                        View
+                      </a>
                     </div>
                   ))}
                 </div>

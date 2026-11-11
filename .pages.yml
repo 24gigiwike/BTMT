@@ -1,0 +1,215 @@
+# Pages CMS configuration for the BTMT blog only.
+# Hosted editor: https://app.pagescms.org
+# Repository: 24gigiwike/BTMT
+# Publishing branch: main
+#
+# This file exposes one collection. Company pages, services, marketplace
+# products, and other site content stay out of the editor.
+
+media:
+  - name: blog-images
+    label: Blog featured images
+    input: public/assets/images/blog
+    output: /assets/images/blog
+    categories: [image]
+    extensions: [jpg, jpeg, png, webp]
+    rename: safe
+    commit:
+      templates:
+        create: "media(blog): add {filename}"
+        update: "media(blog): update {filename}"
+        delete: "media(blog): remove {filename}"
+        rename: "media(blog): rename {oldFilename} to {newFilename}"
+
+settings:
+  content:
+    merge: true
+  commit:
+    identity: user
+    templates:
+      create: "content(blog): add {filename}"
+      update: "content(blog): update {filename}"
+      delete: "content(blog): remove {filename}"
+      rename: "content(blog): rename {oldFilename} to {newFilename}"
+
+content:
+  - name: blog-posts
+    label: Blog Posts
+    type: collection
+    path: content/blog
+    format: yaml-frontmatter
+    subfolders: false
+    exclude:
+      - README.md
+    filename:
+      template: "{fields.slug}.md"
+      field: true
+    view:
+      primary: title
+      fields: [title, status, category, author, publishedAt]
+      sort: [publishedAt, title, status, category]
+      search: [title, slug, excerpt, author, category, status, tags, keywords]
+      default:
+        sort: publishedAt
+        order: desc
+    fields:
+      - name: title
+        label: Article title
+        type: string
+        required: true
+        description: The headline shown on the article page and in blog previews.
+        options:
+          maxlength: 140
+
+      - name: slug
+        label: URL slug
+        type: string
+        required: true
+        description: Public address /blog/your-slug. Use a unique lowercase slug. Keep the filename the same as this slug.
+        pattern:
+          regex: "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          message: Use lowercase letters, numbers, and single hyphens.
+
+      - name: excerpt
+        label: Short excerpt
+        type: text
+        required: true
+        description: A concise introduction for blog previews and the fallback meta description.
+        options:
+          maxlength: 320
+
+      - name: author
+        label: Author
+        type: string
+        required: true
+        options:
+          maxlength: 80
+
+      - name: authorRole
+        label: Author role
+        type: string
+        description: Optional role shown under the author name.
+        options:
+          maxlength: 80
+
+      - name: publishedAt
+        label: Publication date
+        type: date
+        description: The date visitors and search engines see as the publication date.
+        options:
+          format: yyyy-MM-dd
+
+      - name: updatedAt
+        label: Last updated date
+        type: date
+        default: ""
+        description: Leave empty until the article is revised after publication.
+        options:
+          format: yyyy-MM-dd
+
+      - name: category
+        label: Category
+        type: select
+        required: true
+        description: One primary category for this article.
+        options:
+          values:
+            - Technology
+            - Business Growth
+            - Branding
+            - Digital Marketing
+            - Media
+            - Entertainment
+            - Company News
+
+      - name: tags
+        label: Tags
+        type: string
+        list: true
+        description: Topical labels stored with the article. Each tag links to other published articles with the same tag.
+
+      - name: keywords
+        label: Keywords
+        type: string
+        list: true
+        description: SEO keywords stored as article metadata and used by blog search. Do not repeat them unnaturally in the article.
+
+      - name: status
+        label: Publication status
+        type: select
+        required: true
+        default: Draft
+        description: Draft articles stay editable here and are excluded from the public site, sitemap, and search index. Choose Published when the article should go live on the next deployment.
+        options:
+          values:
+            - Draft
+            - Published
+
+      - name: featured
+        label: Feature on the homepage
+        type: boolean
+        default: false
+        description: The homepage highlights one featured published article.
+
+      - name: image
+        label: Featured image
+        type: image
+        description: The only image for this article. It is the header, the blog preview, and the social sharing image. Upload the photograph; do not add a gallery or a second image.
+        options:
+          media: blog-images
+          path: public/assets/images/blog
+          categories: [image]
+          extensions: [jpg, jpeg, png, webp]
+          rename: safe
+
+      - name: body
+        label: Article body
+        type: rich-text
+        required: true
+        description: Write with headings, paragraphs, bold, italic, lists, quotes, and links. Do not insert images. The featured image is the only picture.
+        options:
+          format: markdown
+          media: false
+          switcher: true
+
+      - name: seo
+        label: SEO
+        type: object
+        description: Search and sharing fields. Blank SEO title and meta description fall back to the article title and excerpt.
+        fields:
+          - name: title
+            label: SEO title
+            type: string
+            description: Search result title. Leave blank to use the article title.
+            options:
+              maxlength: 70
+
+          - name: description
+            label: Meta description
+            type: text
+            description: Search result description. Leave blank to use the short excerpt.
+            options:
+              maxlength: 160
+
+          - name: focusKeyword
+            label: Focus keyword
+            type: string
+            description: The main phrase this article should be understood by. Stored as metadata and used by blog search.
+
+          - name: keywords
+            label: Additional SEO keywords
+            type: string
+            list: true
+            description: Extra phrases for search metadata. They are not printed in the article.
+
+          - name: canonical
+            label: Canonical URL
+            type: string
+            description: Optional. Fill this only when another URL should be the preferred address for this article.
+
+          - name: imageAlt
+            label: Featured image alt text
+            type: string
+            description: Describe the featured image for screen readers and image search. Leave blank to use the article title.
+            options:
+              maxlength: 180

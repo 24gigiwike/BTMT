@@ -2,6 +2,8 @@ import React from 'react';
 import { useApp } from '../../context/AppContext';
 import { COMPANY_INFO, INITIAL_PORTFOLIO } from '../../data/initialData';
 import { ArrowRight, ArrowUpRight, CheckCircle2, Clock, ExternalLink } from 'lucide-react';
+import { SiteLink } from '../blog/SiteLink';
+import { formatBlogDate } from '../../blog/taxonomy';
 import { PartnerMarquee } from '../ui/PartnerMarquee';
 import { TestimonialSection } from '../ui/TestimonialSection';
 import { formatBookPrice } from '../../utils/formatBookPrice';
@@ -37,8 +39,9 @@ export const HomePage: React.FC = () => {
     'event-coverage': '/assets/images/service-event-coverage.jpg'
   };
 
-  const featuredBlog = blogPosts.find((b) => b.featured) || blogPosts[0];
-  const supportingBlogs = blogPosts.filter((b) => b.id !== featuredBlog?.id).slice(0, 2);
+  const publishedBlog = blogPosts.filter((post) => post.isPublished);
+  const featuredBlog = publishedBlog.find((post) => post.featured) || publishedBlog[0];
+  const supportingBlogs = publishedBlog.filter((post) => post.id !== featuredBlog?.id).slice(0, 2);
 
   const publishedBooks = products.slice(0, 2);
 
@@ -767,18 +770,16 @@ export const HomePage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
             {/* Featured Article */}
             {featuredBlog && (
-              <div
-                onClick={() => navigateTo('/blog/:slug', { slug: featuredBlog.slug })}
-                className="lg:col-span-7 group cursor-pointer space-y-5"
+              <SiteLink
+                to="/blog/:slug"
+                params={{ slug: featuredBlog.slug }}
+                className="lg:col-span-7 group cursor-pointer space-y-5 block"
               >
-                <div className="aspect-16/10 bg-slate-900 overflow-hidden border border-slate-200">
+                <div className="aspect-16/10 bg-[#F6F8FA] overflow-hidden border border-slate-200">
                   <img
-                    src={
-                      featuredBlog.imageUrl ||
-                      '/assets/images/blog-digital-home.jpg'
-                    }
-                    alt={featuredBlog.title}
-                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    src={featuredBlog.imageUrl || '/assets/images/blog-digital-home.jpg'}
+                    alt={featuredBlog.imageAlt || featuredBlog.title}
+                    className="w-full h-full object-contain"
                   />
                 </div>
                 <div className="space-y-3">
@@ -787,7 +788,7 @@ export const HomePage: React.FC = () => {
                       {featuredBlog.category}
                     </span>
                     <span>·</span>
-                    <span>{featuredBlog.publishedAt}</span>
+                    <span>{formatBlogDate(featuredBlog.publishedAt)}</span>
                     <span>·</span>
                     <span className="flex items-center gap-1">
                       <Clock className="w-3.5 h-3.5" />
@@ -805,31 +806,29 @@ export const HomePage: React.FC = () => {
                     <ArrowRight className="w-3.5 h-3.5" />
                   </div>
                 </div>
-              </div>
+              </SiteLink>
             )}
 
             {/* 2 Supporting Articles */}
             <div className="lg:col-span-5 flex flex-col justify-between divide-y divide-slate-200">
               {supportingBlogs.map((post) => (
-                <div
+                <SiteLink
                   key={post.id}
-                  onClick={() => navigateTo('/blog/:slug', { slug: post.slug })}
-                  className="py-6 first:pt-0 last:pb-0 group cursor-pointer space-y-3"
+                  to="/blog/:slug"
+                  params={{ slug: post.slug }}
+                  className="py-6 first:pt-0 last:pb-0 group cursor-pointer space-y-3 block"
                 >
-                  <div className="aspect-16/9 bg-slate-900 overflow-hidden border border-slate-200 mb-3">
+                  <div className="aspect-16/9 bg-[#F6F8FA] overflow-hidden border border-slate-200 mb-3">
                     <img
-                      src={
-                        post.imageUrl ||
-                        '/assets/images/blog-digital-home.jpg'
-                      }
-                      alt={post.title}
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
+                      src={post.imageUrl || '/assets/images/blog-digital-home.jpg'}
+                      alt={post.imageAlt || post.title}
+                      className="w-full h-full object-contain"
                     />
                   </div>
                   <div className="flex items-center gap-2 text-[11px] font-mono text-slate-500 uppercase tracking-wider">
                     <span className="text-[#12A9DB] font-bold">{post.category}</span>
                     <span>·</span>
-                    <span>{post.publishedAt}</span>
+                    <span>{formatBlogDate(post.publishedAt)}</span>
                   </div>
                   <h4 className="text-lg font-bold text-[#051449] group-hover:text-[#12A9DB] transition-colors leading-snug">
                     {post.title}
@@ -841,7 +840,7 @@ export const HomePage: React.FC = () => {
                     <span>Read</span>
                     <ArrowRight className="w-3 h-3" />
                   </div>
-                </div>
+                </SiteLink>
               ))}
             </div>
           </div>

@@ -1,7 +1,6 @@
 import {
   ServiceItem,
   ProductItem,
-  BlogPost,
   CommunityResource,
   TrainingSession,
   ServiceEnquiry,
@@ -541,98 +540,6 @@ export const INITIAL_TESTIMONIALS: TestimonialItem[] = [
     serviceCategory: 'Publishing & Media Production',
     quote: 'Working with BTMT brought clarity, editorial discipline, and aesthetic distinction to our publications and video documentaries.',
     rating: 5
-  }
-];
-
-export const INITIAL_BLOG_POSTS: BlogPost[] = [
-  {
-    id: 'blog-1',
-    slug: 'why-businesses-need-independent-digital-home',
-    title: 'Why Every Business Needs a Digital Home Independent of Social Media',
-    category: 'Technology',
-    excerpt: 'Social media algorithms change without warning and accounts can be suspended overnight. Discover why an independent website is your most valuable corporate asset.',
-    author: 'BTMT Technology Desk',
-    authorRole: 'Systems & Architecture Lead',
-    publishedAt: 'October 24, 2026',
-    readTime: '5 min read',
-    isPublished: true,
-    featured: true,
-    imageUrl: '/assets/images/blog-digital-home.jpg',
-    content: `
-### The Illusion of Social Media Ownership
-
-For many emerging brands and businesses across Nigeria and beyond, Instagram, TikTok, and WhatsApp feel like the entire internet. They offer rapid distribution, immediate feedback loops, and low initial barriers to entry.
-
-However, relying entirely on rented land comes with existential business risks:
-- Algorithms dictate who sees your announcements, often dropping organic reach to under 5%.
-- Accounts are routinely flagged, disabled, or locked due to automated security triggers, leaving your business disconnected from customers.
-- Direct messages and comments are difficult to integrate into inventory systems or accounting workflows.
-
-### The Power of an Independent Digital Home
-
-A professionally built corporate website gives your organization permanent autonomy:
-1. **Search Authority**: Customers seeking reliable suppliers across Lagos, Abuja, or Port Harcourt turn to Google. A well-structured website captures this high-intent demand.
-2. **Permanent Credibility**: Major clients, institutional partners, and grant bodies require verified corporate domains before committing capital.
-3. **Controlled User Experience**: You guide the visitor from curiosity to consultation without distractions from competitor advertisements or algorithmic feeds.
-
-Invest in your foundation first. Use social media as an outbound distribution highway, but keep your website as the authoritative destination where transactions and relationships are permanently solidified.
-    `
-  },
-  {
-    id: 'blog-2',
-    slug: 'moral-excellence-sustainable-competitive-advantage',
-    title: 'Moral and Ethical Excellence as a Sustainable Competitive Advantage',
-    category: 'Business Growth',
-    excerpt: 'In an era of aggressive shortcuts and fleeting hype, authentic transparency and uncompromising ethical standards build the deepest client loyalty.',
-    author: 'Michael C. George',
-    authorRole: 'Founder, BTMT',
-    publishedAt: 'October 12, 2026',
-    readTime: '6 min read',
-    isPublished: true,
-    featured: true,
-    imageUrl: '/assets/images/blog-ethical-excellence.jpg',
-    content: `
-### Beyond the Transaction: The Ethical Foundation
-
-At Blissful Touch Media & Technology, our official slogan is: *Building Authentic Visibility and Promoting Moral and Ethical Excellence*. This is not merely a slogan; it is the operating philosophy that governs how we treat client deadlines, data, and creative projects.
-
-Too often, business development is framed as a zero-sum contest of persuasion and aggressive marketing. Companies promise unfeasible deadlines to secure contracts, only to deliver subpar work or disappear when challenges emerge.
-
-### Three Pillars of Ethical Commerce
-
-1. **Punctual & Truthful Commitments**: If a software system or video shoot requires four weeks for proper execution, we state it transparently rather than promising two weeks to win a bid.
-2. **Value Before Visibility**: Authentic visibility only works when what is visible is genuinely good, functional, and durable. Amplifying a flawed service only accelerates customer disappointment.
-3. **Respect for Client Resources**: Every budget committed to technology or media must produce measurable utility, whether through automated workflows or qualified client inquiries.
-
-When your brand becomes renowned for uncompromising integrity, you no longer have to fight on price alone. Clients return because trust is the rarest and most valuable asset in modern business.
-    `
-  },
-  {
-    id: 'blog-3',
-    slug: 'crafting-compelling-brand-identity-nigerian-market',
-    title: 'Crafting a Compelling Brand Identity in Today’s Market',
-    category: 'Branding',
-    excerpt: 'A logo is only the visual signature of a much deeper strategic narrative. How to align your visual symbols with real market needs.',
-    author: 'BTMT Creative Studio',
-    authorRole: 'Brand Identity Practice',
-    publishedAt: 'September 28, 2026',
-    readTime: '4 min read',
-    isPublished: true,
-    featured: false,
-    imageUrl: '/assets/images/blog-brand-identity.jpg',
-    content: `
-### What a Brand Truly Represents
-
-Many entrepreneurs believe that branding starts and finishes with hiring a designer to draw an abstract logo icon. While a distinctive visual mark is essential, visual identity is merely the outward expression of your underlying promise.
-
-Your brand is the composite feeling, expectation, and memory that comes to a customer's mind when they hear your company's name.
-
-### Key Considerations for Modern Brands
-
-- **Legibility Across Micro-Screens**: In Nigeria, over 85% of brand interactions occur on smartphone screens. Your logo and typography must remain clear whether rendered on a 32-pixel browser favicon, a social avatar, or a 10-foot highway billboard.
-- **Color Discipline**: Avoid jumping between multiple uncoordinated color palettes. Choose a dominant tone that communicates stability (such as deep navy) and pair it with a purposeful accent.
-- **Tone of Voice**: Does your brand speak with authoritative clarity, warm hospitality, or playful innovation? Consistency across email receipts, social captions, and phone calls creates trust.
-    `
   }
 ];
 

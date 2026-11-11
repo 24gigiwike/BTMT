@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /login
+Disallow: /dashboard
+Disallow: /cart
+Disallow: /checkout
+
+Sitemap: https://blissfultouch.ng/sitemap.xml

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { AppProvider, useApp } from './context/AppContext';
+import { useSiteRouteMeta } from './seo/documentMeta';
 import { SiteHeader } from './components/layout/SiteHeader';
 import { SiteFooter } from './components/layout/SiteFooter';
 import { Toast } from './components/ui/Toast';
@@ -39,7 +40,11 @@ const RedirectToCommunity: React.FC = () => {
 };
 
 const RouterView: React.FC = () => {
-  const { currentRoute, navigateTo, currentUser } = useApp();
+  const { currentRoute, routeParams, navigateTo, currentUser } = useApp();
+  useSiteRouteMeta(
+    currentRoute,
+    `${currentRoute}:${routeParams.slug || ''}:${routeParams.tag || ''}:${routeParams.category || ''}`
+  );
 
   const renderPage = () => {
     switch (currentRoute) {
@@ -62,6 +67,8 @@ const RouterView: React.FC = () => {
       case '/checkout':
         return <CheckoutPage />;
       case '/blog':
+      case '/blog/tag/:tag':
+      case '/blog/category/:category':
         return <BlogPage />;
       case '/blog/:slug':
         return <BlogDetailPage />;
