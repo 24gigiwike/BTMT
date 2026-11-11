@@ -83,10 +83,9 @@ export const ServicesPage: React.FC = () => {
                   {/* Photo Header */}
                   <div className="aspect-16/10 relative overflow-hidden bg-slate-900">
                     <img
-                      src={srv.imageUrl || 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80'}
+                      src={srv.imageUrl || '/assets/images/service-web-dev.jpg'}
                       alt={srv.title}
-                      referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#051449]/70 via-transparent to-transparent" />
                     <div className="absolute top-3 left-3 flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-bold bg-white/90 backdrop-blur-xs text-[#051449]">

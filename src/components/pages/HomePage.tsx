@@ -25,14 +25,15 @@ export const HomePage: React.FC = () => {
   // Fallback to first 6 if slugs differ
   const servicesToDisplay = featuredServices.length >= 6 ? featuredServices : services.slice(0, 6);
 
-  // Curated imagery directly relevant to the 6 featured services
+  // Curated imagery directly relevant to featured and catalog services
   const serviceImages: Record<string, string> = {
-    'website-development': 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80',
-    'software-development': 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80',
-    'digital-marketing-advertising': 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
-    'branding': 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=1200&q=80',
-    'printing-publishing': 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80',
-    'event-coverage': 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80'
+    'website-development': '/assets/images/service-web-dev.jpg',
+    'software-development': '/assets/images/service-software-dev.jpg',
+    'ui-ux-design': '/assets/images/service-ui-ux.jpg',
+    'digital-marketing-advertising': '/assets/images/service-digital-marketing.jpg',
+    'branding': '/assets/images/service-branding.jpg',
+    'printing-publishing': '/assets/images/service-printing.jpg',
+    'event-coverage': '/assets/images/service-event-coverage.jpg'
   };
 
   const featuredBlog = blogPosts.find((b) => b.featured) || blogPosts[0];
@@ -90,10 +91,9 @@ export const HomePage: React.FC = () => {
         {/* Wide Full-Bleed Architectural Hero Photography */}
         <div className="w-full relative aspect-21/9 min-h-[380px] lg:min-h-[520px] bg-slate-900 overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=85"
-            alt="Blissful Touch Media & Technology creative production and engineering environment"
-            referrerPolicy="no-referrer"
-            className="w-full h-full object-cover object-center"
+            src="/assets/images/hero-btmt-team.jpg"
+            alt="Blissful Touch Media & Technology creative production and engineering team"
+            className="w-full h-full object-cover object-[50%_30%]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent pointer-events-none" />
           <div className="absolute bottom-6 left-6 sm:bottom-10 sm:left-12 text-white">
@@ -151,10 +151,9 @@ export const HomePage: React.FC = () => {
             <div className="lg:col-span-6">
               <div className="relative aspect-4/3 bg-slate-900 overflow-hidden shadow-xs">
                 <img
-                  src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1400&q=80"
-                  alt="BTMT creative team strategy and software design"
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover"
+                  src="/assets/images/who-we-are-strategy.jpg"
+                  alt="BTMT engineers collaborating on software design and strategy"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
               <div className="pt-3 flex items-center justify-between text-xs text-slate-500 font-mono">
@@ -190,9 +189,8 @@ export const HomePage: React.FC = () => {
             <div className="bg-white border border-slate-200 flex flex-col justify-between group">
               <div className="aspect-16/10 relative overflow-hidden bg-slate-900">
                 <img
-                  src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1000&q=80"
+                  src="/assets/images/division-tech.jpg"
                   alt="BTMT Technology Division"
-                  referrerPolicy="no-referrer"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute top-4 left-4">
@@ -225,9 +223,8 @@ export const HomePage: React.FC = () => {
             <div className="bg-white border border-slate-200 flex flex-col justify-between group">
               <div className="aspect-16/10 relative overflow-hidden bg-slate-900">
                 <img
-                  src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1000&q=80"
+                  src="/assets/images/division-media.jpg"
                   alt="BTMT Media Division"
-                  referrerPolicy="no-referrer"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute top-4 left-4">
@@ -260,9 +257,8 @@ export const HomePage: React.FC = () => {
             <div className="bg-white border border-slate-200 flex flex-col justify-between group">
               <div className="aspect-16/10 relative overflow-hidden bg-slate-900">
                 <img
-                  src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1000&q=80"
+                  src="/assets/images/division-entertainment.jpg"
                   alt="BTMT Entertainment Division"
-                  referrerPolicy="no-referrer"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute top-4 left-4">
@@ -324,7 +320,7 @@ export const HomePage: React.FC = () => {
               const photoUrl =
                 serviceImages[service.slug] ||
                 service.imageUrl ||
-                'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80';
+                '/assets/images/service-web-dev.jpg';
 
               return (
                 <div
@@ -513,10 +509,9 @@ export const HomePage: React.FC = () => {
             <div className="lg:col-span-5">
               <div className="aspect-3/4 bg-slate-900 overflow-hidden border border-slate-200">
                 <img
-                  src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80"
-                  alt="BTMT professional standards and delivery"
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover"
+                  src="/assets/images/why-choose-btmt.jpg"
+                  alt="BTMT software engineer and technical quality standards"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
               <div className="p-4 bg-white border border-t-0 border-slate-200 flex items-center justify-between text-xs text-slate-500 font-mono">
@@ -633,10 +628,9 @@ export const HomePage: React.FC = () => {
                     <img
                       src={
                         product.imageUrl ||
-                        'https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=800&q=80'
+                        '/assets/images/book-01.jpg'
                       }
                       alt={product.name}
-                      referrerPolicy="no-referrer"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider bg-[#051449] text-white px-2.5 py-1">
@@ -681,10 +675,9 @@ export const HomePage: React.FC = () => {
             <div className="lg:col-span-7">
               <div className="aspect-16/10 bg-slate-900 overflow-hidden border border-slate-200 shadow-sm">
                 <img
-                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1400&q=80"
+                  src="/assets/images/community-network.jpg"
                   alt="BTMT Community Collaboration"
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
               <div className="p-3 bg-white border border-t-0 border-slate-200 flex items-center justify-between text-xs text-slate-500 font-mono">
@@ -749,11 +742,10 @@ export const HomePage: React.FC = () => {
                   <img
                     src={
                       featuredBlog.imageUrl ||
-                      'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1200&q=80'
+                      '/assets/images/blog-digital-home.jpg'
                     }
                     alt={featuredBlog.title}
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 <div className="space-y-3">
@@ -795,11 +787,10 @@ export const HomePage: React.FC = () => {
                     <img
                       src={
                         post.imageUrl ||
-                        'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80'
+                        '/assets/images/blog-digital-home.jpg'
                       }
                       alt={post.title}
-                      referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
                   <div className="flex items-center gap-2 text-[11px] font-mono text-slate-500 uppercase tracking-wider">

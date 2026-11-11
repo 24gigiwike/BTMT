@@ -31,10 +31,9 @@ export const AboutPage: React.FC = () => {
               <div className="border border-slate-200 overflow-hidden shadow-sm bg-slate-900 group">
                 <div className="aspect-4/3 relative">
                   <img
-                    src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?auto=format&fit=crop&w=1200&q=80"
+                    src="/assets/images/about-hero-team.jpg"
                     alt="African creative and technology professionals collaborating at BTMT"
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#051449]/70 via-transparent to-transparent pointer-events-none" />
                   <div className="absolute bottom-4 left-4 right-4 text-white">
@@ -65,10 +64,9 @@ export const AboutPage: React.FC = () => {
               <div className="pt-4 border border-slate-200 overflow-hidden shadow-xs">
                 <div className="aspect-16/9 relative bg-slate-900">
                   <img
-                    src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80"
+                    src="/assets/images/about-story-team.jpg"
                     alt="African technology engineers and creative media professionals collaborating"
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top"
                   />
                 </div>
                 <div className="p-3 bg-[#F6F8FA] border-t border-slate-200 text-xs text-slate-600 flex items-center justify-between">

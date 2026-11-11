@@ -84,10 +84,9 @@ export const BlogPage: React.FC = () => {
           <div className="bg-[#F6F8FA] rounded-2xl border border-slate-200 overflow-hidden hover:border-slate-300 transition-all grid grid-cols-1 lg:grid-cols-12">
             <div className="lg:col-span-7 relative min-h-[280px] lg:min-h-full bg-slate-900 overflow-hidden group">
               <img
-                src={featuredPost.imageUrl || 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1200&q=80'}
+                src={featuredPost.imageUrl || '/assets/images/blog-digital-home.jpg'}
                 alt={featuredPost.title}
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
               <div className="absolute top-4 left-4">
@@ -161,10 +160,9 @@ export const BlogPage: React.FC = () => {
                 <div>
                   <div className="aspect-16/10 relative bg-slate-900 overflow-hidden">
                     <img
-                      src={post.imageUrl || 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80'}
+                      src={post.imageUrl || '/assets/images/blog-digital-home.jpg'}
                       alt={post.title}
-                      referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
                     />
                     <span className="absolute top-3 left-3 text-[11px] font-semibold bg-[#051449]/90 text-white px-2.5 py-0.5 rounded-md backdrop-blur-xs">
                       {post.category}

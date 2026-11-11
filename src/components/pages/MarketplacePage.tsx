@@ -83,10 +83,9 @@ export const MarketplacePage: React.FC = () => {
                     <img
                       src={
                         prod.imageUrl ||
-                        'https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=800&q=80'
+                        '/assets/images/book-01.jpg'
                       }
                       alt={prod.name}
-                      referrerPolicy="no-referrer"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute top-3 left-3 bg-[#051449] text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1">

@@ -76,10 +76,9 @@ export const ServiceDetailPage: React.FC = () => {
             <div className="lg:col-span-5">
               <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 aspect-4/3 bg-slate-900 group">
                 <img
-                  src={service.imageUrl || 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1000&q=80'}
+                  src={service.imageUrl || '/assets/images/service-web-dev.jpg'}
                   alt={service.title}
-                  referrerPolicy="no-referrer"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#051449]/70 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 text-white text-xs font-semibold">
@@ -230,10 +229,9 @@ export const ServiceDetailPage: React.FC = () => {
                 >
                   <div className="aspect-16/10 relative overflow-hidden bg-slate-900">
                     <img
-                      src={rel.imageUrl || 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80'}
+                      src={rel.imageUrl || '/assets/images/service-software-dev.jpg'}
                       alt={rel.title}
-                      referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover object-top"
                     />
                   </div>
                   <div className="p-5 space-y-2">

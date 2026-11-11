@@ -1,24 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { useApp } from '../../context/AppContext';
 import { Logo } from '../ui/Logo';
-import { ShoppingBag, Menu, X, User, ShieldCheck } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 export const SiteHeader: React.FC = () => {
-  const { currentRoute, navigateTo, cartCount, currentUser, logout, loginAsAdmin } = useApp();
+  const { currentRoute, navigateTo } = useApp();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [authDropdownOpen, setAuthDropdownOpen] = useState(false);
 
   // Close mobile menu on route change or escape
   useEffect(() => {
     setMobileMenuOpen(false);
-    setAuthDropdownOpen(false);
   }, [currentRoute]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setMobileMenuOpen(false);
-        setAuthDropdownOpen(false);
       }
     };
     window.addEventListener('keydown', handleKeyDown);
@@ -73,114 +70,8 @@ export const SiteHeader: React.FC = () => {
             ))}
           </nav>
 
-          {/* Zone 3: Primary Action & Utilities */}
+          {/* Zone 3: Primary Action & Mobile Drawer Toggle */}
           <div className="flex items-center gap-3 shrink-0">
-            {/* Cart Icon */}
-            <button
-              onClick={() => navigateTo('/cart')}
-              aria-label="View Shopping Cart"
-              className="relative p-2 text-slate-700 hover:text-[#051449] hover:bg-slate-100 transition-colors"
-            >
-              <ShoppingBag className="w-5 h-5" />
-              {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 flex items-center justify-center min-w-5 h-5 px-1.5 text-[10px] font-bold text-white bg-[#E32938]">
-                  {cartCount}
-                </span>
-              )}
-            </button>
-
-            {/* Auth / Profile Dropdown */}
-            <div className="relative">
-              <button
-                onClick={() => setAuthDropdownOpen(!authDropdownOpen)}
-                aria-label="Account Settings"
-                className={`p-2 rounded-lg transition-colors flex items-center gap-1.5 text-xs font-medium ${
-                  currentUser
-                    ? 'bg-[#CDEEF8]/50 text-[#051449] border border-[#12A9DB]/30'
-                    : 'text-slate-700 hover:text-[#051449] hover:bg-slate-100'
-                }`}
-              >
-                {currentUser?.role === 'admin' ? (
-                  <ShieldCheck className="w-4 h-4 text-[#051449]" />
-                ) : (
-                  <User className="w-4 h-4" />
-                )}
-                {currentUser && (
-                  <span className="hidden sm:inline-block max-w-24 truncate">
-                    {currentUser.role === 'admin' ? 'Admin' : currentUser.fullName.split(' ')[0]}
-                  </span>
-                )}
-              </button>
-
-              {authDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-slate-200 py-2 z-50 text-xs">
-                  {currentUser ? (
-                    <>
-                      <div className="px-4 py-2 border-b border-slate-100">
-                        <div className="font-semibold text-slate-900 truncate">{currentUser.fullName}</div>
-                        <div className="text-slate-500 truncate">{currentUser.email}</div>
-                        <div className="mt-1 text-[11px] font-medium text-[#12A9DB] uppercase tracking-wider">
-                          {currentUser.role === 'admin' ? currentUser.adminRole : 'Authorized User'}
-                        </div>
-                      </div>
-
-                      {currentUser.role === 'admin' && (
-                        <button
-                          onClick={() => {
-                            navigateTo('/admin');
-                            setAuthDropdownOpen(false);
-                          }}
-                          className="w-full text-left px-4 py-2 hover:bg-slate-50 font-medium text-slate-800 flex items-center justify-between"
-                        >
-                          <span>Admin Control Panel</span>
-                          <span className="text-[10px] bg-slate-100 px-1.5 py-0.5 rounded">CMS</span>
-                        </button>
-                      )}
-
-                      <div className="border-t border-slate-100 mt-1 pt-1">
-                        <button
-                          onClick={() => {
-                            logout();
-                            setAuthDropdownOpen(false);
-                          }}
-                          className="w-full text-left px-4 py-2 hover:bg-red-50 text-red-600 font-medium"
-                        >
-                          Sign Out
-                        </button>
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <div className="px-4 py-2 text-slate-500 border-b border-slate-100 font-medium">
-                        Staff Administration
-                      </div>
-                      <button
-                        onClick={() => {
-                          navigateTo('/login');
-                          setAuthDropdownOpen(false);
-                        }}
-                        className="w-full text-left px-4 py-2 hover:bg-slate-50 font-medium text-slate-800"
-                      >
-                        Staff Sign In
-                      </button>
-                      <div className="border-t border-slate-100 mt-1 pt-1">
-                        <div className="px-4 py-1 text-[11px] text-slate-400 font-semibold uppercase">Instant Demo Access</div>
-                        <button
-                          onClick={() => {
-                            loginAsAdmin('Super Admin');
-                            setAuthDropdownOpen(false);
-                          }}
-                          className="w-full text-left px-4 py-1.5 hover:bg-blue-50 text-blue-800 font-medium text-[11px]"
-                        >
-                          Staff Admin Demo Login
-                        </button>
-                      </div>
-                    </>
-                  )}
-                </div>
-              )}
-            </div>
-
             {/* Primary CTA Button - Architectural & Confident */}
             <button
               onClick={() => navigateTo('/book-service')}
@@ -219,22 +110,13 @@ export const SiteHeader: React.FC = () => {
               </button>
             ))}
 
-            <div className="pt-6 space-y-3">
+            <div className="pt-6">
               <button
                 onClick={() => navigateTo('/book-service')}
                 className="w-full text-center px-6 py-3.5 text-xs font-bold uppercase tracking-wider text-white bg-[#051449] hover:bg-[#E32938] transition-colors"
               >
                 Get Started
               </button>
-
-              <div className="flex items-center justify-between pt-2 text-xs text-slate-500">
-                <button
-                  onClick={() => navigateTo('/admin')}
-                  className="font-medium text-slate-600 hover:text-[#051449] uppercase tracking-wider text-[11px]"
-                >
-                  Admin Portal
-                </button>
-              </div>
             </div>
           </div>
         </div>

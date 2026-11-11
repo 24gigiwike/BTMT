@@ -14,7 +14,7 @@ export const COMPANY_INFO = {
   shortName: 'BTMT',
   slogan: 'Building Authentic Visibility and Promoting Moral and Ethical Excellence',
   concept: 'Building intentional visibility for sustainable growth, increased productivity and profitability.',
-  address: '17 Ajoku Street, By UBA, Wetheral Road, Owerri, Imo State, Nigeria',
+  address: '43/45 MCC Road by PACs Junction, Owerri, Imo State, Nigeria.',
   phone: '+234 706 088 2645',
   phoneRaw: '+2347060882645',
   whatsappRaw: '2347060882645',
@@ -79,7 +79,7 @@ export const COMPANY_INFO = {
     instagram: 'Blissful Touch Media',
     instagramUrl: 'https://www.instagram.com/blissfultouchmedia',
     youtube: 'Blissfultouch TV',
-    youtubeUrl: 'https://www.youtube.com/@blissfultouchtv'
+    youtubeUrl: 'https://youtube.com/@blissfultouchmedia_tv?si=TwujT3NOi0h9w8ST'
   }
 };
 
@@ -120,7 +120,7 @@ export const INITIAL_SERVICES: ServiceItem[] = [
     ],
     ctaText: "Let's Build Your Website",
     featured: true,
-    imageUrl: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80'
+    imageUrl: '/assets/images/service-web-dev.jpg'
   },
   {
     id: 'software-dev',
@@ -151,7 +151,38 @@ export const INITIAL_SERVICES: ServiceItem[] = [
     ],
     ctaText: 'Discuss Your Project',
     featured: true,
-    imageUrl: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80'
+    imageUrl: '/assets/images/service-software-dev.jpg'
+  },
+  {
+    id: 'ui-ux-design',
+    slug: 'ui-ux-design',
+    title: 'UI/UX Design',
+    category: 'Technology',
+    headline: 'Intuitive, Engaging, and User-Centred Digital Experiences',
+    shortDescription: 'We design intuitive, visually engaging, and user-centred digital experiences that make interacting with technology simple and enjoyable. From website interfaces to mobile application experiences, we combine creativity, functionality, and usability to create designs that connect with users and support business goals.',
+    fullDescription: 'We design intuitive, visually engaging, and user-centred digital experiences that make interacting with technology simple and enjoyable. From website interfaces to mobile application experiences, we combine creativity, functionality, and usability to create designs that connect with users and support business goals.',
+    offerings: [
+      'Website UI Design',
+      'Mobile App UI Design',
+      'User Experience (UX) Design',
+      'Wireframing and Prototyping',
+      'User Interface Redesign',
+      'Design Systems'
+    ],
+    benefits: [
+      'Reduces user friction and elevates customer engagement across digital touchpoints',
+      'Aligns brand aesthetics seamlessly with measurable usability and conversion goals',
+      'Provides reusable component systems that accelerate engineering handoff'
+    ],
+    process: [
+      { step: '1', title: 'User Discovery', description: 'Mapping audience behaviours, workflows, and usability opportunities.' },
+      { step: '2', title: 'Wireframes & Flows', description: 'Structuring intuitive navigation and interactive user journeys.' },
+      { step: '3', title: 'Visual Design & Systems', description: 'Crafting responsive high-fidelity screens and reusable UI guidelines.' },
+      { step: '4', title: 'Prototyping & Handoff', description: 'Interactive validation and clean specifications for engineering.' }
+    ],
+    ctaText: "LET'S GET STARTED",
+    featured: true,
+    imageUrl: '/assets/images/service-ui-ux.jpg'
   },
   {
     id: 'digital-marketing',
@@ -181,7 +212,7 @@ export const INITIAL_SERVICES: ServiceItem[] = [
     ],
     ctaText: 'Grow Your Brand',
     featured: true,
-    imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80'
+    imageUrl: '/assets/images/service-digital-marketing.jpg'
   },
   {
     id: 'branding',
@@ -211,7 +242,7 @@ export const INITIAL_SERVICES: ServiceItem[] = [
     ],
     ctaText: 'Start Your Branding Project',
     featured: true,
-    imageUrl: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=1200&q=80'
+    imageUrl: '/assets/images/service-branding.jpg'
   },
   {
     id: 'printing-publishing',
@@ -241,7 +272,7 @@ export const INITIAL_SERVICES: ServiceItem[] = [
     ],
     ctaText: 'Request a Print Service',
     featured: true,
-    imageUrl: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80'
+    imageUrl: '/assets/images/service-printing.jpg'
   },
   {
     id: 'event-coverage',
@@ -271,7 +302,7 @@ export const INITIAL_SERVICES: ServiceItem[] = [
     ],
     ctaText: 'Book Event Coverage',
     featured: true,
-    imageUrl: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80'
+    imageUrl: '/assets/images/service-event-coverage.jpg'
   },
   {
     id: 'audio-visual',
@@ -298,7 +329,7 @@ export const INITIAL_SERVICES: ServiceItem[] = [
     ],
     ctaText: 'Enquire About Production',
     featured: false,
-    imageUrl: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80'
+    imageUrl: '/assets/images/service-audio-visual.jpg'
   },
   {
     id: 'voice-over',
@@ -325,7 +356,7 @@ export const INITIAL_SERVICES: ServiceItem[] = [
     ],
     ctaText: 'Request a Voice-Over',
     featured: false,
-    imageUrl: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=1200&q=80'
+    imageUrl: '/assets/images/service-voice-over.jpg'
   },
   {
     id: 'scriptwriting',
@@ -355,7 +386,7 @@ export const INITIAL_SERVICES: ServiceItem[] = [
     ],
     ctaText: "Let's Tell Your Story",
     featured: false,
-    imageUrl: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=80'
+    imageUrl: '/assets/images/service-scriptwriting.jpg'
   },
   {
     id: 'movie-production',
@@ -382,7 +413,7 @@ export const INITIAL_SERVICES: ServiceItem[] = [
     ],
     ctaText: 'Enquire About Movie Production',
     featured: false,
-    imageUrl: 'https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=1200&q=80'
+    imageUrl: '/assets/images/service-movie-production.jpg'
   },
   {
     id: 'podcast-shows',
@@ -409,7 +440,7 @@ export const INITIAL_SERVICES: ServiceItem[] = [
     ],
     ctaText: 'Explore Podcast Opportunities',
     featured: false,
-    imageUrl: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&q=80'
+    imageUrl: '/assets/images/service-podcast.jpg'
   }
 ];
 
@@ -432,7 +463,7 @@ export const INITIAL_PRODUCTS: ProductItem[] = [
     inStock: false,
     stockCount: 0,
     featured: true,
-    imageUrl: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=800&q=80',
+    imageUrl: '/assets/images/book-01.jpg',
     deliveryInfo: 'Publication details and purchasing availability will be announced soon.'
   },
   {
@@ -453,7 +484,7 @@ export const INITIAL_PRODUCTS: ProductItem[] = [
     inStock: false,
     stockCount: 0,
     featured: true,
-    imageUrl: 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=800&q=80',
+    imageUrl: '/assets/images/book-02.jpg',
     deliveryInfo: 'Publication details and purchasing availability will be announced soon.'
   },
   {
@@ -474,7 +505,7 @@ export const INITIAL_PRODUCTS: ProductItem[] = [
     inStock: false,
     stockCount: 0,
     featured: true,
-    imageUrl: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=80',
+    imageUrl: '/assets/images/book-03.jpg',
     deliveryInfo: 'Publication details and purchasing availability will be announced soon.'
   }
 ];
@@ -531,7 +562,7 @@ export const INITIAL_BLOG_POSTS: BlogPost[] = [
     readTime: '5 min read',
     isPublished: true,
     featured: true,
-    imageUrl: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1000&q=80',
+    imageUrl: '/assets/images/blog-digital-home.jpg',
     content: `
 ### The Illusion of Social Media Ownership
 
@@ -564,7 +595,7 @@ Invest in your foundation first. Use social media as an outbound distribution hi
     readTime: '6 min read',
     isPublished: true,
     featured: true,
-    imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=80',
+    imageUrl: '/assets/images/blog-ethical-excellence.jpg',
     content: `
 ### Beyond the Transaction: The Ethical Foundation
 
@@ -593,7 +624,7 @@ When your brand becomes renowned for uncompromising integrity, you no longer hav
     readTime: '4 min read',
     isPublished: true,
     featured: false,
-    imageUrl: 'https://images.unsplash.com/photo-1634942537034-2531766767d1?auto=format&fit=crop&w=1000&q=80',
+    imageUrl: '/assets/images/blog-brand-identity.jpg',
     content: `
 ### What a Brand Truly Represents
 
@@ -723,7 +754,7 @@ export const INITIAL_PORTFOLIO: import('../types').PortfolioProject[] = [
     category: 'Technology',
     description: 'Architecture, interface engineering, and mobile appointment scheduling system for a regional diagnostic health network.',
     servicesDelivered: ['Custom Web Architecture', 'Mobile Portal UI/UX', 'SEO Optimization', 'SSL Security Handshake'],
-    imageUrl: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1000&q=80',
+    imageUrl: '/assets/images/portfolio-clinical.jpg',
     impactMetrics: '100% Appointment Automation'
   },
   {
@@ -733,7 +764,7 @@ export const INITIAL_PORTFOLIO: import('../types').PortfolioProject[] = [
     category: 'Media & Branding',
     description: 'Comprehensive brand identity system including logo guidelines, letterheads, presentation folders, and commercial offset print runs.',
     servicesDelivered: ['Brand Strategy', 'Logo & Typography', 'Stationery Package', 'Brand Manual'],
-    imageUrl: 'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=1000&q=80',
+    imageUrl: '/assets/images/portfolio-branding.jpg',
     impactMetrics: 'Complete Corporate Relaunch'
   },
   {
@@ -743,7 +774,7 @@ export const INITIAL_PORTFOLIO: import('../types').PortfolioProject[] = [
     category: 'Event Coverage',
     description: 'Multi-camera 4K broadcast, live streaming to international delegates, executive portraits, and same-day highlight reel distribution.',
     servicesDelivered: ['Multi-Cam Live Stream', '4K Event Documentation', 'Executive Photography', 'Press Media Kits'],
-    imageUrl: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1000&q=80',
+    imageUrl: '/assets/images/portfolio-summit.jpg',
     impactMetrics: '3,500+ Virtual Stakeholders'
   }
 ];

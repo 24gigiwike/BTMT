@@ -212,7 +212,7 @@ export const CheckoutPage: React.FC = () => {
                     required
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
-                    placeholder="e.g. 17 Ajoku Street, By UBA, Wetheral Road"
+                    placeholder="Enter street address and landmark"
                     className="w-full px-3.5 py-2.5 text-xs bg-white border border-slate-300 rounded-lg focus:outline-hidden focus:border-[#12A9DB] focus:ring-1 focus:ring-[#12A9DB]"
                   />
                 </div>

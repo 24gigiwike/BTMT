@@ -78,10 +78,9 @@ export const BlogDetailPage: React.FC = () => {
         <div className="my-8 rounded-2xl overflow-hidden border border-slate-200 shadow-xs relative bg-slate-900">
           <div className="aspect-16/9 relative overflow-hidden">
             <img
-              src={post.imageUrl || 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1200&q=80'}
+              src={post.imageUrl || '/assets/images/blog-digital-home.jpg'}
               alt={post.title}
-              referrerPolicy="no-referrer"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-top"
             />
           </div>
           <div className="px-4 py-2.5 bg-[#F6F8FA] border-t border-slate-200 flex items-center justify-between text-[11px] text-slate-500">
@@ -154,10 +153,9 @@ export const BlogDetailPage: React.FC = () => {
                 >
                   <div className="aspect-16/9 relative bg-slate-900 overflow-hidden">
                     <img
-                      src={rel.imageUrl || 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80'}
+                      src={rel.imageUrl || '/assets/images/blog-digital-home.jpg'}
                       alt={rel.title}
-                      referrerPolicy="no-referrer"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-300"
                     />
                     <span className="absolute top-2.5 left-2.5 text-[10px] font-semibold bg-[#051449]/90 text-white px-2 py-0.5 rounded-md backdrop-blur-xs">
                       {rel.category}

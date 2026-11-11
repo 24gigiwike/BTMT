@@ -966,7 +966,7 @@ export const AdminDashboard: React.FC = () => {
                     <input
                       type="text"
                       readOnly
-                      value="17 Ajoku Street, By UBA, Wetheral Road, Owerri, Imo State, Nigeria."
+                      value="43/45 MCC Road by PACs Junction, Owerri, Imo State, Nigeria."
                       className="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-slate-700"
                     />
                   </div>

@@ -106,12 +106,12 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   // Data persistence states with versioning
   const [services, setServices] = useState<ServiceItem[]>(() => {
-    const saved = localStorage.getItem('btmt_services_v3');
+    const saved = localStorage.getItem('btmt_services_v5');
     return saved ? JSON.parse(saved) : INITIAL_SERVICES;
   });
 
   const [products, setProducts] = useState<ProductItem[]>(() => {
-    const saved = localStorage.getItem('btmt_products_v3');
+    const saved = localStorage.getItem('btmt_products_v5');
     return saved ? JSON.parse(saved) : INITIAL_PRODUCTS;
   });
 
@@ -126,7 +126,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   });
 
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>(() => {
-    const saved = localStorage.getItem('btmt_blog_posts');
+    const saved = localStorage.getItem('btmt_blog_posts_v3');
     return saved ? JSON.parse(saved) : INITIAL_BLOG_POSTS;
   });
 
@@ -180,11 +180,11 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   // Sync state to LocalStorage
   useEffect(() => {
-    localStorage.setItem('btmt_services_v3', JSON.stringify(services));
+    localStorage.setItem('btmt_services_v5', JSON.stringify(services));
   }, [services]);
 
   useEffect(() => {
-    localStorage.setItem('btmt_products_v3', JSON.stringify(products));
+    localStorage.setItem('btmt_products_v5', JSON.stringify(products));
   }, [products]);
 
   useEffect(() => {
@@ -196,7 +196,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   }, [testimonials]);
 
   useEffect(() => {
-    localStorage.setItem('btmt_blog_posts', JSON.stringify(blogPosts));
+    localStorage.setItem('btmt_blog_posts_v3', JSON.stringify(blogPosts));
   }, [blogPosts]);
 
   useEffect(() => {

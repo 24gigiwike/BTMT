@@ -44,10 +44,9 @@ export const ProductDetailPage: React.FC = () => {
                 <img
                   src={
                     product.imageUrl ||
-                    'https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=1000&q=80'
+                    '/assets/images/book-01.jpg'
                   }
                   alt={product.name}
-                  referrerPolicy="no-referrer"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute top-4 left-4 right-4 flex items-center justify-between text-xs">
@@ -213,10 +212,9 @@ export const ProductDetailPage: React.FC = () => {
                     <img
                       src={
                         rel.imageUrl ||
-                        'https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=600&q=80'
+                        '/assets/images/book-01.jpg'
                       }
                       alt={rel.name}
-                      referrerPolicy="no-referrer"
                       className="w-full h-full object-cover"
                     />
                   </div>

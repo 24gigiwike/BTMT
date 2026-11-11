@@ -93,10 +93,9 @@ export const CommunityPage: React.FC = () => {
               <div className="border border-slate-200 overflow-hidden shadow-sm bg-slate-900 group">
                 <div className="aspect-4/3 relative">
                   <img
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=80"
+                    src="/assets/images/community-page.jpg"
                     alt="African creative and technology professionals collaborating"
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#051449]/70 via-transparent to-transparent pointer-events-none" />
                   <div className="absolute bottom-4 left-4 right-4 text-white">

@@ -82,7 +82,7 @@ export const ContactPage: React.FC = () => {
                     Office Address
                   </div>
                   <div className="mt-1 leading-relaxed text-sm text-slate-800">
-                    17 Ajoku Street, By UBA, Wetheral Road, Owerri, Imo State, Nigeria.
+                    43/45 MCC Road by PACs Junction, Owerri, Imo State, Nigeria.
                   </div>
                 </div>
               </div>
@@ -125,7 +125,7 @@ export const ContactPage: React.FC = () => {
                 <a
                   href={`https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${encodeURIComponent('Hello BTMT, I would like to make an enquiry.')}`}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="px-4 py-2 text-xs font-bold uppercase tracking-wider text-white bg-emerald-600 hover:bg-emerald-700 transition-colors whitespace-nowrap"
                 >
                   Chat Now
@@ -144,7 +144,7 @@ export const ContactPage: React.FC = () => {
                   <a
                     href={COMPANY_INFO.socials.facebookUrl}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="font-semibold text-[#051449] hover:underline"
                   >
                     {COMPANY_INFO.socials.facebook}
@@ -155,7 +155,7 @@ export const ContactPage: React.FC = () => {
                   <a
                     href={COMPANY_INFO.socials.instagramUrl}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="font-semibold text-[#051449] hover:underline"
                   >
                     {COMPANY_INFO.socials.instagram}
@@ -166,7 +166,7 @@ export const ContactPage: React.FC = () => {
                   <a
                     href={COMPANY_INFO.socials.youtubeUrl}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="font-semibold text-[#051449] hover:underline"
                   >
                     {COMPANY_INFO.socials.youtube}

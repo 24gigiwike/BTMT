@@ -171,7 +171,7 @@ export const SiteFooter: React.FC = () => {
                 <a
                   href={COMPANY_INFO.socials.facebookUrl}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="hover:text-white flex items-center justify-between group"
                 >
                   <span>Facebook</span>
@@ -180,7 +180,7 @@ export const SiteFooter: React.FC = () => {
                 <a
                   href={COMPANY_INFO.socials.instagramUrl}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="hover:text-white flex items-center justify-between group"
                 >
                   <span>Instagram</span>
@@ -189,7 +189,7 @@ export const SiteFooter: React.FC = () => {
                 <a
                   href={COMPANY_INFO.socials.youtubeUrl}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="hover:text-white flex items-center justify-between group"
                 >
                   <span>YouTube ({COMPANY_INFO.socials.youtube})</span>
