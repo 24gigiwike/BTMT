@@ -1,10 +1,12 @@
 ---
-title: "Why Every Business Needs a Digital Home Independent of Social Media"
+title: Why Every Business Needs a Digital Home Independent of Social Media
 slug: why-businesses-need-independent-digital-home
-excerpt: "Social media algorithms change without warning and accounts can be suspended overnight. Discover why an independent website is your most valuable corporate asset."
-author: "BTMT Technology Desk"
-authorRole: "Systems & Architecture Lead"
-publishedAt: 2026-10-24
+excerpt: Social media algorithms change without warning and accounts can be
+  suspended overnight. Discover why an independent website is your most valuable
+  corporate asset.
+author: BTMT Technology Desk
+authorRole: Systems & Architecture Lead
+publishedAt: 2026-10-06
 category: Technology
 tags:
   - Websites
@@ -16,12 +18,11 @@ keywords:
   - corporate website Nigeria
 status: Published
 featured: true
-image: /assets/images/blog-digital-home.jpg
-readTime: "5 min read"
+image: /assets/images/blog/-digital-home.jpg
+readTime: 5 min read
 seo:
-  imageAlt: "Featured image for the article on why a business needs its own website"
+  imageAlt: Featured image for the article on why a business needs its own website
 ---
-
 ## The Illusion of Social Media Ownership
 
 For many emerging brands and businesses across Nigeria and beyond, Instagram, TikTok, and WhatsApp feel like the entire internet. They offer rapid distribution, immediate feedback loops, and low initial barriers to entry.
