@@ -6,7 +6,7 @@ excerpt: Social media algorithms change without warning and accounts can be
   corporate asset.
 author: BTMT Technology Desk
 authorRole: Systems & Architecture Lead
-publishedAt: 2026-10-06
+publishedAt: 2026-10-24
 category: Technology
 tags:
   - Websites
