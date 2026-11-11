@@ -63,7 +63,10 @@ export function parseYaml(source: string): Record<string, YamlValue> {
       const key = trimmed.slice(0, colon).trim();
       const rest = trimmed.slice(colon + 1).trim();
       index += 1;
-      if (!rest || rest === '|' || rest === '>') {
+      const block = blockScalarStyle(rest);
+      if (block) {
+        result[key] = parseBlockScalar(indent, block);
+      } else if (!rest) {
         const upcoming = nextContent(index);
         if (!upcoming || upcoming.indent <= indent) {
           result[key] = '';
@@ -73,7 +76,7 @@ export function parseYaml(source: string): Record<string, YamlValue> {
           result[key] = parseMap(upcoming.indent);
         }
       } else {
-        result[key] = parseScalar(rest);
+        result[key] = parseScalar(continueScalar(rest, indent));
       }
     }
     return result;
@@ -105,7 +108,7 @@ export function parseYaml(source: string): Record<string, YamlValue> {
         const key = rest.slice(0, colon).trim();
         const valueRest = rest.slice(colon + 1).trim();
         const item: Record<string, YamlValue> = {};
-        if (valueRest) item[key] = parseScalar(valueRest);
+        if (valueRest) item[key] = parseScalar(continueScalar(valueRest, indent));
         else {
           const upcoming = nextContent(index);
           if (!upcoming || upcoming.indent <= indent) item[key] = '';
@@ -119,12 +122,100 @@ export function parseYaml(source: string): Record<string, YamlValue> {
         result.push(item);
         continue;
       }
-      result.push(parseScalar(rest));
+      result.push(parseScalar(continueScalar(rest, indent)));
     }
     return result;
   };
 
+  // Pages CMS folds long strings onto indented lines. Those lines belong to the
+  // value that is already open; they are not a new field and not a nested map.
+  const continueScalar = (first: string, parentIndent: number): string => {
+    let value = first;
+    const quoted = value.startsWith('"') || value.startsWith("'");
+    const flow = value.startsWith('[');
+    while (index < lines.length) {
+      if (quoted && isClosedQuote(value)) break;
+      if (flow && value.endsWith(']')) break;
+      const next = lines[index];
+      const trimmed = next.trim();
+      if (!trimmed) {
+        const upcoming = nextContent(index + 1);
+        if (!upcoming || upcoming.indent <= parentIndent) break;
+        index += 1;
+        continue;
+      }
+      if (indentOf(next) <= parentIndent) break;
+      index += 1;
+      value = `${value} ${trimmed}`;
+    }
+    return value;
+  };
+
+  const parseBlockScalar = (parentIndent: number, style: string): string => {
+    const collected: string[] = [];
+    let contentIndent: number | null = null;
+    while (index < lines.length) {
+      const raw = lines[index];
+      if (!raw.trim()) {
+        const upcoming = nextContent(index + 1);
+        if (!upcoming || upcoming.indent <= parentIndent) break;
+        collected.push('');
+        index += 1;
+        continue;
+      }
+      const indent = indentOf(raw);
+      if (indent <= parentIndent) break;
+      if (contentIndent === null) contentIndent = indent;
+      if (indent < contentIndent) break;
+      collected.push(raw.slice(contentIndent));
+      index += 1;
+    }
+    if (style.startsWith('>')) {
+      const paragraphs: string[] = [];
+      let current: string[] = [];
+      for (const line of collected) {
+        if (!line.trim()) {
+          if (current.length) paragraphs.push(current.join(' '));
+          current = [];
+        } else {
+          current.push(line.trim());
+        }
+      }
+      if (current.length) paragraphs.push(current.join(' '));
+      return paragraphs.join('\n');
+    }
+    return collected.join('\n').replace(/\s+$/, '');
+  };
+
   return parseMap(0);
+}
+
+function blockScalarStyle(value: string): string | null {
+  return /^[|>][+-]?$/.test(value) ? value : null;
+}
+
+function isClosedQuote(value: string): boolean {
+  const quote = value[0];
+  if (quote !== '"' && quote !== "'") return false;
+  if (quote === '"') {
+    for (let i = 1; i < value.length; i += 1) {
+      if (value[i] === '\\') {
+        i += 1;
+        continue;
+      }
+      if (value[i] === '"') return i === value.length - 1;
+    }
+    return false;
+  }
+  for (let i = 1; i < value.length; i += 1) {
+    if (value[i] !== "'") continue;
+    if (value[i + 1] === "'") {
+      i += 1;
+      continue;
+    }
+    return i === value.length - 1;
+  }
+  return false;
 }
 
 function unquote(value: string): string {

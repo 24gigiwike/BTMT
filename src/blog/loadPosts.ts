@@ -45,6 +45,11 @@ export function postFromMarkdown(filename: string, source: string): BlogPost | n
   const slug = asString(record.slug) || filename.replace(/\.md$/, '');
   const fileLabel = filename;
 
+  if (status !== 'Published' && /(^|\n)status:\s*["']?(published|publish)["']?\s*(\n|$)/i.test(data)) {
+    throw new Error(
+      `Published article ${fileLabel} could not be read. Pages CMS marked it Published, but its front matter was not parsed completely.`
+    );
+  }
   if (status === 'Published' && (!title || !asString(record.slug))) {
     throw new Error(`Published article ${fileLabel} needs both an article title and a URL slug.`);
   }

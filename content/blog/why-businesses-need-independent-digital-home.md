@@ -18,7 +18,7 @@ keywords:
   - corporate website Nigeria
 status: Published
 featured: true
-image: /assets/images/blog/-digital-home.jpg
+image: /assets/images/blog/digital-home.jpg
 readTime: 5 min read
 seo:
   imageAlt: Featured image for the article on why a business needs its own website

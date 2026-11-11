@@ -10,6 +10,9 @@ media:
   - name: blog-images
     label: Blog featured images
     input: public/assets/images/blog
+    # Public URL must include the slash after "blog". A path such as
+    # /assets/images/blog-digital-home.jpg sits outside this folder, and
+    # Pages CMS rewrites it on save because "blog" is only a filename prefix.
     output: /assets/images/blog
     categories: [image]
     extensions: [jpg, jpeg, png, webp]

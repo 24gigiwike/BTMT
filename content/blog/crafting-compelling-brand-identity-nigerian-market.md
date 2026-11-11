@@ -16,7 +16,7 @@ keywords:
   - Nigerian brands
 status: Published
 featured: false
-image: /assets/images/blog-brand-identity.jpg
+image: /assets/images/blog/brand-identity.jpg
 readTime: "4 min read"
 seo:
   imageAlt: "Featured image for the article on brand identity in the Nigerian market"

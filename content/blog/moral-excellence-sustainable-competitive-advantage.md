@@ -16,7 +16,7 @@ keywords:
   - client trust
 status: Published
 featured: true
-image: /assets/images/blog-ethical-excellence.jpg
+image: /assets/images/blog/ethical-excellence.jpg
 readTime: "6 min read"
 seo:
   imageAlt: "Featured image for the article on ethical excellence as a competitive advantage"
