@@ -1,5 +1,5 @@
 ---
-title: Why Every Business Needs a Digital Home Independent of Social Media
+title: Why Every Business Needs a Digital Home Independent of A Social Medium
 slug: why-businesses-need-independent-digital-home
 excerpt: Social media algorithms change without warning and accounts can be
   suspended overnight. Discover why an independent website is your most valuable
