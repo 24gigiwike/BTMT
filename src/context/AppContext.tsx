@@ -111,7 +111,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   });
 
   const [products, setProducts] = useState<ProductItem[]>(() => {
-    const saved = localStorage.getItem('btmt_products_v5');
+    const saved = localStorage.getItem('btmt_products_v6');
     return saved ? JSON.parse(saved) : INITIAL_PRODUCTS;
   });
 
@@ -184,7 +184,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   }, [services]);
 
   useEffect(() => {
-    localStorage.setItem('btmt_products_v5', JSON.stringify(products));
+    localStorage.setItem('btmt_products_v6', JSON.stringify(products));
   }, [products]);
 
   useEffect(() => {

@@ -446,67 +446,62 @@ export const INITIAL_SERVICES: ServiceItem[] = [
 
 export const INITIAL_PRODUCTS: ProductItem[] = [
   {
-    id: 'book-1',
-    slug: 'published-book-01',
-    name: 'Published Book 01 — Placeholder',
-    brand: 'BTMT Publishing',
-    category: 'Books',
-    price: 0,
-    isPurchasable: false,
-    statusText: 'Preview / Not Available for Purchase',
-    description: 'Book details will be added soon.',
+    id: 'why-fake-it',
+    slug: 'why-fake-it',
+    name: 'WHY FAKE IT? (Exchanging The Best of You For The Less of You)',
+    author: 'Michael C. George',
+    brand: 'Michael C. George',
+    category: 'Digital Book',
+    format: 'Downloadable (Digital)',
+    price: 1500,
+    currency: 'NGN',
+    currencySymbol: '₦',
+    isFree: false,
+    selarUrl: 'https://selar.com/39f2i4',
+    isPurchasable: true,
+    description:
+      'What if the person you are trying so hard to becoming is costing you the person you were designed to be?\n\nIn a world where blending in feels safer than standing out, a lot of people have learned to wear masks - masks of success, confidence, perfection, happiness and acceptance. But beneath the mask is a question that demands an honest and true answer: WHO ARE YOU WHEN NOBODY IS WATCHING?\n\nThis author, Michael C. George uses true life stories, practical insights and applicable strategies to show you how to remove the mask, rediscover yourself and be the best o f you.',
+    publicationDetails: 'Downloadable (Digital)',
     specifications: [
-      'Hardcover & Digital Editions Forthcoming',
-      'Authored under BTMT Publishing imprint',
-      'Official Release & Distribution Details Pending'
+      'Author: Michael C. George',
+      'Format: Downloadable (Digital)',
+      'Price: ₦1,500',
+      'Fulfillment: Direct Checkout on Selar'
     ],
-    inStock: false,
-    stockCount: 0,
+    inStock: true,
+    stockCount: 999,
     featured: true,
-    imageUrl: '/assets/images/book-01.jpg',
-    deliveryInfo: 'Publication details and purchasing availability will be announced soon.'
+    imageUrl: '/assets/images/book-why-fake-it.jpg',
+    deliveryInfo: 'Delivered as a downloadable digital product directly via Selar.'
   },
   {
-    id: 'book-2',
-    slug: 'published-book-02',
-    name: 'Published Book 02 — Placeholder',
-    brand: 'BTMT Publishing',
-    category: 'Books',
+    id: 'finding-fulfilment',
+    slug: 'finding-fulfilment-as-a-young-person',
+    name: 'FINDING FULFILMENT AS A YOUNG PERSON',
+    author: 'Michael C. George',
+    brand: 'Michael C. George',
+    category: 'Digital Book',
+    format: 'Downloadable (Digital)',
     price: 0,
-    isPurchasable: false,
-    statusText: 'Preview / Not Available for Purchase',
-    description: 'Book details will be added soon.',
+    currency: 'NGN',
+    currencySymbol: '₦',
+    isFree: true,
+    selarUrl: 'https://selar.com/e33ad3',
+    isPurchasable: true,
+    description:
+      'How do I have a better life? How can I make a difference? How can I find fulfilment and enjoy true happiness in this world where a lot of people struggle to survive? Find out in this short book.',
+    publicationDetails: 'Downloadable (Digital)',
     specifications: [
-      'Volume II Forthcoming',
-      'Authored under BTMT Publishing imprint',
-      'Official Release & Distribution Details Pending'
+      'Author: Michael C. George',
+      'Format: Downloadable (Digital)',
+      'Price: Free',
+      'Fulfillment: Direct Download on Selar'
     ],
-    inStock: false,
-    stockCount: 0,
+    inStock: true,
+    stockCount: 999,
     featured: true,
-    imageUrl: '/assets/images/book-02.jpg',
-    deliveryInfo: 'Publication details and purchasing availability will be announced soon.'
-  },
-  {
-    id: 'book-3',
-    slug: 'published-book-03',
-    name: 'Published Book 03 — Placeholder',
-    brand: 'BTMT Publishing',
-    category: 'Books',
-    price: 0,
-    isPurchasable: false,
-    statusText: 'Preview / Not Available for Purchase',
-    description: 'Book details will be added soon.',
-    specifications: [
-      'Volume III Forthcoming',
-      'Authored under BTMT Publishing imprint',
-      'Official Release & Distribution Details Pending'
-    ],
-    inStock: false,
-    stockCount: 0,
-    featured: true,
-    imageUrl: '/assets/images/book-03.jpg',
-    deliveryInfo: 'Publication details and purchasing availability will be announced soon.'
+    imageUrl: '/assets/images/book-finding-fulfilment.jpg',
+    deliveryInfo: 'Available as a free downloadable digital book directly via Selar.'
   }
 ];
 

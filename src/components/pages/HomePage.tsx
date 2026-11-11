@@ -1,9 +1,10 @@
 import React from 'react';
 import { useApp } from '../../context/AppContext';
 import { COMPANY_INFO, INITIAL_PORTFOLIO } from '../../data/initialData';
-import { ArrowRight, ArrowUpRight, CheckCircle2, Clock } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, CheckCircle2, Clock, ExternalLink } from 'lucide-react';
 import { PartnerMarquee } from '../ui/PartnerMarquee';
 import { TestimonialSection } from '../ui/TestimonialSection';
+import { formatBookPrice } from '../../utils/formatBookPrice';
 
 export const HomePage: React.FC = () => {
   const { services, products, partners, testimonials, blogPosts, navigateTo } = useApp();
@@ -39,7 +40,7 @@ export const HomePage: React.FC = () => {
   const featuredBlog = blogPosts.find((b) => b.featured) || blogPosts[0];
   const supportingBlogs = blogPosts.filter((b) => b.id !== featuredBlog?.id).slice(0, 2);
 
-  const publishedProducts = products.slice(0, 4);
+  const publishedBooks = products.slice(0, 2);
 
   return (
     <div className="w-full bg-white text-[#242A35]">
@@ -615,51 +616,83 @@ export const HomePage: React.FC = () => {
             </button>
           </div>
 
-          {/* Clean 3-Column Editorial Grid for the 3 Books */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {products.slice(0, 3).map((product) => (
-              <div
+          {/* Clean 2-Column Editorial Showcase for the 2 Official Selar Books */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10">
+            {publishedBooks.map((product) => (
+              <article
                 key={product.id}
-                onClick={() => navigateTo('/marketplace/:slug', { slug: product.slug })}
-                className="group cursor-pointer flex flex-col justify-between border border-slate-200 bg-[#FBFBFC] hover:border-[#12A9DB] transition-all p-5"
+                className="group flex flex-col justify-between border border-slate-200 bg-[#FBFBFC] hover:border-[#12A9DB] transition-colors p-6 sm:p-8"
               >
-                <div>
-                  <div className="aspect-[3/4] bg-slate-100 overflow-hidden border border-slate-200 relative mb-4">
+                <div className="flex flex-col sm:flex-row gap-6 lg:gap-8 items-start">
+                  <button
+                    type="button"
+                    onClick={() => navigateTo('/marketplace/:slug', { slug: product.slug })}
+                    aria-label={`View details for ${product.name}`}
+                    className="w-44 sm:w-44 md:w-48 shrink-0 mx-auto sm:mx-0 aspect-[5/7] bg-white border border-slate-200 overflow-hidden focus:outline-hidden focus-visible:ring-2 focus-visible:ring-[#051449]"
+                  >
                     <img
-                      src={
-                        product.imageUrl ||
-                        '/assets/images/book-01.jpg'
-                      }
+                      src={product.imageUrl || '/assets/images/book-why-fake-it.jpg'}
                       alt={product.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
                     />
-                    <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider bg-[#051449] text-white px-2.5 py-1">
-                      {product.category}
-                    </span>
-                  </div>
-                  <div className="space-y-1.5">
+                  </button>
+
+                  <div className="flex-1 space-y-2.5 text-left">
                     <div className="text-[11px] font-mono text-slate-500 uppercase tracking-wider">
-                      Author: {product.author || product.brand}
+                      {product.format || 'Downloadable (Digital)'}
                     </div>
-                    <h3 className="text-lg font-bold text-[#051449] group-hover:text-[#12A9DB] transition-colors line-clamp-2">
-                      {product.name}
+                    <h3 className="text-lg sm:text-xl font-bold text-[#051449] leading-snug">
+                      <button
+                        type="button"
+                        onClick={() => navigateTo('/marketplace/:slug', { slug: product.slug })}
+                        className="text-left hover:text-[#12A9DB] transition-colors"
+                      >
+                        {product.name}
+                      </button>
                     </h3>
-                    <p className="text-xs text-slate-600 line-clamp-2 mt-1">
+                    <div className="text-xs font-semibold text-slate-700">
+                      Author: <span className="text-[#051449]">{product.author || product.brand}</span>
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-4 pt-1">
                       {product.description}
                     </p>
                   </div>
                 </div>
 
-                <div className="pt-4 mt-4 border-t border-slate-200 flex items-center justify-between text-xs">
-                  <span className="inline-flex items-center gap-1.5 font-medium text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-1 text-[10px] uppercase tracking-wider">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-                    {product.statusText || 'Preview / Not Available for Purchase'}
-                  </span>
-                  <span className="font-bold uppercase tracking-wider text-[#051449] group-hover:text-[#12A9DB] inline-flex items-center gap-1">
-                    Details →
-                  </span>
+                <div className="pt-5 mt-6 border-t border-slate-200 flex flex-wrap items-center justify-between gap-4">
+                  <div>
+                    <div className="text-[11px] font-mono uppercase tracking-wider text-slate-500">
+                      Price
+                    </div>
+                    <div className="text-xl font-bold text-[#051449] tabular-nums">
+                      {formatBookPrice(product)}
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-4">
+                    <button
+                      type="button"
+                      onClick={() => navigateTo('/marketplace/:slug', { slug: product.slug })}
+                      className="font-bold text-xs uppercase tracking-wider text-[#051449] hover:text-[#12A9DB] inline-flex items-center gap-1 transition-colors"
+                    >
+                      <span>Details</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+
+                    {product.selarUrl && (
+                      <a
+                        href={product.selarUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-5 py-3 text-xs font-bold uppercase tracking-wider text-white bg-[#051449] hover:bg-[#E32938] transition-colors inline-flex items-center gap-2"
+                      >
+                        <span>Buy Now</span>
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>

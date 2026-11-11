@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useApp } from '../../context/AppContext';
+import { formatBookPrice } from '../../utils/formatBookPrice';
 import { AdminRole, BlogPost, ProductItem, PartnerCompany, TestimonialItem, CommunityResource } from '../../types';
 import {
   LayoutDashboard,
@@ -221,7 +222,7 @@ export const AdminDashboard: React.FC = () => {
                   <div className="bg-white p-5 border border-slate-200 shadow-xs space-y-1">
                     <div className="text-xs text-slate-500 font-medium">Catalog Books</div>
                     <div className="text-2xl font-bold text-[#051449] font-mono">{products.length}</div>
-                    <div className="text-[11px] text-amber-700 font-medium">Preview only</div>
+                    <div className="text-[11px] text-[#12A9DB] font-medium">Selar Direct Links</div>
                   </div>
 
                   <div className="bg-white p-5 border border-slate-200 shadow-xs space-y-1">
@@ -601,9 +602,9 @@ export const AdminDashboard: React.FC = () => {
                 <div className="bg-white border border-slate-200 p-6 space-y-6 shadow-xs">
                   <div className="flex items-center justify-between">
                     <div>
-                      <h2 className="text-lg font-bold text-[#051449]">Published Books & Catalogue</h2>
+                      <h2 className="text-lg font-bold text-[#051449]">Published Books &amp; Selar Links</h2>
                       <p className="text-xs text-slate-500">
-                        Administer published books, authors, and preview availability.
+                        Manage published book titles, authors, prices, formats, cover images, and direct Selar checkout links.
                       </p>
                     </div>
                     {!editingProduct && (
@@ -611,20 +612,25 @@ export const AdminDashboard: React.FC = () => {
                         onClick={() =>
                           setEditingProduct({
                             id: `book_${Date.now()}`,
-                            slug: `published-book-${Date.now().toString().slice(-4)}`,
+                            slug: `book-${Date.now().toString().slice(-4)}`,
                             name: '',
                             author: 'Michael C. George',
-                            brand: 'BTMT Publishing',
-                            category: 'Publications & Books',
+                            brand: 'Michael C. George',
+                            category: 'Digital Book',
+                            format: 'Downloadable (Digital)',
                             price: 0,
+                            currency: 'NGN',
+                            currencySymbol: '₦',
+                            isFree: true,
+                            selarUrl: 'https://selar.com/',
                             description: '',
-                            publicationDetails: 'Hardcover / Digital Edition',
-                            specifications: ['Standard Edition', 'Edited by BTMT Editorial Team'],
+                            publicationDetails: 'Downloadable (Digital)',
+                            specifications: ['Author: Michael C. George', 'Format: Downloadable (Digital)'],
                             inStock: true,
-                            stockCount: 0,
-                            isPurchasable: false,
-                            statusText: 'Preview / Not Available for Purchase',
-                            deliveryInfo: 'Preview listing. Commercial orders will open on release date.'
+                            stockCount: 999,
+                            isPurchasable: true,
+                            imageUrl: '',
+                            deliveryInfo: 'Digital checkout and fulfillment via Selar.'
                           })
                         }
                         className="px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-white bg-[#051449] hover:bg-[#E32938] transition-colors flex items-center gap-1.5"
@@ -643,12 +649,18 @@ export const AdminDashboard: React.FC = () => {
                           showToast('Please provide a book title.', 'error');
                           return;
                         }
-                        saveProduct(editingProduct as ProductItem);
+                        const numericPrice = Number(editingProduct.price) || 0;
+                        saveProduct({
+                          ...editingProduct,
+                          price: numericPrice,
+                          isFree: numericPrice <= 0,
+                          isPurchasable: true
+                        } as ProductItem);
                         setEditingProduct(null);
                       }}
                       className="p-6 bg-[#F6F8FA] border border-slate-200 space-y-4 text-xs"
                     >
-                      <div className="font-bold text-[#051449] text-sm">Book Listing Information</div>
+                      <div className="font-bold text-[#051449] text-sm">Selar Book Record</div>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                           <label className="block font-semibold text-slate-700 mb-1">Book Title</label>
@@ -678,55 +690,74 @@ export const AdminDashboard: React.FC = () => {
                         </div>
                       </div>
 
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div>
+                          <label className="block font-semibold text-slate-700 mb-1">Price (0 = Free)</label>
+                          <input
+                            type="number"
+                            min={0}
+                            step="1"
+                            value={editingProduct.price ?? 0}
+                            onChange={(e) =>
+                              setEditingProduct({
+                                ...editingProduct,
+                                price: Number(e.target.value),
+                                isFree: Number(e.target.value) <= 0
+                              })
+                            }
+                            className="w-full px-3 py-2 bg-white border border-slate-300 text-xs"
+                          />
+                        </div>
+                        <div>
+                          <label className="block font-semibold text-slate-700 mb-1">Currency Symbol</label>
+                          <input
+                            type="text"
+                            value={editingProduct.currencySymbol || '₦'}
+                            onChange={(e) => setEditingProduct({ ...editingProduct, currencySymbol: e.target.value })}
+                            placeholder="₦"
+                            className="w-full px-3 py-2 bg-white border border-slate-300 text-xs"
+                          />
+                        </div>
+                        <div>
+                          <label className="block font-semibold text-slate-700 mb-1">Product Format</label>
+                          <input
+                            type="text"
+                            value={editingProduct.format || ''}
+                            onChange={(e) => setEditingProduct({ ...editingProduct, format: e.target.value })}
+                            placeholder="Downloadable (Digital)"
+                            className="w-full px-3 py-2 bg-white border border-slate-300 text-xs"
+                          />
+                        </div>
+                      </div>
+
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
-                          <label className="block font-semibold text-slate-700 mb-1">Status Badge Text</label>
+                          <label className="block font-semibold text-slate-700 mb-1">Selar Checkout URL (HTTPS)</label>
                           <input
-                            type="text"
-                            value={editingProduct.statusText || 'Preview / Not Available for Purchase'}
-                            onChange={(e) => setEditingProduct({ ...editingProduct, statusText: e.target.value })}
+                            type="url"
+                            required
+                            value={editingProduct.selarUrl || ''}
+                            onChange={(e) => setEditingProduct({ ...editingProduct, selarUrl: e.target.value })}
+                            placeholder="https://selar.com/..."
                             className="w-full px-3 py-2 bg-white border border-slate-300 text-xs"
                           />
                         </div>
                         <div>
-                          <label className="block font-semibold text-slate-700 mb-1">Publication Details</label>
+                          <label className="block font-semibold text-slate-700 mb-1">Cover Image Path or URL</label>
                           <input
                             type="text"
-                            value={editingProduct.publicationDetails || ''}
-                            onChange={(e) => setEditingProduct({ ...editingProduct, publicationDetails: e.target.value })}
-                            placeholder="e.g. 280 Pages · First Edition"
+                            value={editingProduct.imageUrl || ''}
+                            onChange={(e) => setEditingProduct({ ...editingProduct, imageUrl: e.target.value })}
+                            placeholder="/assets/images/book-why-fake-it.jpg"
                             className="w-full px-3 py-2 bg-white border border-slate-300 text-xs"
                           />
                         </div>
-                      </div>
-
-                      <div className="flex items-center gap-3 pt-1">
-                        <input
-                          type="checkbox"
-                          id="isPurchasableCheck"
-                          checked={editingProduct.isPurchasable || false}
-                          onChange={(e) => setEditingProduct({ ...editingProduct, isPurchasable: e.target.checked })}
-                          className="w-4 h-4 text-[#051449]"
-                        />
-                        <label htmlFor="isPurchasableCheck" className="font-semibold text-slate-800">
-                          Enable Direct Online Purchasing (Uncheck to keep as Preview Only)
-                        </label>
-                      </div>
-
-                      <div>
-                        <label className="block font-semibold text-slate-700 mb-1">Cover Image URL</label>
-                        <input
-                          type="url"
-                          value={editingProduct.imageUrl || ''}
-                          onChange={(e) => setEditingProduct({ ...editingProduct, imageUrl: e.target.value })}
-                          className="w-full px-3 py-2 bg-white border border-slate-300 text-xs"
-                        />
                       </div>
 
                       <div>
                         <label className="block font-semibold text-slate-700 mb-1">Book Description</label>
                         <textarea
-                          rows={3}
+                          rows={4}
                           value={editingProduct.description || ''}
                           onChange={(e) => setEditingProduct({ ...editingProduct, description: e.target.value })}
                           className="w-full px-3 py-2 bg-white border border-slate-300 text-xs"
@@ -753,19 +784,28 @@ export const AdminDashboard: React.FC = () => {
                           <div>
                             <div className="font-bold text-sm text-[#051449]">{prod.name}</div>
                             <div className="text-slate-500">
-                              Author: {prod.author || prod.brand} · <span className="font-medium text-amber-700">{prod.statusText || 'Preview'}</span>
+                              Author: {prod.author || prod.brand} ·{' '}
+                              <span className="font-semibold text-[#051449]">{formatBookPrice(prod)}</span> ·{' '}
+                              <span>{prod.format || 'Downloadable (Digital)'}</span>
                             </div>
+                            {prod.selarUrl && (
+                              <div className="text-[11px] font-mono text-[#12A9DB] mt-0.5">
+                                {prod.selarUrl}
+                              </div>
+                            )}
                           </div>
                           <div className="flex items-center gap-2">
                             <button
                               onClick={() => setEditingProduct(prod)}
                               className="p-1.5 text-slate-600 hover:text-[#051449] hover:bg-slate-100"
+                              title="Edit Book"
                             >
                               <Edit3 className="w-4 h-4" />
                             </button>
                             <button
                               onClick={() => deleteProduct(prod.id)}
                               className="p-1.5 text-slate-400 hover:text-red-600 hover:bg-red-50"
+                              title="Delete Book"
                             >
                               <Trash2 className="w-4 h-4" />
                             </button>

@@ -23,7 +23,12 @@ export interface ProductItem {
   name: string;
   brand: string;
   category: string;
-  price: number; // in NGN
+  price: number;
+  currency?: string;
+  currencySymbol?: string;
+  isFree?: boolean;
+  format?: string;
+  selarUrl?: string;
   originalPrice?: number;
   description: string;
   specifications: string[];
