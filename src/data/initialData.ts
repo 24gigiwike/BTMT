@@ -505,12 +505,22 @@ export const INITIAL_PRODUCTS: ProductItem[] = [
 ];
 
 export const INITIAL_PARTNERS: PartnerCompany[] = [
-  { id: 'partner-1', name: 'Apex Media Group', category: 'Broadcasting & Media' },
-  { id: 'partner-2', name: 'Horizon Digital Ventures', category: 'Technology & Cloud' },
-  { id: 'partner-3', name: 'Vanguard Legal Consult', category: 'Corporate Services' },
-  { id: 'partner-4', name: 'Nexus Trade Initiative', category: 'Commerce & Logistics' },
-  { id: 'partner-5', name: 'Sterling Diagnostics', category: 'Enterprise Health' },
-  { id: 'partner-6', name: 'Beacon Creative Studio', category: 'Design & Visual Arts' }
+  {
+    id: 'own-travels-and-tours',
+    name: 'Own Travels and Tours',
+    location: 'Owerri, Imo State, Nigeria',
+    logoUrl: '/assets/images/collaborations/own-travels.jpeg',
+    order: 1,
+    isPublished: true
+  },
+  {
+    id: 'own-empire-ltd',
+    name: 'Own Empire Ltd.',
+    location: 'Owerri, Imo State, Nigeria',
+    logoUrl: '/assets/images/collaborations/own-empire.jpeg',
+    order: 2,
+    isPublished: true
+  }
 ];
 
 export const INITIAL_TESTIMONIALS: TestimonialItem[] = [

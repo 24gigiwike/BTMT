@@ -123,7 +123,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   });
 
   const [partners, setPartners] = useState<PartnerCompany[]>(() => {
-    const saved = localStorage.getItem('btmt_partners');
+    const saved = localStorage.getItem('btmt_partners_v2');
     return saved ? JSON.parse(saved) : INITIAL_PARTNERS;
   });
 
@@ -192,7 +192,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   }, [products]);
 
   useEffect(() => {
-    localStorage.setItem('btmt_partners', JSON.stringify(partners));
+    localStorage.setItem('btmt_partners_v2', JSON.stringify(partners));
   }, [partners]);
 
   useEffect(() => {

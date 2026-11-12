@@ -112,7 +112,7 @@ export const HomePage: React.FC = () => {
       </section>
 
       {/* =========================================================================
-          PARTNER & COLLABORATIONS TICKER (Seamless Marquee Preview)
+          TRACK RECORD & COLLABORATIONS
           ========================================================================= */}
       <PartnerMarquee partners={partners} />
 

@@ -47,6 +47,7 @@ export interface PartnerCompany {
   id: string;
   name: string;
   category?: string;
+  location?: string;
   logoUrl?: string;
   websiteUrl?: string;
   order?: number;
