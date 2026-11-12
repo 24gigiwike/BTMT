@@ -1025,7 +1025,7 @@ export const AdminDashboard: React.FC = () => {
                       <input
                         type="text"
                         readOnly
-                        value="blissfultouchmedia@gmail.com"
+                        value="info@blissfultouchmedia.com"
                         className="w-full px-3 py-2 bg-slate-50 border border-slate-200 text-slate-700"
                       />
                     </div>

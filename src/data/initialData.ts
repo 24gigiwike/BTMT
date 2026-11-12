@@ -17,7 +17,7 @@ export const COMPANY_INFO = {
   phone: '+234 706 088 2645',
   phoneRaw: '+2347060882645',
   whatsappRaw: '2347060882645',
-  email: 'blissfultouchmedia@gmail.com',
+  email: 'info@blissfultouchmedia.com',
   founder: 'Michael C. George',
   foundingYear: 2017,
   registrationYear: 2022,

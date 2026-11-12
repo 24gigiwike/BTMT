@@ -483,7 +483,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     const adminUser: UserAccount = {
       id: 'usr_admin_1',
       fullName: 'Michael C. George (Staff Admin)',
-      email: 'blissfultouchmedia@gmail.com',
+      email: 'info@blissfultouchmedia.com',
       role: 'admin',
       adminRole,
       joinedDate: '2017'
