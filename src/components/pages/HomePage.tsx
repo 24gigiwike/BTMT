@@ -5,11 +5,10 @@ import { ArrowRight, ArrowUpRight, CheckCircle2, Clock, ExternalLink } from 'luc
 import { SiteLink } from '../blog/SiteLink';
 import { formatBlogDate } from '../../blog/taxonomy';
 import { PartnerMarquee } from '../ui/PartnerMarquee';
-import { TestimonialSection } from '../ui/TestimonialSection';
 import { formatBookPrice } from '../../utils/formatBookPrice';
 
 export const HomePage: React.FC = () => {
-  const { services, products, partners, testimonials, blogPosts, navigateTo } = useApp();
+  const { services, products, partners, blogPosts, navigateTo } = useApp();
 
   // Selected 6 featured services for Section 4
   const featuredServiceSlugs = [
@@ -590,11 +589,6 @@ export const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* =========================================================================
-          WHAT OUR CLIENTS SAY (Rialto Editorial Testimonial Showcase)
-          ========================================================================= */}
-      <TestimonialSection testimonials={testimonials} />
 
       {/* =========================================================================
           SECTION 8 — PUBLICATIONS & MARKETPLACE PREVIEW (Books Showcase)

@@ -18,7 +18,6 @@ import {
   INITIAL_SERVICES,
   INITIAL_PRODUCTS,
   INITIAL_PARTNERS,
-  INITIAL_TESTIMONIALS,
   INITIAL_RESOURCES,
   INITIAL_TRAINING,
   INITIAL_ENQUIRIES
@@ -129,7 +128,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   const [testimonials, setTestimonials] = useState<TestimonialItem[]>(() => {
     const saved = localStorage.getItem('btmt_testimonials');
-    return saved ? JSON.parse(saved) : INITIAL_TESTIMONIALS;
+    return saved ? JSON.parse(saved) : [];
   });
 
   const blogPosts = BLOG_POSTS;

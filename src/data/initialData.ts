@@ -4,8 +4,7 @@ import {
   CommunityResource,
   TrainingSession,
   ServiceEnquiry,
-  PartnerCompany,
-  TestimonialItem
+  PartnerCompany
 } from '../types';
 
 export const COMPANY_INFO = {
@@ -520,36 +519,6 @@ export const INITIAL_PARTNERS: PartnerCompany[] = [
     logoUrl: '/assets/images/collaborations/own-empire.jpeg',
     order: 2,
     isPublished: true
-  }
-];
-
-export const INITIAL_TESTIMONIALS: TestimonialItem[] = [
-  {
-    id: 'test-1',
-    clientName: 'Sample Client Feedback',
-    role: 'Operations Lead',
-    company: 'Enterprise Partner (Demonstration Preview)',
-    serviceCategory: 'Technology & Web Systems',
-    quote: 'BTMT delivered our digital infrastructure with remarkable punctuality, clear communication, and unwavering attention to technical detail.',
-    rating: 5
-  },
-  {
-    id: 'test-2',
-    clientName: 'Illustrative Endorsement',
-    role: 'Managing Director',
-    company: 'Creative Brand Partner (Demonstration Preview)',
-    serviceCategory: 'Brand Strategy & Print',
-    quote: 'Their commitment to moral excellence and structured brand positioning elevated our corporate visibility across digital and print touchpoints.',
-    rating: 5
-  },
-  {
-    id: 'test-3',
-    clientName: 'Corporate Collaborator',
-    role: 'Head of Communications',
-    company: 'Educational Initiative (Demonstration Preview)',
-    serviceCategory: 'Publishing & Media Production',
-    quote: 'Working with BTMT brought clarity, editorial discipline, and aesthetic distinction to our publications and video documentaries.',
-    rating: 5
   }
 ];
 
