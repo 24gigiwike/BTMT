@@ -22,7 +22,7 @@ keywords:
   - design thinking
 status: Published
 featured: true
-image: /assets/images/blog/vitaly-gariev-rgkx4o2xsqi-unsplash.jpg
+image: /assets/images/blog/dt.jpg
 seo:
   title: How To Come Up With The Best Idea And Test It
   description: Coming up with the best idea that can scale your business, help you
@@ -60,7 +60,7 @@ There are five major steps to crafting an effective ideas (Read full article)
 
 When these steps are actively and properly engaged, the best idea will be selected.
 
-4. **PROTOTYPE** 
+4. **PROTOTYPE**
 
 After the best idea has been selected, the next thing is to create a prototype. A prototype is a quick low-cost representation of your idea to help bring it to life so audience can see, connect with and feel what the solution will be like.
 
