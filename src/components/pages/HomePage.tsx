@@ -94,7 +94,7 @@ export const HomePage: React.FC = () => {
         {/* Wide Full-Bleed Architectural Hero Photography */}
         <div className="w-full relative aspect-21/9 min-h-[380px] lg:min-h-[520px] bg-slate-900 overflow-hidden">
           <img
-            src="/assets/images/hero-btmt-team.jpg"
+            src="https://media.broadbrand.com.ng/imagehero.jpg"
             alt="Blissful Touch Media & Technology creative production and engineering team"
             className="w-full h-full object-cover object-[50%_30%]"
           />
