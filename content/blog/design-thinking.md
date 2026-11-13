@@ -36,11 +36,11 @@ Design thinking is a systematic approach to innovation that put people - their w
 
 ## The Systematic approach of Design Thinking is in five stages:
 
-1. **EMPATHIZE**
+**Stage 1: EMPATHIZE**
 
 Before coming up with any idea that will impact the people, there is need to identify with, understand and relate with the people. Find out what they do, what they need, the barriers, limitations and challenges they have.
 
-2. **DEFINE**
+**Stage 2: DEFINE**
 
 Clearly define the target audience and what their needs truly are. The frame structure that can help you to execute the Empathize and Define stages effectively is: 
 
@@ -50,7 +50,7 @@ In simple terms, identify and clearly define what they do, why they need to do i
 
 Eg: Elderly people wants fresh natural juice readily accessible without extra labour using electric juice extractors but they find it difficult operating the existing juice extractors.
 
-3. **IDEATE**
+**Stage 3: IDEATE**
 
 This is the stage where the idea is now been crafted to meet the needs of the people. 
 
@@ -60,7 +60,7 @@ There are five major steps to crafting an effective ideas (Read full article)
 
 When these steps are actively and properly engaged, the best idea will be selected.
 
-4. **PROTOTYPE**
+**Stage 4: PROTOTYPE**
 
 After the best idea has been selected, the next thing is to create a prototype. A prototype is a quick low-cost representation of your idea to help bring it to life so audience can see, connect with and feel what the solution will be like.
 
@@ -71,7 +71,7 @@ The prototype to be created depends on the nature of the solution. Examples of P
 -  Click through wireframes (useful for digital solutions) It gives a hand-on experience.
 - Concept Sketches: this shows different touch points users interact with your solution.
 
-5. **TESTING**
+**Stage 5: TESTING**
 
 After the profit has been created, it is then submitted for testing. The test can be done by deploying the following steps
 
