@@ -21,7 +21,7 @@ keywords:
   - Brainstorming technique
   - Selecting the best idea
 status: Draft
-featured: false
+featured: true
 seo:
   title: How To Generate And Select Innovative Ideas (5 Step Guide)
   description: Struggling to turn business problems into solutions? Learn a 5-step
@@ -30,6 +30,7 @@ seo:
   focusKeyword: Proven Steps to Generate and Select Innovative Business Ideas
   keywords:
     - How to generate innovative ideas
+image: /assets/images/blog/sweet-life-x6bcvxxdss0-unsplash.jpg
 ---
 **Innovation is the fruit of a well-designed idea created to solve specific needs for a defined category of people.**
 
