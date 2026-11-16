@@ -20,7 +20,7 @@ keywords:
   - Scamper Method
   - Brainstorming technique
   - Selecting the best idea
-status: Draft
+status: Published
 featured: true
 seo:
   title: How To Generate And Select Innovative Ideas (5 Step Guide)
