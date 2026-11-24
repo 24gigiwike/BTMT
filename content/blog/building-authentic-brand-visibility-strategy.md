@@ -27,13 +27,14 @@ keywords:
   - how to build brand authority
   - target audience clarity
   - Brand positioning questions
-status: Draft
-featured: false
+status: Published
+featured: true
 seo:
   description: Want to stand out in a crowded market? Discover the 4 foundational
     questions every brand must answer to build authentic visibility, trust, and
     authority.
   focusKeyword: Authentic visibility
+image: /assets/images/blog/david-veksler-fg81ozfngf4-unsplash.jpg
 ---
 # Building Authentic Visibility: 4 Crucial Questions to Answer Before You Launch Your Brand
 
